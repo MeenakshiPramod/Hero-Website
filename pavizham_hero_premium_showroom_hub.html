@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavizham Associates - Authorized Hero Showroom, Kandoth</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#DF1921',
+                            redHover: '#C11219',
+                            onyx: '#070709',
+                            slate: '#0F1013',
+                            panel: '#15171C',
+                            border: '#1E2129',
+                            textMuted: '#8E929F',
+                            textLight: '#F3F4F6',
+                            glow: 'rgba(223, 25, 33, 0.15)'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070709;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E2129;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #DF1921;
+        }
+        /* View Section transitions */
+        .view-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .view-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Premium Gradient Outline */
+        .premium-glow {
+            box-shadow: 0 0 25px -5px rgba(223, 25, 33, 0.08);
+        }
+        /* Premium hover cards */
+        .interactive-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .interactive-card:hover {
+            transform: translateY(-6px) scale(1.015);
+            border-color: rgba(223, 25, 33, 0.4);
+            box-shadow: 0 20px 35px -12px rgba(223, 25, 33, 0.22);
+            background-image: radial-gradient(circle at top left, rgba(223, 25, 33, 0.03), transparent 70%);
+        }
+        /* Scroll Reveal CSS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Page Load Animation CSS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .animation-delay-100 { animation-delay: 100ms; }
+        .animation-delay-200 { animation-delay: 200ms; }
+        .animation-delay-300 { animation-delay: 300ms; }
+        .animation-delay-400 { animation-delay: 400ms; }
+    </style>
+</head>
+<body class="bg-brand-onyx text-brand-textLight font-sans antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 max-w-sm w-full"></div>
+
+    <!-- MAIN APP WRAPPER -->
+    <div class="min-h-screen flex flex-col relative overflow-x-clip">
+        
+        <!-- Premium Radial Background Gradients -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[600px] bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-brand-red/[0.04] via-transparent to-transparent pointer-events-none z-0"></div>
+
+        <!-- HEADER / NAVIGATION -->
+        <header class="sticky top-0 z-40 bg-brand-onyx border-b border-brand-border transition-all duration-300">
+            <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <!-- Official Hero Brand Logo -->
+                <a href="https://dealers.heromotocorp.com/" class="flex items-center gap-4 group flex-shrink-0" style="flex-shrink: 0;">
+                    <img src="image_528be7.png" alt="Hero MotoCorp Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
+                    <div class="border-l border-brand-border pl-4 py-1" style="flex-shrink: 0; min-width: max-content;">
+                        <span class="font-extrabold text-base tracking-wider text-white block leading-none transition-colors group-hover:text-brand-red duration-300 whitespace-nowrap" style="white-space: nowrap;">PAVIZHAM&nbsp;ASSOCIATES</span>
+                        <span class="text-xs text-brand-red font-bold tracking-widest uppercase mt-1.5 block whitespace-nowrap" style="white-space: nowrap;">Authorized&nbsp;Showroom</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu (Multi-Page SaaS Simulation Router) -->
+                <nav class="hidden xl:flex items-center gap-2.5 text-sm font-bold tracking-wider uppercase flex-shrink-0" style="flex-shrink: 0;">
+                    <button onclick="switchView('home')" id="nav-home" class="nav-link text-white bg-brand-panel border border-brand-red/30 shadow-md shadow-brand-red/5 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-bold">Home</button>
+                    <button onclick="switchView('products')" id="nav-products" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Bikes</button>
+                    <button onclick="switchView('offers')" id="nav-offers" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Offers</button>
+                    <button onclick="switchView('reviews')" id="nav-reviews" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Reviews</button>
+                    <button onclick="switchView('articles')" id="nav-articles" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Tips</button>
+                    <button onclick="switchView('gallery')" id="nav-gallery" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Photos</button>
+                    <button onclick="switchView('enquiry')" id="nav-enquiry" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Enquiry</button>
+                    
+                    <div class="h-4 w-px bg-brand-border mx-2"></div>
+                    <a href="https://maps.app.goo.gl/UqUzgUpgsa774DCw5" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs text-gray-300 hover:text-brand-red hover:border-brand-red/50 transition-all duration-300 bg-brand-slate px-3.5 py-2 rounded-full border border-brand-border normal-case font-semibold whitespace-nowrap">
+                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        <span>Kandoth, Kannur</span>
+                    </a>
+                </nav>
+
+                <!-- Action button -->
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <button onclick="switchView('enquiry')" class="bg-brand-red hover:bg-brand-redHover text-white px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-lg hover:shadow-brand-red/25 hover:-translate-y-0.5 font-sans">
+                        Book Free Test Ride
+                    </button>
+                    <!-- Mobile Hamburger Menu Button -->
+                    <button onclick="toggleMobileMenu()" class="xl:hidden p-2 text-gray-100 hover:text-white focus:outline-none rounded-lg hover:bg-brand-panel transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Overlay -->
+            <div id="mobile-menu" class="hidden xl:hidden bg-brand-onyx border-b border-brand-border px-4 py-4 space-y-2 font-semibold text-base tracking-wide">
+                <button onclick="switchView('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-white bg-brand-panel/80 border border-brand-red/20 transition-colors">Home</button>
+                <button onclick="switchView('products'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Bikes &amp; Scooters</button>
+                <button onclick="switchView('offers'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Offers</button>
+                <button onclick="switchView('reviews'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Reviews</button>
+                <button onclick="switchView('articles'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Tips</button>
+                <button onclick="switchView('gallery'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Photos</button>
+                <button onclick="switchView('enquiry'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Enquiry</button>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT CONTAINER WITH ACTIVE COMPONENT PORTAL -->
+        <main class="flex-grow z-10 relative">
+
+            <!-- ================= HOME PAGE VIEW ================= -->
+            <div id="view-home" class="view-section active">
+                <!-- HERO SECTION -->
+                <section class="relative pt-12 pb-24 border-b border-brand-border">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-red/10 text-brand-red border border-brand-red/25 uppercase tracking-widest mb-6 font-sans animate-fade-in-up">
+                            <span class="w-1.5 h-1.5 bg-brand-red rounded-full animate-pulse"></span>
+                            Official Showroom Website
+                        </span>
+
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight animate-fade-in-up animation-delay-100">
+                            Find Your Dream Ride.<br><span class="text-brand-red">Now in Kandoth, Kannur.</span>
+                        </h1>
+                        
+                        <p class="mt-6 text-lg sm:text-lg text-gray-200 max-w-2xl mx-auto font-normal leading-relaxed animate-fade-in-up animation-delay-200">
+                            Check showroom prices, calculate your monthly EMI (installments), and book a free test ride at Pavizham Associates showroom instantly.
+                        </p>
+
+                        <!-- SaaS Interactive Hub Control -->
+                        <div class="mt-12 max-w-3xl mx-auto bg-brand-slate rounded-2xl border border-brand-border premium-glow p-4 sm:p-6 animate-fade-in-up animation-delay-300">
+                            <div class="flex border-b border-brand-border pb-3 mb-6 gap-2 overflow-x-auto whitespace-nowrap">
+                                <button onclick="switchHeroTab('ride')" id="tab-btn-ride" class="hero-tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 text-white bg-brand-red/10 border border-brand-red/20 font-sans">
+                                    <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                                    Book Free Test Ride
+                                </button>
+                                <button onclick="switchHeroTab('tracker')" id="tab-btn-tracker" class="hero-tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all duration-300 text-gray-200 hover:text-white hover:bg-brand-panel font-sans">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                                    Track Bike Service
+                                </button>
+                                <button onclick="switchHeroTab('delivery')" id="tab-btn-delivery" class="hero-tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold uppercase tracking-wider transition-all duration-300 text-gray-200 hover:text-white hover:bg-brand-panel font-sans">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Showroom Services
+                                </button>
+                            </div>
+
+                            <!-- 1. Quick Test Ride -->
+                            <div id="hero-tab-ride" class="hero-tab-content block">
+                                <form id="quick-ride-form" class="grid grid-cols-1 sm:grid-cols-3 gap-4" onsubmit="handleQuickRide(event)">
+                                    <div class="relative">
+                                        <select required id="quick-model-select" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red appearance-none cursor-pointer font-sans">
+                                            <option value="" disabled selected>Select Bike / Scooter...</option>
+                                            <option value="Xtreme 125R">Xtreme 125R</option>
+                                            <option value="Xpulse 200 4V">Xpulse 200 4V</option>
+                                            <option value="Splendor+ XTEC 2.0">Splendor+ XTEC 2.0</option>
+                                            <option value="Pleasure+ XTEC">Pleasure+ XTEC</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-200">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input required type="tel" id="quick-phone" placeholder="WhatsApp Phone Number" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red placeholder:text-gray-400 font-mono">
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3 rounded-lg text-xs font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-md shadow-brand-red/20 font-sans">
+                                            <span>Book Test Ride</span>
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- 2. Tracker Service status -->
+                            <div id="hero-tab-tracker" class="hero-tab-content hidden">
+                                <form class="flex flex-col sm:flex-row gap-4" onsubmit="handleTrackStatus(event)">
+                                    <div class="flex-grow">
+                                        <input required type="text" id="tracking-id" placeholder="Enter Job Card Number (e.g., PV-901)" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red placeholder:text-gray-400 uppercase font-mono tracking-wider">
+                                    </div>
+                                    <button type="submit" class="bg-brand-red hover:bg-brand-redHover text-white px-6 py-3 rounded-lg text-xs font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-md shadow-brand-red/20 font-sans">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                        <span>Check Status</span>
+                                    </button>
+                                </form>
+                                <div id="tracker-response" class="hidden mt-4 p-4 rounded-lg bg-brand-onyx border border-brand-border text-left">
+                                    <div class="flex items-center gap-3">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 animate-pulse" id="tracker-status-glow"></span>
+                                        <span class="font-bold text-sm text-white" id="tracker-heading">Checking showroom database...</span>
+                                    </div>
+                                    <p class="text-base text-gray-200 mt-1" id="tracker-body"></p>
+                                </div>
+                            </div>
+
+                            <!-- 3. Showroom Services -->
+                            <div id="hero-tab-delivery" class="hero-tab-content hidden">
+                                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-left bg-brand-onyx p-4 rounded-xl border border-brand-border">
+                                    <div>
+                                        <h4 class="font-semibold text-white text-sm font-sans">Do you want to know the On-Road price?</h4>
+                                        <p class="text-base text-gray-200 mt-1 font-mono">Use our easy calculator below to find the exact On-Road price and monthly installment (EMI).</p>
+                                    </div>
+                                    <button onclick="switchView('enquiry')" class="bg-brand-slate hover:bg-brand-border text-white text-xs font-semibold px-4 py-2.5 rounded-lg border border-brand-border tracking-wider uppercase transition-colors font-sans">
+                                        Send Inquiry
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- BENTO BOX ADVANTAGE GRID -->
+                <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-brand-border reveal">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="p-6 bg-brand-slate rounded-2xl border border-brand-border interactive-card">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-white text-lg font-sans">Bikes &amp; Scooters List</h3>
+                            <p class="text-base text-gray-200 mt-2 leading-relaxed">Search, filter, and compare all Hero motorcycles and scooters. Check specifications like mileage, engine power (CC), and showroom prices easily.</p>
+                            <button onclick="switchView('products')" class="mt-4 text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 group font-sans">
+                                <span>View Price List</span>
+                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                        <div class="p-6 bg-brand-slate rounded-2xl border border-brand-border interactive-card">
+                            <div class="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500 mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-white text-lg font-sans">Showroom Offers</h3>
+                            <p class="text-base text-gray-200 mt-2 leading-relaxed">Get special low down-payment options, festival discounts,and other offers available for customers in Kannur district.</p>
+                            <button onclick="switchView('offers')" class="mt-4 text-green-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 group font-sans">
+                                <span>Check Latest Offers</span>
+                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                        <div class="p-6 bg-brand-slate rounded-2xl border border-brand-border interactive-card">
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-500 mb-4">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-white text-lg font-sans">What Customers Say</h3>
+                            <p class="text-base text-gray-200 mt-2 leading-relaxed">See reviews and delivery photos from our happy customers in Kannur. Feel free to share your showroom experience with us.</p>
+                            <button onclick="switchView('reviews')" class="mt-4 text-purple-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 group font-sans">
+                                <span>Read Customer Reviews</span>
+                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DYNAMIC FINANCING & ON-ROAD CALCULATION DESK -->
+                <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-brand-border reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest font-sans">Easy EMI &amp; Loan Calculator</span>
+                        <h2 class="text-3xl font-extrabold text-white mt-1 font-sans">Calculate Your Monthly Installment (EMI)</h2>
+                        <p class="text-gray-200 mt-1 text-base font-sans">Choose your down payment and see how much you need to pay every month.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Left Panel: EMI Calculator (7 columns) -->
+                        <div id="financing" class="lg:col-span-7 bg-brand-slate p-6 sm:p-8 rounded-2xl border border-brand-border relative overflow-hidden flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
+                                    <span class="text-xs font-bold text-brand-red uppercase tracking-wider font-sans">Monthly EMI Calculator</span>
+                                </div>
+                                <h3 class="text-xl font-extrabold text-white font-sans">Estimate Your Installments</h3>
+                                <p class="text-base text-gray-200 mt-1 font-sans">Select any bike from our catalog or change the down payment slider below.</p>
+                                
+                                <div class="mt-8 space-y-6">
+                                    <div class="flex items-center justify-between p-3.5 bg-brand-onyx rounded-lg border border-brand-border">
+                                        <span class="text-sm font-medium text-gray-200 font-sans">Selected Bike / Scooter</span>
+                                        <span id="emi-bike-name" class="text-sm font-bold text-white uppercase tracking-wider font-mono">Xtreme 125R</span>
+                                    </div>
+                                    <div class="flex items-center justify-between border-b border-brand-border/40 pb-4">
+                                        <span class="text-base font-semibold text-gray-200 font-sans">Showroom Price (Ex-Showroom)</span>
+                                        <span id="emi-bike-price-label" class="text-lg font-bold font-mono text-white">₹95,000</span>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center justify-between text-xs font-sans">
+                                            <span class="font-semibold text-gray-200 uppercase tracking-wider">Down Payment (Initial Cash You Pay)</span>
+                                            <span id="downpayment-label" class="font-bold font-mono text-brand-red">₹25,000</span>
+                                        </div>
+                                        <input oninput="calculateEMI()" type="range" id="downpayment-slider" min="10000" max="80000" step="500" value="25000" class="w-full accent-brand-red bg-brand-onyx rounded-lg appearance-none h-2 cursor-pointer">
+                                        <div class="flex justify-between text-sm text-gray-200 font-mono">
+                                            <span>Min down payment: ₹10,000</span>
+                                            <span>Max down payment: ₹80,000</span>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-3 font-sans">
+                                        <span class="block text-sm font-semibold text-gray-200 uppercase tracking-wider">Loan Period (How Many Months?)</span>
+                                        <div class="grid grid-cols-4 gap-2.5 font-sans">
+                                            <button onclick="setTenure(12, this)" class="tenure-btn px-3 py-2.5 text-sm font-bold rounded-lg border border-brand-border bg-brand-onyx text-gray-200 hover:text-white transition-all font-mono">12 Months (1 Yr)</button>
+                                            <button onclick="setTenure(24, this)" class="tenure-btn px-3 py-2.5 text-xs font-bold rounded-lg border border-brand-red bg-brand-red/10 text-white transition-all font-mono">24 Months (2 Yrs)</button>
+                                            <button onclick="setTenure(36, this)" class="tenure-btn px-3 py-2.5 text-sm font-bold rounded-lg border border-brand-border bg-brand-onyx text-gray-200 hover:text-white transition-all font-mono">36 Months (3 Yrs)</button>
+                                            <button onclick="setTenure(48, this)" class="tenure-btn px-3 py-2.5 text-sm font-bold rounded-lg border border-brand-border bg-brand-onyx text-gray-200 hover:text-white transition-all font-mono">48 Months (4 Yrs)</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8 p-6 bg-brand-onyx rounded-xl border border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div class="font-sans">
+                                    <span class="text-sm uppercase tracking-wider text-gray-200 font-bold block">Estimated Monthly Installment (EMI)</span>
+                                    <div class="flex items-baseline gap-1 mt-0.5">
+                                        <span id="calculated-emi" class="text-3xl font-extrabold font-mono text-white">₹3,410</span>
+                                        <span class="text-sm font-semibold text-gray-200">/ month</span>
+                                    </div>
+                                    <span class="text-sm text-gray-200 block mt-1">*Tentative calculations @ 8.5% Interest rate</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                                    <button onclick="triggerPreApproval()" class="bg-brand-red hover:bg-brand-redHover text-white px-8 py-3.5 rounded-lg text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-md shadow-brand-red/20 whitespace-nowrap hover:-translate-y-0.5 font-sans">
+                                        Apply For Booking / Loan
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: On-Road Breakdown Sheet (5 columns) -->
+                        <div class="lg:col-span-5 bg-brand-slate p-6 sm:p-8 rounded-2xl border border-brand-border flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                                    <span class="text-xs font-bold text-green-500 uppercase tracking-wider font-mono">Price Breakdown</span>
+                                </div>
+                                <h3 class="text-xl font-extrabold text-white font-sans">Estimated On-Road Price</h3>
+                                <p class="text-base text-gray-200 mt-1 font-sans">Kerala RTO, road tax, and insurance charges calculated automatically.</p>
+
+                                <div class="mt-8 space-y-4 font-mono text-xs">
+                                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border/40">
+                                        <span class="text-gray-200 font-sans">Showroom Price (Ex-Showroom)</span>
+                                        <span id="breakdown-ex" class="text-white font-bold">₹95,000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border/40">
+                                        <span class="text-gray-200 font-sans">Kerala RTO Registration &amp; Road Tax</span>
+                                        <span id="breakdown-rto" class="text-white font-bold">₹9,500</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border/40">
+                                        <span class="text-gray-200 font-sans">5-Year Full Insurance</span>
+                                        <span id="breakdown-ins" class="text-white font-bold">₹7,200</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border/40">
+                                        <span class="text-gray-200 font-sans">Road Safety Cess &amp; Showroom Charges</span>
+                                        <span class="text-white font-bold">₹1,850</span>
+                                    </div>
+                                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border/40">
+                                        <span class="text-brand-red font-sans">Minus Your Down Payment</span>
+                                        <span id="breakdown-down" class="text-brand-red font-bold">-₹25,000</span>
+                                    </div>
+                                    <div class="flex justify-between items-center pt-4 font-sans">
+                                        <span class="text-sm font-bold text-white">Remaining Loan Balance</span>
+                                        <span id="breakdown-net" class="text-lg font-bold font-mono text-green-500">₹88,550</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-4 border-t border-brand-border">
+                                <div class="p-3 bg-brand-onyx rounded-lg border border-brand-border text-center font-sans">
+                                    <span class="text-sm uppercase text-gray-200 block font-bold">Ready to take a look?</span>
+                                    <button onclick="switchView('enquiry')" class="text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider block mx-auto mt-1">Book your free test ride now &rarr;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= PRODUCTS PAGE VIEW ================= -->
+            <div id="view-products" class="view-section">
+                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest font-sans">Our Showroom Catalog</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2 font-sans">Hero Bikes &amp; Scooters Price List</h1>
+                        <p class="text-base text-gray-100 mt-1 font-sans">Find the perfect bike for your daily commute. Use filters to see different models.</p>
+                    </div>
+
+                    <!-- Search & Filter Area -->
+                    <div class="bg-brand-slate p-6 rounded-2xl border border-brand-border mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="relative w-full md:max-w-md">
+                            <input type="text" id="product-search" oninput="filterProductCatalog()" placeholder="Type bike name here (e.g., Splendor, Xtreme)..." class="w-full bg-brand-onyx border border-brand-border rounded-lg pl-10 pr-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red placeholder:text-gray-400 font-sans">
+                            <svg class="absolute left-3.5 top-3.5 w-4 h-4 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        </div>
+                        <div class="flex flex-wrap gap-2 w-full md:w-auto justify-end">
+                            <button onclick="filterCatalogSegment('all', this)" class="catalog-filter-btn px-4 py-2.5 text-xs font-bold rounded-lg bg-brand-red text-white uppercase tracking-wider font-sans">All</button>
+                            <button onclick="filterCatalogSegment('100cc', this)" class="catalog-filter-btn px-4 py-2.5 text-xs font-bold rounded-lg bg-brand-onyx text-gray-200 hover:text-white border border-brand-border uppercase tracking-wider font-sans">100 CC</button>
+                            <button onclick="filterCatalogSegment('125cc', this)" class="catalog-filter-btn px-4 py-2.5 text-xs font-bold rounded-lg bg-brand-onyx text-gray-200 hover:text-white border border-brand-border uppercase tracking-wider font-sans">125 CC</button>
+                            <button onclick="filterCatalogSegment('160cc_above', this)" class="catalog-filter-btn px-4 py-2.5 text-xs font-bold rounded-lg bg-brand-onyx text-gray-200 hover:text-white border border-brand-border uppercase tracking-wider font-sans">160 CC &amp; Above</button>
+                            <button onclick="filterCatalogSegment('scooter', this)" class="catalog-filter-btn px-4 py-2.5 text-xs font-bold rounded-lg bg-brand-onyx text-gray-200 hover:text-white border border-brand-border uppercase tracking-wider font-sans">Scooters</button>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Catalog Cards Grid -->
+                    <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Dynamic content populated by renderCatalog() -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= OFFERS PAGE VIEW ================= -->
+            <div id="view-offers" class="view-section">
+                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-16 font-sans">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest">Offers &amp; Discounts</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2">Latest Showroom Offers</h1>
+                        <p class="text-base text-gray-100 mt-1">Save money with our special low down-payment schemes and exchange offers in Kannur.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Offer 1 -->
+                        <div class="bg-brand-slate p-6 sm:p-8 rounded-2xl border border-brand-border relative overflow-hidden flex flex-col justify-between group hover:border-brand-red/30 transition-all duration-300">
+                            <span class="absolute top-6 right-6 bg-brand-red/10 border border-brand-red/20 text-brand-red font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest font-mono">Limited Period Scheme</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">Zero Downpayment Deal</h3>
+                                <p class="text-base text-gray-200 leading-relaxed mb-6 font-sans">Drive home any 100cc to 125cc Hero mileage bike with initial documentation charges of just ₹1,999. Valid exclusively for residents of Kandoth &amp; Payyanur.</p>
+                                <div class="space-y-2 mb-6 font-sans">
+                                    <div class="flex items-center gap-2 text-xs text-brand-textLight">
+                                        <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>Available for Splendor+ XTEC and HF Deluxe</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs text-brand-textLight">
+                                        <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>Easy loan approval within 30 minutes</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="claimOfferCode('ZERO-DOWN-HERO')" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all font-sans">Get Offer Code</button>
+                        </div>
+
+                        <!-- Offer 2 -->
+                        <div class="bg-brand-slate p-6 sm:p-8 rounded-2xl border border-brand-border relative overflow-hidden flex flex-col justify-between group hover:border-brand-red/30 transition-all duration-300">
+                            <span class="absolute top-6 right-6 bg-green-500/10 border border-green-500/20 text-green-500 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest font-mono">Exchange Offer</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-2">₹3,000 Extra Exchange Bonus</h3>
+                                <p class="text-base text-gray-200 leading-relaxed mb-6 font-sans">Bring any of your old two-wheelers and get an additional flat ₹3,000 discount over your bike's market value. Bonus discount will be subtracted directly from your final bill.</p>
+                                <div class="space-y-2 mb-6 font-sans">
+                                    <div class="flex items-center gap-2 text-xs text-brand-textLight">
+                                        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>Applicable on all premium bikes (Xtreme, Xpulse)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 text-xs text-brand-textLight">
+                                        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>Valid until July 30, 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="claimOfferCode('LOYALTY-UP-XP')" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all font-sans">Get Loyalty Coupon</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= REVIEWS PAGE VIEW ================= -->
+            <div id="view-reviews" class="view-section">
+                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-16 font-sans">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest">Happy Customer Reviews</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2">What Our Customers Say</h1>
+                        <p class="text-base text-gray-100 mt-1">Check real reviews from our customers in Kandoth, Kannur. Tell us about your showroom or delivery experience.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                        <!-- Rating Summary & Submission Form (5 columns) -->
+                        <div class="lg:col-span-5 space-y-8">
+                            <div class="bg-brand-slate p-6 rounded-2xl border border-brand-border">
+                                <h3 class="font-bold text-white text-lg mb-4 font-sans">Showroom Rating</h3>
+                                <div class="flex items-baseline gap-2 font-mono">
+                                    <span class="text-5xl font-extrabold text-white">4.9</span>
+                                    <span class="text-base text-gray-100">/ 5.0 Stars</span>
+                                </div>
+                                <p class="text-base text-gray-200 mt-2 font-sans">Based on over 2,400+ satisfied customers and service center feedback.</p>
+                            </div>
+
+                            <!-- Interactive Submit review box -->
+                            <div class="bg-brand-slate p-6 rounded-2xl border border-brand-border">
+                                <h3 class="font-bold text-white text-lg mb-4 font-sans">Write a Review</h3>
+                                <form onsubmit="handleReviewSubmission(event)" class="space-y-4">
+                                    <div class="space-y-1">
+                                        <label class="text-base text-gray-200 uppercase tracking-wider font-semibold font-sans">Your Name</label>
+                                        <input required id="review-author" type="text" placeholder="Full Name" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-base text-gray-200 uppercase tracking-wider font-semibold font-sans">Choose Rating (Stars)</label>
+                                        <select id="review-rating" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red cursor-pointer font-mono font-sans">
+                                            <option value="5">★★★★★ (5 Stars)</option>
+                                            <option value="4">★★★★☆ (4 Stars)</option>
+                                            <option value="3">★★★☆☆ (3 Stars)</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-base text-gray-200 uppercase tracking-wider font-semibold font-sans">Your Experience / Comments</label>
+                                        <textarea required id="review-comment" rows="3" placeholder="Tell us how you liked our delivery speed or showroom behavior..." class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red font-sans"></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all font-sans">Submit My Review</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 space-y-6">
+                            <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2 font-sans">
+                                <span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+                                <span>Recent Reviews From Kannur</span>
+                            </h3>
+                            <div id="reviews-feed" class="space-y-6">
+                                <!-- Populated dynamically by renderReviews() -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= ARTICLES PAGE VIEW ================= -->
+            <div id="view-articles" class="view-section">
+                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-16 font-sans">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest">Tips &amp; Useful Articles</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2">Bike Maintenance &amp; Tech Guide</h1>
+                        <p class="text-base text-gray-100 mt-1">Read simple tips on monsoon riding, technology details, and bike maintenance.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Blog 1 -->
+                        <div class="bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
+                            <div class="p-6">
+                                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-mono">Technology</span>
+                                <h3 class="text-lg font-bold text-white mt-2 group-hover:text-brand-red transition-colors font-sans">What is XSENS Technology in Pleasure Plus?</h3>
+                                <p class="text-base text-gray-200 leading-relaxed mt-3 font-sans font-sans">Understand how Hero\'s smart 10-sensor system helps save fuel, gives better mileage, and protects your scooter engine during Kerala weather changes.</p>
+                            </div>
+                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
+                                <span class="text-sm text-gray-200 font-mono">July 10, 2026</span>
+                                <button onclick="readArticleFull('XSENS Technology', 'The XSENS program on the Pleasure Plus XTEC is a smart system that helps you save fuel. It uses 10 different sensors to check engine heat, altitude, and scooter angle. This makes sure that your scooter starts instantly even in cold mornings and gives you the best mileage on flat roads as well as hilly areas in Kannur.')" class="text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider">Read Article</button>
+                            </div>
+                        </div>
+
+                        <!-- Blog 2 -->
+                        <div class="bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
+                            <div class="p-6">
+                                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-mono">Maintenance Tips</span>
+                                <h3 class="text-lg font-bold text-white mt-2 group-hover:text-brand-red transition-colors font-sans">Monsoon Riding &amp; Safety Guide for Kerala</h3>
+                                <p class="text-base text-gray-200 leading-relaxed mt-3 font-sans font-sans">A simple guide from our showroom mechanics explaining brake adjustments, chain lubing, and tire safety checks during heavy rains.</p>
+                            </div>
+                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
+                                <span class="text-sm text-gray-200 font-mono">June 24, 2026</span>
+                                <button onclick="readArticleFull('Monsoon Guide', 'Riding in Kerala monsoons requires extra care. Our head mechanic suggests: 1) Keep your bike tire pressure 2 points lower than usual for better grip on wet roads. 2) Apply chain-lube every 400km as rainwater strips the grease. 3) Visit our service center to make sure your brakes have proper bite.')" class="text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider">Read Article</button>
+                            </div>
+                        </div>
+
+                        <!-- Blog 3 -->
+                        <div class="bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
+                            <div class="p-6">
+                                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-mono">New Launch</span>
+                                <h3 class="text-lg font-bold text-white mt-2 group-hover:text-brand-red transition-colors font-sans">Why Xtreme 125R is the Best Choice?</h3>
+                                <p class="text-base text-gray-200 leading-relaxed mt-3 font-sans">Read why this stylish 125cc bike with sporty looks and safe ABS braking has become the most popular choice in Kannur showrooms.</p>
+                            </div>
+                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
+                                <span class="text-sm text-gray-200 font-mono">May 18, 2026</span>
+                                <button onclick="readArticleFull('Xtreme 125R Focus', 'The Xtreme 125R is a sporty commuter bike. It comes with full LED lights, a muscular fuel tank, and most importantly, Single-Channel ABS braking. ABS prevents tires from skidding during sudden brakes on wet roads, making your daily rides extremely safe.')" class="text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider">Read Article</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= GALLERY PAGE VIEW ================= -->
+            <div id="view-gallery" class="view-section">
+                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-16 font-sans">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest">Showroom Photo Gallery</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2">Our Showroom &amp; Service Center Photos</h1>
+                        <p class="text-base text-gray-100 mt-1">Take a look at our bike display, customer delivery handovers, and modern service bays.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div onclick="openLightbox('Showroom Bay', 'Our clean bike display lounge at Kandoth showroom.')" class="bg-brand-slate aspect-video rounded-2xl border border-brand-border overflow-hidden relative cursor-pointer group">
+                            <div class="absolute inset-0 bg-brand-onyx/40 group-hover:bg-brand-onyx/20 transition-all flex items-center justify-center">
+                                <svg class="w-10 h-10 text-white/50 group-hover:text-brand-red transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            </div>
+                            <div class="absolute bottom-4 left-4">
+                                <span class="bg-brand-onyx border border-brand-border px-3 py-1 rounded text-xs font-bold uppercase tracking-widest text-brand-red font-mono">Lounge Display</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openLightbox('Express Service Zone', 'Equipped with pneumatic bike lifters and authorized Hero specialized diagnostics tools.')" class="bg-brand-slate aspect-video rounded-2xl border border-brand-border overflow-hidden relative cursor-pointer group">
+                            <div class="absolute inset-0 bg-brand-onyx/40 group-hover:bg-brand-onyx/20 transition-all flex items-center justify-center">
+                                <svg class="w-10 h-10 text-white/50 group-hover:text-brand-red transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            </div>
+                            <div class="absolute bottom-4 left-4">
+                                <span class="bg-brand-onyx border border-brand-border px-3 py-1 rounded text-xs font-bold uppercase tracking-widest text-brand-red font-mono">Mechanic Workshop</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openLightbox('Delighted Delivery Bays', 'Handing over the iconic Splendor+ XTEC to our premium local customers.')" class="bg-brand-slate aspect-video rounded-2xl border border-brand-border overflow-hidden relative cursor-pointer group">
+                            <div class="absolute inset-0 bg-brand-onyx/40 group-hover:bg-brand-onyx/20 transition-all flex items-center justify-center">
+                                <svg class="w-10 h-10 text-white/50 group-hover:text-brand-red transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            </div>
+                            <div class="absolute bottom-4 left-4">
+                                <span class="bg-brand-onyx border border-brand-border px-3 py-1 rounded text-xs font-bold uppercase tracking-widest text-brand-red font-mono">Handovers</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= ENQUIRY PAGE VIEW ================= -->
+            <div id="view-enquiry" class="view-section">
+                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest">Showroom Inquiry &amp; Quotation Form</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2">Ask For Price Quotation</h1>
+                        <p class="text-base text-gray-100 mt-1">Fill out this simple form to get the exact on-road price sheet and loan details directly on your WhatsApp number.</p>
+                    </div>
+
+                    <div class="max-w-3xl mx-auto bg-brand-slate p-8 rounded-2xl border border-brand-border">
+                        <form onsubmit="handleEnquiryFormSubmission(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-sans">
+                                <div class="space-y-1">
+                                    <label class="text-sm font-semibold text-gray-200 uppercase tracking-wider">Your Full Name</label>
+                                    <input required type="text" id="enq-name" placeholder="Full Name" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-sm font-semibold text-gray-200 uppercase tracking-wider">WhatsApp Phone Number</label>
+                                    <input required type="tel" id="enq-phone" placeholder="Mobile Number" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red font-mono">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 font-sans">
+                                <div class="space-y-1">
+                                    <label class="text-sm font-semibold text-gray-200 uppercase tracking-wider">Select Bike or Scooter</label>
+                                    <select id="enq-model" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red appearance-none cursor-pointer">
+                                        <option value="Xtreme 125R">Xtreme 125R</option>
+                                        <option value="Xpulse 200 4V">Xpulse 200 4V</option>
+                                        <option value="Splendor+ XTEC 2.0">Splendor+ XTEC 2.0</option>
+                                        <option value="Pleasure+ XTEC">Pleasure+ XTEC</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-sm font-semibold text-gray-200 uppercase tracking-wider">How do you want to buy?</label>
+                                    <select id="enq-finance" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                                        <option value="cash">Full Cash Payment</option>
+                                        <option value="loan">With Monthly EMI / Loan</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="space-y-1 font-sans">
+                                <label class="text-sm font-semibold text-gray-200 uppercase tracking-wider">Any special requests? (e.g. choice of color)</label>
+                                <textarea id="enq-notes" rows="4" placeholder="Let us know if you want a specific color or standard delivery on a special date..." class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-4 rounded-lg text-xs font-bold uppercase tracking-widest transition-all shadow-lg shadow-brand-red/15">Submit Enquiry</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+
+        <!-- SECURE PRE-APPROVAL DIALOG / MODAL -->
+        <div id="preapproval-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-onyx/85 backdrop-blur-sm hidden">
+            <div class="bg-brand-slate max-w-md w-full rounded-2xl border border-brand-border p-6 shadow-2xl relative animate-fade-in">
+                <button onclick="closePreApproval()" class="absolute top-4 right-4 text-gray-200 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
+                    <h3 class="text-lg font-bold text-white font-sans">Book Bike / Apply Loan</h3>
+                </div>
+                <p class="text-base text-gray-200 mb-6 font-sans">Fill details below for <span id="modal-bike" class="text-white font-bold">Xtreme 125R</span> with an estimated EMI of <span id="modal-emi" class="text-white font-bold">₹3,410/mo</span>.</p>
+                <form onsubmit="handlePreApprovalSubmission(event)" class="space-y-4">
+                    <div class="space-y-1">
+                        <label class="text-sm font-bold text-gray-200 uppercase tracking-wider block font-sans">Full Name</label>
+                        <input required type="text" placeholder="Your Name" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-sm font-bold text-gray-200 uppercase tracking-wider block font-sans">WhatsApp Mobile Number</label>
+                        <input required type="tel" placeholder="Mobile Number" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red font-mono">
+                    </div>
+                    <button type="submit" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3.5 rounded-lg text-xs font-bold tracking-widest uppercase transition-all mt-6 shadow-md shadow-brand-red/10 font-sans">
+                        Submit Details
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- SPECIFICATIONS MODAL DIALOG -->
+        <div id="specs-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-onyx/85 backdrop-blur-sm hidden">
+            <div class="bg-brand-slate max-w-md w-full rounded-2xl border border-brand-border p-6 shadow-2xl relative">
+                <button onclick="closeSpecsModal()" class="absolute top-4 right-4 text-gray-200 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
+                    <h3 id="specs-modal-title" class="text-lg font-bold text-white uppercase tracking-wider font-sans">Model Specifications</h3>
+                </div>
+                <div class="space-y-4 my-6 font-sans">
+                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
+                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Engine Displacement</span>
+                        <span id="specs-val-disp" class="text-sm font-bold text-white font-mono">-</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
+                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Max Power</span>
+                        <span id="specs-val-power" class="text-sm font-bold text-white font-mono">-</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
+                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Fuel Tank Capacity</span>
+                        <span id="specs-val-fuel" class="text-sm font-bold text-white font-mono">-</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
+                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Special Highlight</span>
+                        <span id="specs-val-feature" class="text-sm font-bold text-white font-mono text-right">-</span>
+                    </div>
+                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
+                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Showroom Price (Ex)</span>
+                        <span id="specs-val-price" class="text-sm font-extrabold text-green-500 font-mono">₹0</span>
+                    </div>
+                </div>
+                <button onclick="closeSpecsModal()" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3.5 rounded-lg text-xs font-bold tracking-widest uppercase transition-all font-sans">
+                    Close Specs Box
+                </button>
+            </div>
+        </div>
+
+        <!-- FULL-SCREEN LIGHTBOX OVERLAY -->
+        <div id="lightbox-overlay" onclick="closeLightbox()" class="fixed inset-0 z-50 bg-brand-onyx/95 backdrop-blur-md hidden items-center justify-center p-4 cursor-pointer">
+            <div class="max-w-2xl w-full bg-brand-slate rounded-2xl border border-brand-border p-8 text-center space-y-4 relative" onclick="event.stopPropagation()">
+                <button onclick="closeLightbox()" class="absolute top-4 right-4 text-gray-200 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <div class="h-48 rounded-xl bg-brand-onyx flex items-center justify-center border border-brand-border">
+                    <svg class="w-16 h-16 text-gray-200/40 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 id="lightbox-title" class="text-xl font-extrabold text-white font-sans">Lounge Walkthrough</h3>
+                <p id="lightbox-description" class="text-base text-gray-200 leading-relaxed font-sans">Verified high fidelity image of Pavizham showroom.</p>
+            </div>
+        </div>
+
+        <!-- READ FULL ARTICLE DIALOG OVERLAY -->
+        <div id="article-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-onyx/85 backdrop-blur-sm hidden">
+            <div class="bg-brand-slate max-w-lg w-full rounded-2xl border border-brand-border p-6 shadow-2xl relative">
+                <button onclick="closeArticleModal()" class="absolute top-4 right-4 text-gray-200 hover:text-white">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <h3 id="article-modal-title" class="text-lg font-bold text-white uppercase tracking-wider mb-4 font-sans">Article Title</h3>
+                <p id="article-modal-body" class="text-base text-gray-200 leading-relaxed whitespace-pre-wrap mb-6 font-sans"></p>
+                <button onclick="closeArticleModal()" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all font-sans">Close Article View</button>
+            </div>
+        </div>
+
+        <!-- HIGH PERFORMANCE ORGANIZATIONAL FOOTER -->
+        <footer class="bg-brand-onyx border-t border-brand-border py-16 z-10 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-sans">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                    <div class="space-y-4">
+                        <!-- Clickable Footer Logo -->
+                        <a href="https://dealers.heromotocorp.com/" class="flex items-center gap-4 group inline-flex">
+                            <img src="image_528be7.png" alt="Hero MotoCorp Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
+                            <div class="border-l border-brand-border pl-4 py-0.5">
+                                <span class="font-extrabold text-white text-md block leading-none tracking-wider transition-colors group-hover:text-brand-red duration-300">PAVIZHAM ASSOCIATES</span>
+                                <span class="text-xs text-brand-red font-bold tracking-widest uppercase block mt-1">Authorized Showroom</span>
+                            </div>
+                        </a>
+                        <p class="text-sm text-gray-100 leading-relaxed max-w-sm"Pavizham Associates is your trusted authorized Hero MotoCorp showroom in Kandoth, Kannur. We are here to help you buy your favorite bike and provide the best service support.</p>
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-xs font-extrabold text-white uppercase tracking-wider block border-b border-brand-border/60 pb-2 mb-4">Showroom Address</span>
+                        <div class="space-y-2.5 text-sm text-gray-100 font-mono">
+                            <span class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-brand-red flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span class="font-sans">Ground Floor, NH Perumba, Kandoth, Kannur, Kerala - 670307</span>
+                            </span>
+                            <span class="flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                <span>+91 4985 208766</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-xs font-extrabold text-white uppercase tracking-wider block border-b border-brand-border/60 pb-2 mb-4">Useful Links</span>
+                        <div class="grid grid-cols-1 gap-2.5 text-sm text-gray-100 font-mono">
+                            <button onclick="switchView('products')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Bikes &amp; Scooters</button>
+                            <button onclick="switchView('offers')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Showroom Offers</button>
+                            <button onclick="switchView('reviews')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Customer Reviews</button>
+                            <button onclick="switchView('enquiry')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Enquiry Form</button>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-xs font-extrabold text-white uppercase tracking-wider block border-b border-brand-border/60 pb-2 mb-4">Service Coverage</span>
+                        <p class="text-sm text-gray-100 leading-relaxed font-sans">Serving Payyanur, Pilathara, Cherupuzha, Alakode, and broader parts of North Kannur. Authorized Hero parts and experienced mechanics on-site.</p>
+                    </div>
+                </div>
+                <div class="mt-12 pt-8 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-100">
+                    <span>&copy; 2026 Pavizham Associates. All rights reserved. Built as showroom portal.</span>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-white transition-colors font-sans">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition-colors font-sans">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- MAIN CORE INTERACTIVE STATE SCRIPT -->
+    <script>
+        // Active multi-page framework configurations
+        const state = {
+            currentView: 'home',
+            currentHeroTab: 'ride',
+            selectedCatalogSegment: 'all',
+            selectedEmiBike: 'XTREME 125R',
+            selectedEmiPrice: 95000,
+            selectedEmiTenure: 24, // months
+            
+            // Full comprehensive vehicles index
+            vehiclesList: [
+                { name: 'SPLENDOR+ XTEC 2.0', category: '100cc', disp: '97.2cc', power: '5.9 kW @ 8000 rpm', fuelTank: '9.8 L', feature: 'i3S Technology', price: 83400, inStock: true, image: 'splendorplus_xtec.png' },
+                { name: 'PASSION +', category: '100cc', disp: '97.2cc', power: '5.9 kW @ 8000 rpm', fuelTank: '11 L', feature: 'i3S Technology', price: 78500, inStock: true, image: 'final-passion-new8.png' },
+                { name: 'SPLENDOR +', category: '100cc', disp: '97.2 cc', power: '5.9 kW @ 8000 rpm', fuelTank: '9.8 L', feature: 'i3S Technology', price: 76300, inStock: true, image: 'splendor-plus.png' },
+                { name: 'GLAMOUR X', category: '125cc', disp: '124.7cc', power: '8.5 kW @ 8250 rpm', fuelTank: '10 L', feature: 'Advanced Electronic Ride Assist (AERA) Tech', price: 87800, inStock: true, image: 'glamour-x.png' },
+                { name: 'XTREME 125R', category: '125cc', disp: '124.7cc', power: '11.4 BHP @ 8250 rpm', fuelTank: '10 L', feature: '0-60 in 5.7 seconds Fastest in Segment', price: 95000, inStock: true, image: 'xtreme-125r.png' },
+                { name: 'GLAMOUR XTEC', category: '125cc', disp: '124.7cc', power: '10.7 BHP @ 7500 rpm', fuelTank: '10 L', feature: 'Bluetooth Connectivity & Navigation', price: 89500, inStock: true, image: 'glamour-xtec.png' },
+                { name: 'DESTINI 125', category: 'scooter', disp: '124.6cc', power: '9 BHP @ 7000 rpm', fuelTank: '5.3 L', feature: 'Auto-Cancel Winkers', price: 80500, inStock: true, image: 'destini-125.png' },
+                { name: 'DESTINI PRIME', category: 'scooter', disp: '124.6cc', power: '9 BHP @ 7000 rpm', fuelTank: '5 L', feature: 'i3S Technology', price: 77200, inStock: true, image: 'destini prime.png' },
+                { name: 'PLEASURE+ XTEC', category: 'scooter', disp: '110.9cc', power: '8 BHP @ 7000 rpm', fuelTank: '4.8 L', feature: 'i3S Technology', price: 81800, inStock: true, image: 'pleasure+xtec.png' },
+                { name: 'XTREME 160R 4V', category: '160cc_above', disp: '163.2cc', power: '16.9 Ps @ 8500 rpm', fuelTank: '12 L', feature: 'First in Segment New Panic Brake Alert', price: 128500, inStock: true, image: 'xtreme_160r_4v.png' },
+                { name: 'SUPER SPLENDOR XTEC 2.0', category: '125cc', disp: '124.7cc', power: '10.7 BHP @ 7500 rpm', fuelTank: '12 L', feature: 'i3S Technology', price: 88300, inStock: true, image: 'super-splendor-xtec2.0.png' },
+                { name: 'SPLENDOR+ FLEX', category: '100cc', disp: '97.2cc', power: '6.3 kW(with E85) @ 8000 RPM', fuelTank: '9.8 L', feature: 'i3S Technology', price: 80200, inStock: true, image: 'splendor+fleex.png' },
+                { name: 'HF DELUXE FLEX', category: '100cc', disp: '97.2cc', power: '6.3 kW(with E85) @ 8000 RPM', fuelTank: '9.6 L', feature: 'i3S Technology', price: 70500, inStock: true, image: 'hf-deluxe-flex.png' },
+                { name: 'SUPER SPLENDOR XTEC', category: '125cc', disp: '124.7cc', power: '10.7 BHP @ 7500 rpm', fuelTank: '12 L', feature: 'i3S Technology', price: 85900, inStock: true, image: 'super-splendor-xtec.png' },
+                { name: 'XOOM 125', category: 'scooter', disp: '124.6cc', power: '9.8 BHP @ 7250 rpm', fuelTank: '5 L', feature: 'Digital Speedometer with TBT Navigation', price: 86500, inStock: true, image: 'xoom125.png' },
+                { name: 'XTREME 160R', category: '160cc_above', disp: '163.2cc', power: '15 Ps @ 8500 rpm', fuelTank: '12 L', feature: 'First in Segment Drag Timer', price: 121800, inStock: true, image: 'xtreme160r.png' },
+                { name: 'XPULSE 200 4V', category: '160cc_above', disp: '199.6cc', power: '18.9 BHP @ 8500 rpm', fuelTank: '13 L', feature: 'Adjustable Front and Rear Suspension', price: 146200, inStock: true, image: 'xpulse2004v.png' },
+                { name: 'HF DELUXE', category: '100cc', disp: '97.2cc', power: '5.9 kW @ 8000 rpm', fuelTank: '9.6 L', feature: 'i3S Technology', price: 67800, inStock: true, image: 'hf-deluxe.png' },
+                { name: 'XOOM', category: 'scooter', disp: '110.9cc', power: '8.05 BHP @ 7250 rpm', fuelTank: '5.2 L', feature: 'i3S Technology', price: 74500, inStock: true, image: 'xoom.png' },
+                { name: 'SPLENDOR+ XTEC', category: '100cc', disp: '97.2cc', power: '5.9 kW @ 8000 rpm', fuelTank: '9.8 L', feature: 'i3S Technology', price: 79900, inStock: true, image: 'splendor+xtec.png' },
+                { name: 'GLAMOUR', category: '125cc', disp: '124.7cc', power: '7.75 kW @ 7500 rpm', fuelTank: '10 L', feature: '65 kmpl Mileage', price: 83200, inStock: true, image: 'glamour.png' },
+                { name: 'HF 100', category: '100cc', disp: '97.2cc', power: '5.9 kW @ 8000 rpm', fuelTank: '9.1 L', feature: 'xSens FI Technology', price: 59500, inStock: true, image: 'hf100.png' }
+            ],
+
+            // Local Simulated database review streams
+            reviewsList: [
+                { author: 'Raapz Razi', rating: 5, comment: 'Nallath. Clean handover procedure.' },
+                { author: 'Sreejith P', rating: 5, comment: 'One of the best Hero service centre in kannur. Good customer support and service.' },
+                { author: 'Damodaran Sudhara', rating: 5, comment: 'Iam a loyal customer of pavizham associates. I got good service and experience from there.' },
+                { author: 'Akash VP', rating: 5, comment: 'Delivered the vehicle within a week. Good customer support and completely satisfied.' }
+            ],
+
+            dummyStatusDatabase: {
+                "PV-901": { heading: "In Wash Bay", body: "Servicing is 85% complete. Your bike is entering the final polishing loop. Pickup expected in 18 minutes.", glowColor: "bg-yellow-500" },
+                "PV-902": { heading: "Awaiting Spares", body: "We are awaiting authorization on an air-filter swap. Estimated delivery shifted to 6:00 PM today.", glowColor: "bg-amber-500" },
+                "PV-904": { heading: "Completed & Ready", body: "Completed 90-minute express service profile. Your vehicle is safely parked in Bay 3 for pickup.", glowColor: "bg-green-500" }
+            }
+        };
+
+        window.onload = function() {
+            populateModelSelects();
+            renderCatalog();
+            renderReviews();
+            calculateEMI();
+            initScrollReveal();
+        };
+
+        function populateModelSelects() {
+            const quickSelect = document.getElementById('quick-model-select');
+            const enqSelect = document.getElementById('enq-model');
+            
+            if (quickSelect) {
+                quickSelect.innerHTML = '<option value="" disabled selected>Select Bike / Scooter...</option>';
+                state.vehiclesList.forEach(v => {
+                    const opt = document.createElement('option');
+                    opt.value = v.name;
+                    opt.innerText = v.name;
+                    quickSelect.appendChild(opt);
+                });
+            }
+            
+            if (enqSelect) {
+                enqSelect.innerHTML = '';
+                state.vehiclesList.forEach(v => {
+                    const opt = document.createElement('option');
+                    opt.value = v.name;
+                    opt.innerText = v.name;
+                    enqSelect.appendChild(opt);
+                });
+            }
+        }
+
+        // CUSTOM TOAST NOTIFICATIONS
+        function showToast(title, body, type = "success") {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            let colorClass = "border-brand-red text-white shadow-brand-red/10";
+            if (type === "success") colorClass = "border-green-500 text-white shadow-green-500/10";
+            if (type === "error") colorClass = "border-red-600 text-white shadow-red-500/10";
+
+            toast.className = `p-4 rounded-xl bg-brand-panel border ${colorClass} shadow-xl transform translate-y-2 opacity-0 transition-all duration-300 flex items-start gap-3`;
+            toast.innerHTML = `
+                <div class="mt-0.5"><span class="w-2 h-2 rounded-full block ${type === 'success' ? 'bg-green-500' : 'bg-brand-red'}"></span></div>
+                <div>
+                    <h4 class="text-sm font-bold">${title}</h4>
+                    <p class="text-base text-gray-200 mt-1 leading-normal">${body}</p>
+                </div>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 4500);
+        }
+
+        // CLIENT-SIDE ROUTER / SWITCHING VIEWS
+        function switchView(viewId) {
+            state.currentView = viewId;
+            
+            // Toggle active components
+            const sections = document.querySelectorAll('.view-section');
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+                sec.style.display = 'none';
+            });
+            
+            const targetSec = document.getElementById(`view-${viewId}`);
+            if (targetSec) {
+                targetSec.style.display = 'block';
+                setTimeout(() => {
+                    targetSec.classList.add('active');
+                    
+                    // Sync Header Navigation active/inactive stylings
+                    const links = document.querySelectorAll('.nav-link');
+                    links.forEach(lnk => {
+                        lnk.className = "nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold";
+                    });
+
+                    const activeLink = document.getElementById(`nav-${viewId}`);
+                    if (activeLink) {
+                        activeLink.className = "nav-link text-white bg-brand-panel border border-brand-red/30 shadow-md shadow-brand-red/5 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-bold";
+                    }
+
+                    initScrollReveal();
+                }, 50);
+            }
+
+            // Scroll safely to top on transition
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Header Scroll Glassmorphic Transition
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.className = "sticky top-0 z-40 bg-brand-onyx/80 backdrop-blur-md border-b border-brand-red/25 shadow-md shadow-brand-red/5 transition-all duration-300";
+            } else {
+                header.className = "sticky top-0 z-40 bg-brand-onyx border-b border-brand-border transition-all duration-300";
+            }
+        });
+
+        // IntersectionObserver Scroll Reveal Initialization
+        function initScrollReveal() {
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal-visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: "0px 0px -50px 0px"
+            });
+            
+            revealElements.forEach(el => {
+                if (!el.classList.contains('reveal-visible')) {
+                    observer.observe(el);
+                }
+            });
+        }
+
+        // Hamburger Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // HERO TAB CONTROLLER
+        function switchHeroTab(tabId) {
+            state.currentHeroTab = tabId;
+            const contents = document.querySelectorAll('.hero-tab-content');
+            contents.forEach(c => c.classList.add('hidden'));
+            document.getElementById(`hero-tab-${tabId}`).classList.remove('hidden');
+
+            const buttons = document.querySelectorAll('.hero-tab-btn');
+            buttons.forEach(btn => {
+                btn.className = "hero-tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 text-gray-200 hover:text-white hover:bg-brand-panel font-sans";
+            });
+
+            const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.className = "hero-tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 text-white bg-brand-red/10 border border-brand-red/20 font-sans";
+            }
+        }
+
+        function handleQuickRide(event) {
+            event.preventDefault();
+            const model = document.getElementById('quick-model-select').value;
+            const phone = document.getElementById('quick-phone').value;
+            showToast("Test Ride Scheduled!", `We have booked a priority test ride slot for ${model}. Our team will call you on ${phone} shortly.`, "success");
+            event.target.reset();
+        }
+
+        function handleTrackStatus(event) {
+            event.preventDefault();
+            const id = document.getElementById('tracking-id').value.toUpperCase().trim();
+            const responseBox = document.getElementById('tracker-response');
+            const glow = document.getElementById('tracker-status-glow');
+            const heading = document.getElementById('tracker-heading');
+            const body = document.getElementById('tracker-body');
+
+            responseBox.classList.remove('hidden');
+            heading.innerText = "Querying showroom database...";
+            body.innerText = "Retrieving your bike service record details...";
+
+            setTimeout(() => {
+                const data = state.dummyStatusDatabase[id];
+                if (data) {
+                    glow.className = `w-2.5 h-2.5 rounded-full animate-pulse ${data.glowColor}`;
+                    heading.innerText = `${id}: ${data.heading}`;
+                    body.innerText = data.body;
+                    showToast("Status Found!", `Loaded live service details for Job Card: ${id}.`, "success");
+                } else {
+                    glow.className = "w-2.5 h-2.5 rounded-full bg-red-600";
+                    heading.innerText = "Job Card Not Found";
+                    body.innerText = "Check your Job Card number and try again (Try sandboxes: PV-901 or PV-904).";
+                    showToast("Not Found", "No service details matching this number.", "error");
+                }
+            }, 600);
+        }
+
+        // PRODUCTS RENDER & LOGIC
+        function renderCatalog() {
+            const container = document.getElementById('catalog-grid');
+            container.innerHTML = '';
+
+            const query = document.getElementById('product-search').value.toLowerCase();
+
+            state.vehiclesList.forEach(v => {
+                if (state.selectedCatalogSegment !== 'all' && v.category !== state.selectedCatalogSegment) return;
+                if (query && !v.name.toLowerCase().includes(query)) return;
+
+                const card = document.createElement('div');
+                card.className = "bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card";
+                card.innerHTML = `
+                    <div class="p-6 relative flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="text-[10px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 px-2.5 py-1 rounded border border-brand-red/20">
+                                    ${v.category === 'scooter' ? 'Scooter' : v.category.toUpperCase().replace('_', ' ')}
+                                </span>
+                                <span class="px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider ${v.inStock ? 'bg-green-500/10 text-green-500 border border-green-500/20' : 'bg-brand-red/10 text-brand-red border border-brand-red/25'} font-sans">
+                                    ${v.inStock ? 'Available' : 'High Demand'}
+                                </span>
+                            </div>
+                            <h3 class="text-lg font-extrabold text-white mt-3 group-hover:text-brand-red transition-colors font-sans">${v.name}</h3>
+                            
+                            <!-- Premium Image Container -->
+                            <div class="my-4 h-40 flex items-center justify-center bg-brand-onyx/40 rounded-xl border border-brand-border/30 relative overflow-hidden p-4 group-hover:scale-[1.02] transition-transform duration-500">
+                                <img src="${v.image}" alt="${v.name}" class="max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-105 filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.5)]">
+                            </div>
+                            
+                            <!-- Quick Specs Grid -->
+                            <div class="grid grid-cols-2 gap-2.5 text-xs font-sans text-gray-200 border-t border-b border-brand-border/30 py-3 my-4">
+                                <div class="flex items-center gap-1.5 min-w-0">
+                                    <svg class="w-3.5 h-3.5 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    <span class="truncate" title="${v.disp}">${v.disp} Engine</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 min-w-0">
+                                    <svg class="w-3.5 h-3.5 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                    <span class="truncate" title="${v.power}">${v.power.split('@')[0]}</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 min-w-0">
+                                    <svg class="w-3.5 h-3.5 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                                    <span class="truncate" title="${v.fuelTank}">${v.fuelTank} Tank</span>
+                                </div>
+                                <div class="flex items-center gap-1.5 min-w-0">
+                                    <svg class="w-3.5 h-3.5 text-brand-red flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                                    <span class="truncate" title="${v.feature}">${v.feature}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-baseline justify-between font-mono my-3">
+                                <span class="text-xs text-gray-200 font-sans">Showroom Price starting</span>
+                                <span class="text-base font-extrabold text-white">₹${v.price.toLocaleString('en-IN')}*</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3 mt-2 font-sans">
+                                <button onclick="showSpecsModal('${v.name.replace(/'/g, "\\'")}', '${v.disp}', '${v.power}', '${v.fuelTank}', '${v.feature.replace(/'/g, "\\'")}', '₹${v.price.toLocaleString('en-IN')}')" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded bg-brand-slate hover:bg-brand-border text-white border border-brand-border transition-all">Check Specs</button>
+                                <button onclick="handleProductEmiTrigger('${v.name.replace(/'/g, "\\'")}', ${v.price})" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded bg-brand-red hover:bg-brand-redHover text-white transition-all">Calculate EMI</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterProductCatalog() {
+            renderCatalog();
+        }
+
+        function filterCatalogSegment(segment, btn) {
+            state.selectedCatalogSegment = segment;
+            const buttons = document.querySelectorAll('.catalog-filter-btn');
+            buttons.forEach(b => {
+                b.className = "catalog-filter-btn px-4 py-2.5 text-xs font-bold rounded-lg bg-brand-onyx text-gray-200 hover:text-white border border-brand-border uppercase tracking-wider font-sans";
+            });
+            btn.className = "catalog-filter-btn px-4 py-2.5 text-xs font-bold rounded-lg bg-brand-red text-white uppercase tracking-wider font-sans";
+            renderCatalog();
+        }
+
+        function handleProductEmiTrigger(name, price) {
+            // Send back to home view tab
+            switchView('home');
+            setTimeout(() => {
+                triggerQuickEMI(name, price);
+            }, 300);
+        }
+
+        // EMI SIMULATOR CONTROLS
+        function setTenure(months, btn) {
+            state.selectedEmiTenure = months;
+            const btns = document.querySelectorAll('.tenure-btn');
+            btns.forEach(b => {
+                b.className = "tenure-btn px-3 py-2.5 text-xs font-bold rounded-lg border border-brand-border bg-brand-onyx text-gray-200 hover:text-white transition-all font-mono";
+            });
+            btn.className = "tenure-btn px-3 py-2.5 text-xs font-bold rounded-lg border border-brand-red bg-brand-red/10 text-white transition-all font-mono";
+            calculateEMI();
+        }
+
+        function calculateEMI() {
+            const price = state.selectedEmiPrice;
+            const downpayment = parseInt(document.getElementById('downpayment-slider').value);
+            document.getElementById('downpayment-label').innerText = `₹${downpayment.toLocaleString('en-IN')}`;
+
+            // Calculate On-Road dynamic items
+            const rtoTax = Math.round(price * 0.10);
+            const insurance = 7200;
+            const safetyCess = 1850;
+            const principal = price - downpayment;
+
+            // Update Breakdown UI elements
+            document.getElementById('breakdown-ex').innerText = `₹${price.toLocaleString('en-IN')}`;
+            document.getElementById('breakdown-rto').innerText = `₹${rtoTax.toLocaleString('en-IN')}`;
+            document.getElementById('breakdown-ins').innerText = `₹${insurance.toLocaleString('en-IN')}`;
+            document.getElementById('breakdown-down').innerText = `-₹${downpayment.toLocaleString('en-IN')}`;
+            
+            const netLoanPrincipal = Math.max(0, principal + rtoTax + insurance + safetyCess);
+            document.getElementById('breakdown-net').innerText = `₹${netLoanPrincipal.toLocaleString('en-IN')}`;
+
+            // Standard Amortization formula
+            const annualRate = 8.5; 
+            const monthlyRate = (annualRate / 12) / 100;
+            const totalMonths = state.selectedEmiTenure;
+
+            let monthlyEMI = 0;
+            if (netLoanPrincipal > 0) {
+                monthlyEMI = (netLoanPrincipal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+            }
+            document.getElementById('calculated-emi').innerText = `₹${Math.round(monthlyEMI).toLocaleString('en-IN')}`;
+        }
+
+        function triggerQuickEMI(bikeName, exShowroomPrice) {
+            state.selectedEmiBike = bikeName;
+            state.selectedEmiPrice = exShowroomPrice;
+            document.getElementById('emi-bike-name').innerText = bikeName;
+            document.getElementById('emi-bike-price-label').innerText = `₹${exShowroomPrice.toLocaleString('en-IN')}`;
+            
+            const slider = document.getElementById('downpayment-slider');
+            slider.min = Math.round(exShowroomPrice * 0.15);
+            slider.max = Math.round(exShowroomPrice * 0.80);
+            slider.value = Math.round(exShowroomPrice * 0.25);
+            
+            calculateEMI();
+            
+            // Scroll to simulator with dynamic glow feedback
+            const finSection = document.getElementById('financing');
+            finSection.scrollIntoView({ behavior: 'smooth' });
+            finSection.classList.add('border-brand-red');
+            setTimeout(() => finSection.classList.remove('border-brand-red'), 1200);
+
+            showToast("Price Loaded", `EMI adjustments configured for ${bikeName}.`, "success");
+        }
+
+        function triggerPreApproval() {
+            const emi = document.getElementById('calculated-emi').innerText;
+            document.getElementById('modal-bike').innerText = state.selectedEmiBike;
+            document.getElementById('modal-emi').innerText = emi;
+            document.getElementById('preapproval-modal').classList.remove('hidden');
+        }
+
+        function closePreApproval() {
+            document.getElementById('preapproval-modal').classList.add('hidden');
+        }
+
+        function handlePreApprovalSubmission(event) {
+            event.preventDefault();
+            closePreApproval();
+            showToast("Details Submitted!", "Your loan eligibility inquiry has been logged. Our showroom staff will reach you soon on WhatsApp.", "success");
+            event.target.reset();
+        }
+
+        // OFFERS ACTIONS
+        function claimOfferCode(code) {
+            showToast("Offer Registered!", `Special offer "${code}" has been selected. Complete the Enquiry Form to apply.`, "success");
+            switchView('enquiry');
+            document.getElementById('enq-notes').value = `Applied Showroom Coupon: [${code}]`;
+        }
+
+        // REVIEWS FEED COMPONENT
+        function renderReviews() {
+            const container = document.getElementById('reviews-feed');
+            container.innerHTML = '';
+
+            state.reviewsList.forEach(r => {
+                const item = document.createElement('div');
+                item.className = "p-6 bg-brand-slate rounded-2xl border border-brand-border relative interactive-card";
+                
+                let stars = '';
+                for (let i = 0; i < r.rating; i++) {
+                    stars += '★';
+                }
+
+                item.innerHTML = `
+                    <div class="flex items-center gap-2 mb-2 font-sans">
+                        <span class="text-amber-500 text-sm font-mono">${stars}</span>
+                        <span class="text-sm text-gray-200 font-sans">Verified Customer</span>
+                    </div>
+                    <p class="text-sm text-white italic leading-relaxed font-sans">"${r.comment}"</p>
+                    <div class="mt-4 flex items-center gap-3 font-sans">
+                        <div class="w-8 h-8 rounded-full bg-brand-onyx flex items-center justify-center font-bold text-xs text-brand-red">${r.author.slice(0,2).toUpperCase()}</div>
+                        <span class="text-xs font-bold text-brand-textLight block">${r.author}</span>
+                    </div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        function handleReviewSubmission(event) {
+            event.preventDefault();
+            const author = document.getElementById('review-author').value;
+            const rating = parseInt(document.getElementById('review-rating').value);
+            const comment = document.getElementById('review-comment').value;
+
+            state.reviewsList.unshift({ author, rating, comment });
+            renderReviews();
+            showToast("Review Submitted!", "Thank you for rating Pavizham Associates Showroom.", "success");
+            event.target.reset();
+        }
+
+        // GALLERY MULTIMEDIA LIGHTBOX
+        function openLightbox(title, description) {
+            document.getElementById('lightbox-title').innerText = title;
+            document.getElementById('lightbox-description').innerText = description;
+            document.getElementById('lightbox-overlay').classList.remove('hidden');
+            document.getElementById('lightbox-overlay').classList.add('flex');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-overlay').classList.add('hidden');
+            document.getElementById('lightbox-overlay').classList.remove('flex');
+        }
+
+        // READ FULL ARTICLES IN DESKTOP MODEL
+        function readArticleFull(title, body) {
+            document.getElementById('article-modal-title').innerText = title;
+            document.getElementById('article-modal-body').innerText = body;
+            document.getElementById('article-modal').classList.remove('hidden');
+        }
+
+        function closeArticleModal() {
+            document.getElementById('article-modal').classList.add('hidden');
+        }
+
+        // GENERAL MODALS & DIALOG ACTIONS
+        function showSpecsModal(title, disp, power, fuel, feature, price) {
+            document.getElementById('specs-modal-title').innerText = `${title} Specifications`;
+            document.getElementById('specs-val-disp').innerText = disp;
+            document.getElementById('specs-val-power').innerText = power;
+            document.getElementById('specs-val-fuel').innerText = fuel;
+            document.getElementById('specs-val-feature').innerText = feature;
+            document.getElementById('specs-val-price').innerText = price;
+            document.getElementById('specs-modal').classList.remove('hidden');
+        }
+
+        // Close functions
+        function closeSpecsModal() {
+            document.getElementById('specs-modal').classList.add('hidden');
+        }
+
+        // ENQUIRY SYSTEM HANDLER
+        function handleEnquiryFormSubmission(event) {
+            event.preventDefault();
+            const name = document.getElementById('enq-name').value;
+            const model = document.getElementById('enq-model').value;
+            const mode = document.getElementById('enq-finance').value;
+
+            showToast("Enquiry Received!", `Thank you, ${name}. Our staff will send the on-road price sheet for ${model} directly to your mobile number.`, "success");
+            event.target.reset();
+        }
+
+    </script>
+</body>
+</html>
