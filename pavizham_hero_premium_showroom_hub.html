@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavizham Associates - Authorized Hero Showroom, Kandoth</title>
+    <title>M/S. Pavizham Associates - Authorized Hero Showroom, Kandoth</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & JetBrains Mono -->
@@ -109,12 +109,170 @@
         .animation-delay-200 { animation-delay: 200ms; }
         .animation-delay-300 { animation-delay: 300ms; }
         .animation-delay-400 { animation-delay: 400ms; }
+
+        /* Perspective 3D Reflection Floor Grid */
+        .floor-grid-container {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35vh;
+            perspective: 1000px;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .floor-grid {
+            width: 200%;
+            height: 200%;
+            margin-left: -50%;
+            background-image: 
+                linear-gradient(to right, rgba(223, 25, 33, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(223, 25, 33, 0.06) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: rotateX(75deg);
+            transform-origin: top center;
+            opacity: 0.85;
+            transition: transform 0.1s ease-out;
+        }
+        /* Custom Glowing Badge Border */
+        .tech-badge-container {
+            position: relative;
+            background: rgba(15, 16, 19, 0.6);
+            border: 1px solid rgba(223, 25, 33, 0.15);
+            backdrop-filter: blur(8px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .tech-badge-container::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 0.75rem;
+            padding: 1px;
+            background: linear-gradient(90deg, transparent, rgba(223, 25, 33, 0.8), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .tech-badge-container.active-badge::before {
+            opacity: 1;
+            background: linear-gradient(90deg, transparent, #df1921, transparent);
+            animation: border-slide 3s linear infinite;
+        }
+        @keyframes border-slide {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        .tech-badge-container:hover {
+            transform: translateY(-4px);
+            border-color: rgba(223, 25, 33, 0.4);
+            box-shadow: 0 10px 20px -5px rgba(223, 25, 33, 0.2);
+        }
+        
+        /* Animated spotlight base styles */
+        #detail-spotlight {
+            background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.05), transparent 70%);
+            mix-blend-mode: screen;
+        }
+        
+        /* Custom line connector styles */
+        .tech-connector-line {
+            stroke: rgba(223, 25, 33, 0.4);
+            stroke-width: 1.5;
+            stroke-dasharray: 8 4;
+            animation: line-dash 30s linear infinite;
+            transition: stroke-dashoffset 0.5s ease, opacity 0.5s ease;
+        }
+        @keyframes line-dash {
+            to { stroke-dashoffset: -1000; }
+        }
+        
+        /* Odometer Monospace Layout */
+        .odometer-digit {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* 3D Dot Matrix Pattern */
+        .dot-matrix {
+            background-size: 24px 24px;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        }
+
+        /* Float Animations for Ambient Vectors */
+        @keyframes gradient-float-1 {
+            0% { transform: translate(-20%, -15%) scale(1); }
+            50% { transform: translate(15%, 25%) scale(1.25); }
+            100% { transform: translate(-20%, -15%) scale(1); }
+        }
+        @keyframes gradient-float-2 {
+            0% { transform: translate(15%, 20%) scale(1.2); }
+            50% { transform: translate(-25%, -15%) scale(0.9); }
+            100% { transform: translate(15%, 20%) scale(1.2); }
+        }
+        .gradient-glow-1 {
+            background: radial-gradient(circle, rgba(223, 25, 33, 0.05) 0%, transparent 65%);
+            animation: gradient-float-1 25s infinite ease-in-out;
+        }
+        .gradient-glow-2 {
+            background: radial-gradient(circle, rgba(30, 41, 59, 0.12) 0%, transparent 70%);
+            animation: gradient-float-2 30s infinite ease-in-out;
+        }
+
+        /* Staggered Title cascade */
+        @keyframes slideUpWord {
+            from {
+                transform: translateY(115%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .animate-slide-up {
+            animation: slideUpWord 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Bento mouse-tracking border effects */
+        .bento-panel-border {
+            position: relative;
+            z-index: 10;
+            border-radius: 1rem;
+            background: rgba(15, 17, 22, 0.85);
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .bento-panel-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 1rem;
+            background: radial-gradient(250px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(223, 25, 33, 0.35), transparent 60%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .bento-panel-border:hover::before {
+            opacity: 1;
+        }
+        .bento-panel-border:hover {
+            box-shadow: 0 15px 30px -10px rgba(223, 25, 33, 0.1);
+        }
     </style>
 </head>
 <body class="bg-brand-onyx text-brand-textLight font-sans antialiased selection:bg-brand-red selection:text-white">
 
     <!-- TOAST NOTIFICATION CONTAINER -->
     <div id="toast-container" class="fixed top-6 right-6 z-50 flex flex-col gap-3 max-w-sm w-full"></div>
+
+    <!-- GOOGLE FLOW PORTAL BACKGROUND -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden select-none">
+        <div class="absolute inset-0 dot-matrix opacity-80"></div>
+        <div class="absolute top-[-25%] left-[-25%] w-[85%] h-[85%] gradient-glow-1 filter blur-3xl"></div>
+        <div class="absolute bottom-[-15%] right-[-15%] w-[90%] h-[90%] gradient-glow-2 filter blur-3xl"></div>
+    </div>
 
     <!-- MAIN APP WRAPPER -->
     <div class="min-h-screen flex flex-col relative overflow-x-clip">
@@ -135,26 +293,56 @@
                 </a>
 
                 <!-- Desktop Navigation Menu (Multi-Page SaaS Simulation Router) -->
-                <nav class="hidden xl:flex items-center gap-2.5 text-sm font-bold tracking-wider uppercase flex-shrink-0" style="flex-shrink: 0;">
-                    <button onclick="switchView('home')" id="nav-home" class="nav-link text-white bg-brand-panel border border-brand-red/30 shadow-md shadow-brand-red/5 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-bold">Home</button>
-                    <button onclick="switchView('products')" id="nav-products" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Bikes</button>
-                    <button onclick="switchView('offers')" id="nav-offers" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Offers</button>
-                    <button onclick="switchView('reviews')" id="nav-reviews" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Reviews</button>
-                    <button onclick="switchView('articles')" id="nav-articles" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Tips</button>
-                    <button onclick="switchView('gallery')" id="nav-gallery" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Photos</button>
-                    <button onclick="switchView('enquiry')" id="nav-enquiry" class="nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold">Enquiry</button>
-                    
-                    <div class="h-4 w-px bg-brand-border mx-2"></div>
-                    <a href="https://maps.app.goo.gl/UqUzgUpgsa774DCw5" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs text-gray-300 hover:text-brand-red hover:border-brand-red/50 transition-all duration-300 bg-brand-slate px-3.5 py-2 rounded-full border border-brand-border normal-case font-semibold whitespace-nowrap">
-                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                        <span>Kandoth, Kannur</span>
-                    </a>
-                </nav>
+                <nav class="hidden xl:flex items-center gap-1.5 text-sm font-bold tracking-wider uppercase bg-white/[0.02] border border-white/[0.05] backdrop-blur-xl px-2 py-1.5 rounded-full relative z-10" style="flex-shrink: 0;">
+                    <!-- Sliding active indicator capsule -->
+                    <div id="nav-indicator-capsule" class="absolute bg-brand-red/10 border border-brand-red/30 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-0 opacity-0 pointer-events-none"></div>
 
+                    <button onclick="switchView('home')" id="nav-home" class="nav-link text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-bold z-10 relative">Home</button>
+                    <button onclick="switchView('products')" id="nav-products" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Bikes</button>
+                    <button onclick="switchView('offers')" id="nav-offers" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Offers</button>
+                    <button onclick="switchView('reviews')" id="nav-reviews" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Reviews</button>
+                    <button onclick="switchView('social')" id="nav-social" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Social</button>
+                    <button onclick="switchView('articles')" id="nav-articles" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Tips</button>
+                    <button onclick="switchView('gallery')" id="nav-gallery" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Photos</button>
+                    <button onclick="switchView('enquiry')" id="nav-enquiry" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Enquiry</button>
+                    
+                    <div class="h-4 w-px bg-brand-border mx-1 z-10 relative"></div>
+                    
+                    <!-- Pulsing Location with Dropdown Showroom Hours -->
+                    <div class="relative group z-10">
+                        <a href="https://maps.app.goo.gl/UqUzgUpgsa774DCw5" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[10px] text-gray-300 hover:text-brand-red transition-all duration-300 bg-brand-slate px-3.5 py-2 rounded-full border border-brand-border normal-case font-semibold whitespace-nowrap">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </span>
+                            <span>Kandoth, Kannur</span>
+                            <svg class="w-3.5 h-3.5 text-gray-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        
+                        <!-- Showroom Working Hours Hover Card -->
+                        <div class="absolute top-full mt-2.5 right-0 bg-brand-panel/95 backdrop-blur-md border border-brand-border p-4 rounded-xl shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 min-w-[220px]">
+                            <h5 class="text-xs font-bold text-white uppercase tracking-wider mb-2 font-sans border-b border-brand-border/40 pb-1.5 flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <span>Showroom Hours</span>
+                            </h5>
+                            <div class="space-y-1.5 text-[11px] font-mono text-gray-300">
+                                <div class="flex justify-between"><span>Mon - Sat:</span><span class="text-white">9:00 AM - 6:00 PM</span></div>
+                                <div class="flex justify-between text-brand-red"><span>Sunday:</span><span class="font-bold">Closed</span></div>
+                            </div>
+                            <p class="text-[9px] text-brand-textMuted mt-2.5 leading-normal font-sans">Visit us at NH Perumba for authorized services and priority test rides.</p>
+                        </div>
+                    </div>
+                </nav>
+ 
                 <!-- Action button -->
                 <div class="flex items-center gap-3 flex-shrink-0">
-                    <button onclick="switchView('enquiry')" class="bg-brand-red hover:bg-brand-redHover text-white px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-lg hover:shadow-brand-red/25 hover:-translate-y-0.5 font-sans">
-                        Book Free Test Ride
+                    <button onclick="switchView('enquiry')" class="bg-brand-red hover:bg-transparent border border-brand-red hover:border-brand-red text-white hover:text-brand-red px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_15px_rgba(223, 25, 33, 0.4)] hover:-translate-y-0.5 font-sans flex items-center gap-2 group">
+                        <span>Book Free Test Ride</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform text-white group-hover:text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
                     </button>
                     <!-- Mobile Hamburger Menu Button -->
                     <button onclick="toggleMobileMenu()" class="xl:hidden p-2 text-gray-100 hover:text-white focus:outline-none rounded-lg hover:bg-brand-panel transition-colors">
@@ -169,6 +357,7 @@
                 <button onclick="switchView('products'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Bikes &amp; Scooters</button>
                 <button onclick="switchView('offers'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Offers</button>
                 <button onclick="switchView('reviews'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Reviews</button>
+                <button onclick="switchView('social'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Social</button>
                 <button onclick="switchView('articles'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Tips</button>
                 <button onclick="switchView('gallery'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Photos</button>
                 <button onclick="switchView('enquiry'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Enquiry</button>
@@ -188,12 +377,27 @@
                             Official Showroom Website
                         </span>
 
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight animate-fade-in-up animation-delay-100">
-                            Find Your Dream Ride.<br><span class="text-brand-red">Now in Kandoth, Kannur.</span>
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-4xl mx-auto leading-tight pb-1 overflow-hidden select-none">
+                            <span class="inline-block overflow-hidden align-bottom">
+                                <span class="inline-block animate-slide-up">Find</span>
+                            </span>
+                            <span class="inline-block overflow-hidden align-bottom">
+                                <span class="inline-block animate-slide-up" style="animation-delay: 100ms;">&nbsp;Your&nbsp;</span>
+                            </span>
+                            <span class="inline-block overflow-hidden align-bottom">
+                                <span class="inline-block animate-slide-up" style="animation-delay: 200ms;">Dream</span>
+                            </span>
+                            <span class="inline-block overflow-hidden align-bottom">
+                                <span class="inline-block animate-slide-up" style="animation-delay: 300ms;">&nbsp;Ride.</span>
+                            </span>
+                            <br>
+                            <span class="inline-block overflow-hidden align-bottom text-brand-red">
+                                <span class="inline-block animate-slide-up" style="animation-delay: 500ms;">Now in Kandoth, Kannur.</span>
+                            </span>
                         </h1>
                         
                         <p class="mt-6 text-lg sm:text-lg text-gray-200 max-w-2xl mx-auto font-normal leading-relaxed animate-fade-in-up animation-delay-200">
-                            Check showroom prices, calculate your monthly EMI (installments), and book a free test ride at Pavizham Associates showroom instantly.
+                            Check showroom prices, calculate your monthly EMI (installments), and book a free test ride at M/S. Pavizham Associates showroom instantly.
                         </p>
 
                         <!-- SaaS Interactive Hub Control -->
@@ -278,8 +482,9 @@
 
                 <!-- BENTO BOX ADVANTAGE GRID -->
                 <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-brand-border reveal">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="p-6 bg-brand-slate rounded-2xl border border-brand-border interactive-card">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        <!-- Bikes & Scooters: 5 cols -->
+                        <div class="lg:col-span-5 p-7 border border-brand-border/60 bento-panel-border transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red mb-4">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                             </div>
@@ -287,29 +492,33 @@
                             <p class="text-base text-gray-200 mt-2 leading-relaxed">Search, filter, and compare all Hero motorcycles and scooters. Check specifications like mileage, engine power (CC), and showroom prices easily.</p>
                             <button onclick="switchView('products')" class="mt-4 text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 group font-sans">
                                 <span>View Price List</span>
-                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
-                        <div class="p-6 bg-brand-slate rounded-2xl border border-brand-border interactive-card">
+                        
+                        <!-- Showroom Offers: 4 cols -->
+                        <div class="lg:col-span-4 p-7 border border-brand-border/60 bento-panel-border transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-500 mb-4">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
                             <h3 class="font-bold text-white text-lg font-sans">Showroom Offers</h3>
-                            <p class="text-base text-gray-200 mt-2 leading-relaxed">Get special low down-payment options, festival discounts,and other offers available for customers in Kannur district.</p>
+                            <p class="text-base text-gray-200 mt-2 leading-relaxed">Get special low down-payment options, festival discounts, and other offers available for customers in Kannur district.</p>
                             <button onclick="switchView('offers')" class="mt-4 text-green-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 group font-sans">
                                 <span>Check Latest Offers</span>
-                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
-                        <div class="p-6 bg-brand-slate rounded-2xl border border-brand-border interactive-card">
+                        
+                        <!-- Customer Reviews: 3 cols -->
+                        <div class="lg:col-span-3 p-7 border border-brand-border/60 bento-panel-border transition-all duration-300">
                             <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-500 mb-4">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
                             </div>
                             <h3 class="font-bold text-white text-lg font-sans">What Customers Say</h3>
-                            <p class="text-base text-gray-200 mt-2 leading-relaxed">See reviews and delivery photos from our happy customers in Kannur. Feel free to share your showroom experience with us.</p>
+                            <p class="text-base text-gray-200 mt-2 leading-relaxed">See reviews and delivery photos from our happy customers in Kannur. Share your showroom experience.</p>
                             <button onclick="switchView('reviews')" class="mt-4 text-purple-500 hover:text-white transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 group font-sans">
                                 <span>Read Customer Reviews</span>
-                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </button>
                         </div>
                     </div>
@@ -356,11 +565,14 @@
                                     </div>
                                     <div class="space-y-3 font-sans">
                                         <span class="block text-sm font-semibold text-gray-200 uppercase tracking-wider">Loan Period (How Many Months?)</span>
-                                        <div class="grid grid-cols-4 gap-2.5 font-sans">
-                                            <button onclick="setTenure(12, this)" class="tenure-btn px-3 py-2.5 text-sm font-bold rounded-lg border border-brand-border bg-brand-onyx text-gray-200 hover:text-white transition-all font-mono">12 Months (1 Yr)</button>
-                                            <button onclick="setTenure(24, this)" class="tenure-btn px-3 py-2.5 text-xs font-bold rounded-lg border border-brand-red bg-brand-red/10 text-white transition-all font-mono">24 Months (2 Yrs)</button>
-                                            <button onclick="setTenure(36, this)" class="tenure-btn px-3 py-2.5 text-sm font-bold rounded-lg border border-brand-border bg-brand-onyx text-gray-200 hover:text-white transition-all font-mono">36 Months (3 Yrs)</button>
-                                            <button onclick="setTenure(48, this)" class="tenure-btn px-3 py-2.5 text-sm font-bold rounded-lg border border-brand-border bg-brand-onyx text-gray-200 hover:text-white transition-all font-mono">48 Months (4 Yrs)</button>
+                                        <div class="grid grid-cols-4 gap-2.5 p-1 bg-brand-onyx rounded-lg border border-brand-border relative z-10 font-sans">
+                                            <!-- Sliding active background slider box -->
+                                            <div id="tenure-active-bg" class="absolute bg-brand-red rounded-md transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] z-0 pointer-events-none opacity-0"></div>
+
+                                            <button onclick="setTenure(12, this)" id="tenure-btn-12" class="tenure-btn px-2 py-2.5 text-[10px] font-bold rounded-lg text-gray-300 hover:text-white transition-all font-mono z-10 relative">12 Months</button>
+                                            <button onclick="setTenure(24, this)" id="tenure-btn-24" class="tenure-btn px-2 py-2.5 text-[10px] font-bold rounded-lg text-white transition-all font-mono z-10 relative">24 Months</button>
+                                            <button onclick="setTenure(36, this)" id="tenure-btn-36" class="tenure-btn px-2 py-2.5 text-[10px] font-bold rounded-lg text-gray-300 hover:text-white transition-all font-mono z-10 relative">36 Months</button>
+                                            <button onclick="setTenure(48, this)" id="tenure-btn-48" class="tenure-btn px-2 py-2.5 text-[10px] font-bold rounded-lg text-gray-300 hover:text-white transition-all font-mono z-10 relative">48 Months</button>
                                         </div>
                                     </div>
                                 </div>
@@ -519,45 +731,32 @@
             <div id="view-reviews" class="view-section">
                 <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
                     <div class="text-center max-w-3xl mx-auto mb-16 font-sans">
-                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest">Happy Customer Reviews</span>
-                        <h1 class="text-4xl font-extrabold text-white mt-2">What Our Customers Say</h1>
-                        <p class="text-base text-gray-100 mt-1">Check real reviews from our customers in Kandoth, Kannur. Tell us about your showroom or delivery experience.</p>
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest block">DISCOVER OUR OFFERINGS.</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2">Reviews</h1>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                        <!-- Rating Summary & Submission Form (5 columns) -->
-                        <div class="lg:col-span-5 space-y-8">
-                            <div class="bg-brand-slate p-6 rounded-2xl border border-brand-border">
-                                <h3 class="font-bold text-white text-lg mb-4 font-sans">Showroom Rating</h3>
-                                <div class="flex items-baseline gap-2 font-mono">
-                                    <span class="text-5xl font-extrabold text-white">4.9</span>
-                                    <span class="text-base text-gray-100">/ 5.0 Stars</span>
+                        <!-- Google Rating Card (5 columns) -->
+                        <div class="lg:col-span-5">
+                            <div class="bg-white text-gray-900 p-8 rounded-2xl border border-gray-200 shadow-xl flex flex-col items-center justify-center text-center">
+                                <!-- Google logo -->
+                                <div class="flex items-center justify-center gap-0.5 text-3xl font-bold font-sans tracking-tight">
+                                    <span class="text-blue-600">G</span>
+                                    <span class="text-red-500">o</span>
+                                    <span class="text-yellow-500">o</span>
+                                    <span class="text-blue-600">g</span>
+                                    <span class="text-green-500">l</span>
+                                    <span class="text-red-500">e</span>
                                 </div>
-                                <p class="text-base text-gray-200 mt-2 font-sans">Based on over 2,400+ satisfied customers and service center feedback.</p>
-                            </div>
-
-                            <!-- Interactive Submit review box -->
-                            <div class="bg-brand-slate p-6 rounded-2xl border border-brand-border">
-                                <h3 class="font-bold text-white text-lg mb-4 font-sans">Write a Review</h3>
-                                <form onsubmit="handleReviewSubmission(event)" class="space-y-4">
-                                    <div class="space-y-1">
-                                        <label class="text-base text-gray-200 uppercase tracking-wider font-semibold font-sans">Your Name</label>
-                                        <input required id="review-author" type="text" placeholder="Full Name" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
-                                    </div>
-                                    <div class="space-y-1">
-                                        <label class="text-base text-gray-200 uppercase tracking-wider font-semibold font-sans">Choose Rating (Stars)</label>
-                                        <select id="review-rating" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red cursor-pointer font-mono font-sans">
-                                            <option value="5">★★★★★ (5 Stars)</option>
-                                            <option value="4">★★★★☆ (4 Stars)</option>
-                                            <option value="3">★★★☆☆ (3 Stars)</option>
-                                        </select>
-                                    </div>
-                                    <div class="space-y-1">
-                                        <label class="text-base text-gray-200 uppercase tracking-wider font-semibold font-sans">Your Experience / Comments</label>
-                                        <textarea required id="review-comment" rows="3" placeholder="Tell us how you liked our delivery speed or showroom behavior..." class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red font-sans"></textarea>
-                                    </div>
-                                    <button type="submit" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all font-sans">Submit My Review</button>
-                                </form>
+                                <span class="text-sm text-gray-500 font-medium mt-4 block uppercase tracking-wider">Average rating</span>
+                                <span class="text-6xl font-black text-gray-900 mt-2 font-sans">4.1</span>
+                                <div class="flex items-center justify-center gap-1 text-2xl text-yellow-400 mt-3">
+                                    <span>★</span><span>★</span><span>★</span><span>★</span><span class="text-gray-300">★</span>
+                                </div>
+                                <span class="text-xs text-gray-500 font-semibold mt-2 block">Based on 230 Reviews</span>
+                                <a href="https://www.google.com/search?hl=en-IN&gl=in&q=Ground+Floor,+M/S.+Pavizham+Associates+-+Hero+MotoCorp,+NH+Perumba,+Kandoth,+Payyanur,+Kerala+670307&ludocid=17717779202755109983&lsig=AB86z5VjcowaLq4jca48I_TcU9sF#" target="_blank" rel="noopener noreferrer" class="w-full mt-8 bg-[#DF1921] hover:bg-[#C11219] text-white text-center py-3.5 rounded font-bold uppercase tracking-widest text-xs transition-all duration-300 block shadow-md shadow-red-500/10 hover:shadow-red-500/20 hover:-translate-y-0.5">
+                                    WRITE A REVIEW
+                                </a>
                             </div>
                         </div>
 
@@ -570,6 +769,112 @@
                                 <!-- Populated dynamically by renderReviews() -->
                             </div>
                         </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= SOCIAL PAGE VIEW ================= -->
+            <div id="view-social" class="view-section">
+                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-16 font-sans">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest block">EXPLORE</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2">Hero MotoCorp On Social</h1>
+                        <p class="text-base text-gray-200 mt-2">Follow our official social media handles for the latest updates, launches, and customer stories.</p>
+                        
+                        <!-- Social media quick badges -->
+                        <div class="flex items-center justify-center gap-4 mt-6">
+                            <a href="https://www.instagram.com/pavizhamhero/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white transition-all shadow-md shadow-pink-500/10">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://www.facebook.com/pavizhamherobikes/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-md shadow-blue-500/10">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                <span>Facebook</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Social Feed Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        <!-- Post 1 (Instagram Reel) -->
+                        <a href="https://www.instagram.com/p/DZhE0yBR9aO/" target="_blank" rel="noopener noreferrer" class="bg-brand-panel rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
+                            <div>
+                                <!-- Image Container -->
+                                <div class="relative aspect-[4/5] bg-brand-onyx overflow-hidden">
+                                    <img src="destini_social_reel.png" alt="One ride can change your everyday. #Destini" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                    <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white">
+                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                                    </div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
+                                        <span class="text-white text-xs font-bold bg-brand-red px-2 py-1 rounded">Instagram Reel</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-200 leading-relaxed font-sans">One ride can change your everyday. #Destini #HeroMotoCorp</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
+                                <span class="text-xs text-brand-textMuted font-mono">Published On: 17-06-2026</span>
+                                <span class="text-brand-red text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span>View on Instagram</span>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </span>
+                            </div>
+                        </a>
+                        
+                        <!-- Post 2 (Instagram Reel/Post) -->
+                        <a href="https://www.instagram.com/p/DZ-B42pJyNJ4tfRzU9PDcaPqsZatS304PfsWTY0/" target="_blank" rel="noopener noreferrer" class="bg-brand-panel rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
+                            <div>
+                                <!-- Image Container -->
+                                <div class="relative aspect-[4/5] bg-brand-onyx overflow-hidden">
+                                    <img src="xtreme_social_reel.png" alt="The evolution of power is impossible to ignore." class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                    <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white">
+                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                                    </div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
+                                        <span class="text-white text-xs font-bold bg-brand-red px-2 py-1 rounded">Instagram Post</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-200 leading-relaxed font-sans">The evolution of power is impossible to ignore. #Xtreme #HeroMotoCorp</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
+                                <span class="text-xs text-brand-textMuted font-mono">Published On: 16-06-2026</span>
+                                <span class="text-brand-red text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span>View on Instagram</span>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </span>
+                            </div>
+                        </a>
+                        
+                        <!-- Post 3 (Facebook Reel) -->
+                        <a href="https://www.facebook.com/reel/27068759669401119/" target="_blank" rel="noopener noreferrer" class="bg-brand-panel rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
+                            <div>
+                                <!-- Image Container -->
+                                <div class="relative aspect-[4/5] bg-brand-onyx overflow-hidden">
+                                    <img src="xpulse_social_post.png" alt="Not every memorable ride starts with a plan." class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                                    <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center text-white">
+                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                    </div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
+                                        <span class="text-white text-xs font-bold bg-blue-600 px-2 py-1 rounded">Facebook Reel</span>
+                                    </div>
+                                </div>
+                                <div class="p-6">
+                                    <p class="text-sm text-gray-200 leading-relaxed font-sans">Not every memorable ride starts with a plan. Some begin with a simple thought: "Let's see where this road goes." Got a Hero moment? Tag Hero MotoCorp to be featured.</p>
+                                </div>
+                            </div>
+                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
+                                <span class="text-xs text-brand-textMuted font-mono">Published On: 15-06-2026</span>
+                                <span class="text-blue-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
+                                    <span>View on Facebook</span>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                </span>
+                            </div>
+                        </a>
+                        
                     </div>
                 </section>
             </div>
@@ -747,43 +1052,7 @@
             </div>
         </div>
 
-        <!-- SPECIFICATIONS MODAL DIALOG -->
-        <div id="specs-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-onyx/85 backdrop-blur-sm hidden">
-            <div class="bg-brand-slate max-w-md w-full rounded-2xl border border-brand-border p-6 shadow-2xl relative">
-                <button onclick="closeSpecsModal()" class="absolute top-4 right-4 text-gray-200 hover:text-white">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
-                    <h3 id="specs-modal-title" class="text-lg font-bold text-white uppercase tracking-wider font-sans">Model Specifications</h3>
-                </div>
-                <div class="space-y-4 my-6 font-sans">
-                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
-                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Engine Displacement</span>
-                        <span id="specs-val-disp" class="text-sm font-bold text-white font-mono">-</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
-                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Max Power</span>
-                        <span id="specs-val-power" class="text-sm font-bold text-white font-mono">-</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
-                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Fuel Tank Capacity</span>
-                        <span id="specs-val-fuel" class="text-sm font-bold text-white font-mono">-</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
-                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Special Highlight</span>
-                        <span id="specs-val-feature" class="text-sm font-bold text-white font-mono text-right">-</span>
-                    </div>
-                    <div class="flex justify-between items-center py-2.5 border-b border-brand-border">
-                        <span class="text-sm text-gray-200 uppercase tracking-wider font-semibold">Showroom Price (Ex)</span>
-                        <span id="specs-val-price" class="text-sm font-extrabold text-green-500 font-mono">₹0</span>
-                    </div>
-                </div>
-                <button onclick="closeSpecsModal()" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3.5 rounded-lg text-xs font-bold tracking-widest uppercase transition-all font-sans">
-                    Close Specs Box
-                </button>
-            </div>
-        </div>
+        <!-- DEPRECATED SPECS MODAL REMOVED -->
 
         <!-- FULL-SCREEN LIGHTBOX OVERLAY -->
         <div id="lightbox-overlay" onclick="closeLightbox()" class="fixed inset-0 z-50 bg-brand-onyx/95 backdrop-blur-md hidden items-center justify-center p-4 cursor-pointer">
@@ -820,11 +1089,11 @@
                         <a href="https://dealers.heromotocorp.com/" class="flex items-center gap-4 group inline-flex">
                             <img src="image_528be7.png" alt="Hero MotoCorp Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
                             <div class="border-l border-brand-border pl-4 py-0.5">
-                                <span class="font-extrabold text-white text-md block leading-none tracking-wider transition-colors group-hover:text-brand-red duration-300">PAVIZHAM ASSOCIATES</span>
+                                <span class="font-extrabold text-white text-md block leading-none tracking-wider transition-colors group-hover:text-brand-red duration-300">M/S. PAVIZHAM ASSOCIATES</span>
                                 <span class="text-xs text-brand-red font-bold tracking-widest uppercase block mt-1">Authorized Showroom</span>
                             </div>
                         </a>
-                        <p class="text-sm text-gray-100 leading-relaxed max-w-sm"Pavizham Associates is your trusted authorized Hero MotoCorp showroom in Kandoth, Kannur. We are here to help you buy your favorite bike and provide the best service support.</p>
+                        <p class="text-sm text-gray-100 leading-relaxed max-w-sm">M/S. Pavizham Associates is your trusted authorized Hero MotoCorp showroom in Kandoth, Kannur. We are here to help you buy your favorite bike and provide the best service support.</p>
                     </div>
                     <div class="space-y-4">
                         <span class="text-xs font-extrabold text-white uppercase tracking-wider block border-b border-brand-border/60 pb-2 mb-4">Showroom Address</span>
@@ -845,6 +1114,7 @@
                             <button onclick="switchView('products')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Bikes &amp; Scooters</button>
                             <button onclick="switchView('offers')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Showroom Offers</button>
                             <button onclick="switchView('reviews')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Customer Reviews</button>
+                            <button onclick="switchView('social')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Social Media Feed</button>
                             <button onclick="switchView('enquiry')" class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Enquiry Form</button>
                         </div>
                     </div>
@@ -853,16 +1123,258 @@
                         <p class="text-sm text-gray-100 leading-relaxed font-sans">Serving Payyanur, Pilathara, Cherupuzha, Alakode, and broader parts of North Kannur. Authorized Hero parts and experienced mechanics on-site.</p>
                     </div>
                 </div>
-                <div class="mt-12 pt-8 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-100">
-                    <span>&copy; 2026 Pavizham Associates. All rights reserved. Built as showroom portal.</span>
-                    <div class="flex gap-6">
-                        <a href="#" class="hover:text-white transition-colors font-sans">Privacy Policy</a>
-                        <a href="#" class="hover:text-white transition-colors font-sans">Terms of Service</a>
+                <div class="mt-12 pt-8 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-textMuted">
+                    <span>&copy; 2026 M/S. Pavizham Associates. All rights reserved. Built as showroom portal.</span>
+                    <div class="flex flex-wrap gap-x-3 gap-y-2 justify-center sm:justify-end text-brand-textMuted font-sans">
+                        <a href="https://www.heromotocorp.com/en-in/privacy-policy.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Privacy Policy</a>
+                        <span>|</span>
+                        <a href="https://www.heromotocorp.com/en-in/disclaimer.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Disclaimer</a>
+                        <span>|</span>
+                        <a href="https://www.heromotocorp.com/en-in/terms-of-use.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Terms Of Use</a>
+                        <span>|</span>
+                        <a href="https://www.heromotocorp.com/en-in/rules-and-regulations.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Rules And Regulations</a>
+                        <span>|</span>
+                        <a href="https://www.heromotocorp.com/en-in/data-collection-contract.html" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Data Collection Contract</a>
                     </div>
                 </div>
             </div>
         </footer>
 
+    </div>
+
+    <!-- IMMERSIVE SCROLL-ANIMATED PRODUCT DETAIL EXPERIENCE LAYER -->
+    <div id="product-detail-experience" class="fixed inset-0 z-50 bg-[#070709] overflow-y-auto hidden opacity-0 translate-y-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] accelerate-gpu">
+        
+        <!-- Persistent Floating Sticky Header -->
+        <div class="sticky top-0 z-50 w-full bg-[#070709]/85 backdrop-blur-md border-b border-brand-border h-20 flex items-center justify-between px-6 sm:px-12 pointer-events-auto">
+            <button onclick="closeProductDetail()" class="flex items-center gap-3 text-gray-200 hover:text-white transition-colors group">
+                <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                <span class="font-bold text-xs uppercase tracking-widest font-sans">Back to Showroom</span>
+            </button>
+            <span id="detail-bike-title" class="font-mono text-sm sm:text-base md:text-lg font-bold text-white uppercase tracking-widest">Xtreme 125R</span>
+            <button onclick="bookActiveProduct()" class="bg-brand-red hover:bg-brand-redHover text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_15px_rgba(223,25,33,0.5)] hover:-translate-y-0.5 font-sans">
+                Book Now
+            </button>
+        </div>
+
+        <!-- Floating Scroll for Specs Instruction -->
+        <div id="scroll-instruction" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1.5 opacity-100 transition-opacity duration-500 pointer-events-none select-none">
+             <span class="text-[10px] uppercase tracking-widest text-gray-400 font-mono animate-pulse">Scroll for Specs</span>
+             <svg class="w-4 h-4 text-brand-red animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+             </svg>
+        </div>
+
+        <!-- 4-Checkpoint scroll track (400vh) -->
+        <div class="relative w-full h-[400vh]">
+            
+            <!-- Sticky Workspace Panel -->
+            <div class="sticky top-20 left-0 w-full h-[calc(100vh-80px)] overflow-hidden pointer-events-none select-none">
+                
+                <!-- Background spotlight control -->
+                <div id="detail-spotlight" class="absolute inset-0 z-0 pointer-events-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"></div>
+                
+                <!-- 3D Reflection Floor Grid -->
+                <div class="floor-grid-container">
+                    <div id="detail-floor-grid" class="floor-grid"></div>
+                </div>
+
+                <!-- Massive typography backdrop -->
+                <div id="detail-bg-text" class="absolute inset-0 flex items-center justify-center font-mono font-black text-white/[0.02] text-[9vw] uppercase tracking-tighter leading-none select-none z-0 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                    XTREME 125R
+                </div>
+
+                <!-- SVG Technical Connector Lines Layer -->
+                <svg id="detail-svg-lines" class="absolute inset-0 w-full h-full z-15 pointer-events-none transition-opacity duration-700 select-none">
+                    <!-- Lines pointing to hubs and engine -->
+                    <!-- Cylinder Connector -->
+                    <line id="line-cylinder" x1="0" y1="0" x2="0" y2="0" class="tech-connector-line" opacity="0"></line>
+                    <circle id="circle-cylinder" cx="0" cy="0" r="4" fill="#df1921" opacity="0" class="transition-opacity duration-500"></circle>
+
+                    <!-- Front Hub Connector -->
+                    <line id="line-front-hub" x1="0" y1="0" x2="0" y2="0" class="tech-connector-line" opacity="0"></line>
+                    <circle id="circle-front-hub" cx="0" cy="0" r="4" fill="#df1921" opacity="0" class="transition-opacity duration-500"></circle>
+
+                    <!-- Rear Hub Connector -->
+                    <line id="line-rear-hub" x1="0" y1="0" x2="0" y2="0" class="tech-connector-line" opacity="0"></line>
+                    <circle id="circle-rear-hub" cx="0" cy="0" r="4" fill="#df1921" opacity="0" class="transition-opacity duration-500"></circle>
+
+                    <!-- Price Connector -->
+                    <line id="line-price" x1="0" y1="0" x2="0" y2="0" class="tech-connector-line" opacity="0"></line>
+                    <circle id="circle-price" cx="0" cy="0" r="4" fill="#df1921" opacity="0" class="transition-opacity duration-500"></circle>
+                </svg>
+
+                <!-- Vehicle Profile Image -->
+                <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <img id="detail-vehicle-img" src="xtreme-125r.png" alt="Motorcycle Detail" class="max-h-[42vh] sm:max-h-[48vh] w-auto object-contain transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] filter drop-shadow-[0_25px_50px_rgba(0,0,0,0.85)] accelerate-gpu">
+                </div>
+
+                <!-- ================= CHECKPOINT 1 OVERLAY (Hero) ================= -->
+                <div id="checkpoint-1-info" class="absolute bottom-10 left-6 sm:left-16 z-20 flex flex-col font-sans transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-100 transform translate-y-0">
+                    <span class="text-[10px] sm:text-xs uppercase tracking-widest text-brand-textMuted font-bold">Showroom Starting Price</span>
+                    <span id="detail-start-price" class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-1">₹95,000*</span>
+                    <span class="text-[10px] text-green-500 font-bold tracking-wider uppercase mt-1 flex items-center gap-1.5 font-mono">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        Ready for Delivery
+                    </span>
+                </div>
+
+                <!-- ================= CHECKPOINT 2 OVERLAY (Engine Internals) ================= -->
+                <!-- Left Margin Metrics -->
+                <div id="checkpoint-2-info-left" class="absolute left-6 sm:left-16 top-1/2 -translate-y-1/2 z-20 max-w-xs space-y-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform -translate-x-12 select-text pointer-events-auto">
+                    <div class="border-l-2 border-brand-red pl-4">
+                        <span class="text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Engine Displacement</span>
+                        <span id="detail-spec-disp" class="text-xl sm:text-2xl font-black text-white font-mono">124.7 CC</span>
+                        <span class="text-xs text-brand-textMuted block mt-1 leading-normal font-sans">Advanced high-compression vertical cylinder block.</span>
+                    </div>
+                    <div class="border-l-2 border-brand-red pl-4">
+                        <span class="text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Max Power Output</span>
+                        <span id="detail-spec-power" class="text-xl sm:text-2xl font-black text-white font-mono">11.4 BHP</span>
+                        <span class="text-xs text-brand-textMuted block mt-1 leading-normal font-sans">Class-leading power delivery configured for Kannur roads.</span>
+                    </div>
+                </div>
+                <!-- Right Margin Metrics -->
+                <div id="checkpoint-2-info-right" class="absolute right-6 sm:right-16 top-1/2 -translate-y-1/2 z-20 max-w-xs space-y-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform translate-x-12 select-text pointer-events-auto">
+                    <div class="border-r-2 border-brand-red pr-4 text-right">
+                        <span class="text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Peak Torque Output</span>
+                        <span id="detail-spec-torque" class="text-xl sm:text-2xl font-black text-white font-mono">10.5 Nm</span>
+                        <span class="text-xs text-brand-textMuted block mt-1 leading-normal font-sans">High low-end punch for rapid signal acceleration.</span>
+                    </div>
+                    <div class="border-r-2 border-brand-red pr-4 text-right">
+                        <span class="text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Fuel Management</span>
+                        <span id="detail-spec-fuel" class="text-xl sm:text-2xl font-black text-white font-mono">xSens FI</span>
+                        <span class="text-xs text-brand-textMuted block mt-1 leading-normal font-sans">Smart multi-sensor fuel injection optimized for peak efficiency.</span>
+                    </div>
+                </div>
+
+                <!-- ================= CHECKPOINT 3 OVERLAY (Aerodynamics & Tech Badges) ================= -->
+                <div id="checkpoint-3-info" class="absolute inset-x-0 bottom-6 sm:bottom-12 z-20 flex flex-col justify-end items-center px-4 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform translate-y-12 select-text pointer-events-auto">
+                    <div class="text-center max-w-xl mx-auto mb-6">
+                        <span class="text-[10px] font-bold text-brand-red uppercase tracking-widest font-mono">Aerodynamics &amp; Intelligence Showcase</span>
+                        <h3 class="text-xl sm:text-2xl font-extrabold text-white mt-1 font-sans">Modern Smart Tech Layout</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl w-full">
+                        <div id="tech-badge-1" class="tech-badge-container p-4 rounded-xl flex flex-col justify-between">
+                            <span class="text-[9px] font-mono font-bold text-brand-red uppercase tracking-wider">i3S System</span>
+                            <h4 class="text-sm font-extrabold text-white mt-1.5 font-sans">Smart Start-Stop</h4>
+                            <p class="text-[11px] text-gray-300 mt-1 leading-relaxed font-sans">Automatically cuts the engine at red lights, reviving it in milliseconds on clutch pull to optimize city mileage.</p>
+                        </div>
+                        <div id="tech-badge-2" class="tech-badge-container p-4 rounded-xl flex flex-col justify-between">
+                            <span class="text-[9px] font-mono font-bold text-blue-400 uppercase tracking-wider">Console Bluetooth</span>
+                            <h4 class="text-sm font-extrabold text-white mt-1.5 font-sans">Call Alerts &amp; TBT</h4>
+                            <p class="text-[11px] text-gray-300 mt-1 leading-relaxed font-sans">Stay connected on the move with Turn-by-Turn GPS navigation prompts and incoming call notification display tags.</p>
+                        </div>
+                        <div id="tech-badge-3" class="tech-badge-container p-4 rounded-xl flex flex-col justify-between">
+                            <span class="text-[9px] font-mono font-bold text-green-400 uppercase tracking-wider">Active Safety</span>
+                            <h4 class="text-sm font-extrabold text-white mt-1.5 font-sans">Single-Channel ABS</h4>
+                            <p class="text-[11px] text-gray-300 mt-1 leading-relaxed font-sans">Maintains stability and prevents wheel lockups during panic braking events on slippery Kannur monsoon highway segments.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= CHECKPOINT 4 OVERLAY (Bento Specs Matrix & Quote) ================= -->
+                <div id="checkpoint-4-info" class="absolute inset-0 z-20 flex flex-col lg:flex-row justify-between items-center p-4 sm:p-12 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform translate-y-16 pointer-events-none">
+                    
+                    <!-- Left side spacer/visual anchor -->
+                    <div class="w-full lg:w-[40%] flex flex-col justify-center items-center h-full relative p-4">
+                        <div id="bento-vehicle-wrapper" class="relative transition-all duration-700 scale-95 opacity-0 flex flex-col items-center">
+                            <img id="detail-bento-vehicle-img" src="" class="max-h-[30vh] sm:max-h-[35vh] object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]" alt="">
+                            <div class="mt-4 text-center font-sans">
+                                <span id="detail-bento-bike-name" class="font-mono text-lg sm:text-xl font-bold text-white uppercase tracking-widest block">Xtreme 125R</span>
+                                <span id="detail-bento-bike-price" class="text-base sm:text-lg font-bold font-mono text-brand-red mt-1 block">₹95,000*</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right side Specs Matrix + Loan Quote Sheet -->
+                    <div class="w-full lg:w-[60%] grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[85vh] overflow-y-auto pr-2 pointer-events-auto">
+                        <!-- Bento Cell 1: Engine Details -->
+                        <div class="bg-brand-slate/85 p-5 rounded-xl border border-brand-border font-mono text-xs space-y-3">
+                            <h4 class="font-sans font-bold text-white tracking-wide uppercase text-xs border-b border-brand-border/40 pb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                <span>Engine System</span>
+                            </h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Engine Displacement:</span><span id="bento-val-disp" class="text-white font-bold">124.7 CC</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Max Power Output:</span><span id="bento-val-power" class="text-white font-bold">11.4 BHP</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Valves Count:</span><span id="bento-val-valves" class="text-white">2 Valves / 4V</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Cooling Method:</span><span id="bento-val-cooling" class="text-white">Air-Cooled</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Bento Cell 2: Dimensions & Capacity -->
+                        <div class="bg-brand-slate/85 p-5 rounded-xl border border-brand-border font-mono text-xs space-y-3">
+                            <h4 class="font-sans font-bold text-white tracking-wide uppercase text-xs border-b border-brand-border/40 pb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4M4 20l5-5m11 1v4m0 0h-4m4 0l-5-5"></path></svg>
+                                <span>Chassis Dimensions</span>
+                            </h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Fuel Capacity:</span><span id="bento-val-tank" class="text-white font-bold">10 L</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Kerb Weight:</span><span id="bento-val-weight" class="text-white">136 kg</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Seat Height:</span><span id="bento-val-seat" class="text-white">794 mm</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Ground Clearance:</span><span id="bento-val-clearance" class="text-white">180 mm</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Bento Cell 3: Braking & Suspension -->
+                        <div class="bg-brand-slate/85 p-5 rounded-xl border border-brand-border font-mono text-xs space-y-3">
+                            <h4 class="font-sans font-bold text-white tracking-wide uppercase text-xs border-b border-brand-border/40 pb-2 flex items-center gap-2">
+                                <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                                <span>Safety Specifications</span>
+                            </h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Brake (Front):</span><span id="bento-val-brakes" class="text-white font-bold">276mm Disc (ABS)</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Brake (Rear):</span><span id="bento-val-brakes-rear" class="text-white">130mm Drum</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Suspension (F):</span><span id="bento-val-susp-front" class="text-white">Telescopic Fork</span></div>
+                                <div class="flex justify-between"><span class="text-brand-textMuted font-sans">Suspension (R):</span><span id="bento-val-susp-rear" class="text-white">Hydraulic Monoshock</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Bento Cell 4: Quote Calculator -->
+                        <div class="bg-brand-slate/90 p-5 rounded-xl border border-brand-red/35 font-mono text-xs space-y-3 ring-1 ring-brand-red/20 shadow-lg shadow-brand-red/5">
+                            <h4 class="font-sans font-bold text-white tracking-wide uppercase text-xs border-b border-brand-border/40 pb-2 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                    <span>Real-Time Loan Quote</span>
+                                </div>
+                                <span class="text-[9px] bg-green-500/10 text-green-500 border border-green-500/20 px-2 py-0.5 rounded font-mono font-bold">Kerala RTO</span>
+                            </h4>
+                            <div class="space-y-3 font-sans">
+                                <div class="flex justify-between text-[11px] font-mono"><span class="text-brand-textMuted">On-Road price:</span><span id="bento-quote-onroad" class="text-white font-bold">₹1,13,550</span></div>
+                                
+                                <div class="space-y-1 mt-1">
+                                    <div class="flex justify-between text-[10px] font-bold">
+                                        <span class="text-brand-textMuted font-sans uppercase">Down Payment Slider</span>
+                                        <span id="bento-dp-label" class="text-brand-red font-mono font-bold">₹25,000</span>
+                                    </div>
+                                    <input type="range" id="bento-dp-slider" min="10000" max="80000" step="1000" value="25000" oninput="calculateBentoQuote()" class="w-full accent-brand-red bg-brand-onyx rounded-lg appearance-none h-1.5 cursor-pointer">
+                                </div>
+                                
+                                <div class="grid grid-cols-3 gap-1 mt-1.5 text-[10px] font-mono">
+                                    <button id="bento-tenure-12" onclick="setBentoTenure(12)" class="py-1.5 rounded border border-brand-border bg-brand-onyx text-gray-200 font-bold transition-all">12 Mo</button>
+                                    <button id="bento-tenure-24" onclick="setBentoTenure(24)" class="py-1.5 rounded border border-brand-red bg-brand-red/10 text-white font-bold transition-all">24 Mo</button>
+                                    <button id="bento-tenure-36" onclick="setBentoTenure(36)" class="py-1.5 rounded border border-brand-border bg-brand-onyx text-gray-200 font-bold transition-all">36 Mo</button>
+                                </div>
+                                
+                                <div class="pt-2 border-t border-brand-border/40 flex justify-between items-center font-mono">
+                                    <div>
+                                        <span class="text-[9px] uppercase tracking-wider text-brand-textMuted block font-sans">Monthly Installment</span>
+                                        <span id="bento-calculated-emi" class="text-base sm:text-lg font-black text-white">₹3,410</span>
+                                        <span class="text-[9px] text-brand-textMuted font-sans">/ month</span>
+                                    </div>
+                                    <button onclick="bookActiveProduct()" class="bg-brand-red hover:bg-brand-redHover text-white px-4 py-2.5 rounded text-xs font-bold uppercase tracking-wider transition-all hover:shadow-lg hover:shadow-brand-red/20">Book Instant</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
     </div>
 
     <!-- MAIN CORE INTERACTIVE STATE SCRIPT -->
@@ -875,6 +1387,8 @@
             selectedEmiBike: 'XTREME 125R',
             selectedEmiPrice: 95000,
             selectedEmiTenure: 24, // months
+            prevCalculatedEmi: 3410,
+            prevCalculatedNet: 88550,
             
             // Full comprehensive vehicles index
             vehiclesList: [
@@ -902,12 +1416,38 @@
                 { name: 'HF 100', category: '100cc', disp: '97.2cc', power: '5.9 kW @ 8000 rpm', fuelTank: '9.1 L', feature: 'xSens FI Technology', price: 59500, inStock: true, image: 'hf100.png' }
             ],
 
+            // Detailed technical specs lookup map for immersive details presentation
+            specsDetail: {
+                'SPLENDOR+ XTEC 2.0': { disp: '97.2 CC', power: '7.91 BHP @ 8000 RPM', torque: '8.05 Nm @ 6000 RPM', fuel: 'xSens FI', tank: '9.8 L', weight: '112 kg', seat: '785 mm', clearance: '165 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'PASSION +': { disp: '97.2 CC', power: '7.91 BHP @ 8000 RPM', torque: '8.05 Nm @ 6000 RPM', fuel: 'i3S FI', tank: '11 L', weight: '115 kg', seat: '790 mm', clearance: '168 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'SPLENDOR +': { disp: '97.2 CC', power: '7.91 BHP @ 8000 RPM', torque: '8.05 Nm @ 6000 RPM', fuel: 'APDV FI', tank: '9.8 L', weight: '112 kg', seat: '785 mm', clearance: '165 mm', brakes: '130mm Drum (APDV)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'GLAMOUR X': { disp: '124.7 CC', power: '10.7 BHP @ 7500 RPM', torque: '10.6 Nm @ 6000 RPM', fuel: 'AERA Tech FI', tank: '10 L', weight: '122 kg', seat: '798 mm', clearance: '180 mm', brakes: '240mm Disc (CBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'XTREME 125R': { disp: '124.7 CC', power: '11.4 BHP @ 8250 RPM', torque: '10.5 Nm @ 6000 RPM', fuel: 'Sprint EFi', tank: '10 L', weight: '136 kg', seat: '794 mm', clearance: '180 mm', brakes: '276mm Disc (ABS)', brakesRear: '130mm Drum', suspFront: '37mm Telescopic', suspRear: 'Hydraulic Monoshock', valves: '2 Valves, SOHC', cooling: 'Air-Cooled' },
+                'GLAMOUR XTEC': { disp: '124.7 CC', power: '10.7 BHP @ 7500 RPM', torque: '10.6 Nm @ 6000 RPM', fuel: 'xSens EFi', tank: '10 L', weight: '123 kg', seat: '798 mm', clearance: '180 mm', brakes: '240mm Disc (CBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'DESTINI 125': { disp: '124.6 CC', power: '9.0 BHP @ 7000 RPM', torque: '10.4 Nm @ 5500 RPM', fuel: 'Programmed FI', tank: '5.3 L', weight: '115 kg', seat: '780 mm', clearance: '155 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Fork', suspRear: 'Single Coil Spring', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'DESTINI PRIME': { disp: '124.6 CC', power: '9.0 BHP @ 7000 RPM', torque: '10.4 Nm @ 5500 RPM', fuel: 'i3S FI', tank: '5.0 L', weight: '115 kg', seat: '780 mm', clearance: '155 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Fork', suspRear: 'Single Coil Spring', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'PLEASURE+ XTEC': { disp: '110.9 CC', power: '8.0 BHP @ 7000 RPM', torque: '8.70 Nm @ 5500 RPM', fuel: 'xSens Smart FI', tank: '4.8 L', weight: '106 kg', seat: '765 mm', clearance: '155 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Bottom Link Shocks', suspRear: 'Swing Arm Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'XTREME 160R 4V': { disp: '163.2 CC', power: '16.9 BHP @ 8500 RPM', torque: '14.0 Nm @ 6500 RPM', fuel: 'Programmed FI', tank: '12 L', weight: '144 kg', seat: '795 mm', clearance: '165 mm', brakes: '276mm Disc (ABS)', brakesRear: '220mm Disc', suspFront: '37mm KYB USD Forks', suspRear: '7-step Adj. Monoshock', valves: '4 Valves, DOHC', cooling: 'Oil-Cooled' },
+                'SUPER SPLENDOR XTEC 2.0': { disp: '124.7 CC', power: '10.7 BHP @ 7500 RPM', torque: '10.6 Nm @ 6000 RPM', fuel: 'xSens FI 2.0', tank: '12 L', weight: '122 kg', seat: '799 mm', clearance: '180 mm', brakes: '240mm Disc (CBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Fork', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'SPLENDOR+ FLEX': { disp: '97.2 CC', power: '7.91 BHP @ 8000 RPM', torque: '8.05 Nm @ 6000 RPM', fuel: 'Flex Fuel E85 FI', tank: '9.8 L', weight: '112 kg', seat: '785 mm', clearance: '165 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'HF DELUXE FLEX': { disp: '97.2 CC', power: '7.91 BHP @ 8000 RPM', torque: '8.05 Nm @ 6000 RPM', fuel: 'Flex Fuel E85 FI', tank: '9.6 L', weight: '110 kg', seat: '785 mm', clearance: '165 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '2-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'SUPER SPLENDOR XTEC': { disp: '124.7 CC', power: '10.7 BHP @ 7500 RPM', torque: '10.6 Nm @ 6000 RPM', fuel: 'xSens FI', tank: '12 L', weight: '122 kg', seat: '799 mm', clearance: '180 mm', brakes: '240mm Disc (CBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Fork', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'XOOM 125': { disp: '124.6 CC', power: '9.5 BHP @ 7250 RPM', torque: '10.14 Nm @ 5500 RPM', fuel: 'Programmed FI', tank: '5.2 L', weight: '120 kg', seat: '775 mm', clearance: '155 mm', brakes: '190mm Disc (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Fork', suspRear: 'Single Coil Spring', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'XTREME 160R': { disp: '163.2 CC', power: '15.0 BHP @ 8500 RPM', torque: '14.0 Nm @ 6500 RPM', fuel: 'Programmed FI', tank: '12 L', weight: '138 kg', seat: '790 mm', clearance: '167 mm', brakes: '276mm Disc (ABS)', brakesRear: '220mm Disc', suspFront: '37mm Telescopic', suspRear: '7-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'XPULSE 200 4V': { disp: '199.6 CC', power: '18.9 BHP @ 8500 RPM', torque: '17.35 Nm @ 6500 RPM', fuel: 'Programmed FI', tank: '13 L', weight: '158 kg', seat: '825 mm', clearance: '220 mm', brakes: '276mm Disc (ABS)', brakesRear: '220mm Disc', suspFront: '37mm Showa Telescopic', suspRear: 'Rectangular Swing Arm', valves: '4 Valves, SOHC', cooling: 'Oil-Cooled' },
+                'HF DELUXE': { disp: '97.2 CC', power: '7.91 BHP @ 8000 RPM', torque: '8.05 Nm @ 6000 RPM', fuel: 'i3S FI', tank: '9.6 L', weight: '110 kg', seat: '785 mm', clearance: '165 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '2-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'XOOM': { disp: '110.9 CC', power: '8.05 BHP @ 7250 RPM', torque: '8.70 Nm @ 5750 RPM', fuel: 'i3S FI', tank: '5.2 L', weight: '108 kg', seat: '770 mm', clearance: '155 mm', brakes: '190mm Disc (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Fork', suspRear: 'Single Coil Spring', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'SPLENDOR+ XTEC': { disp: '97.2 CC', power: '7.91 BHP @ 8000 RPM', torque: '8.05 Nm @ 6000 RPM', fuel: 'xSens FI', tank: '9.8 L', weight: '112 kg', seat: '785 mm', clearance: '165 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'GLAMOUR': { disp: '124.7 CC', power: '10.7 BHP @ 7500 RPM', torque: '10.6 Nm @ 6000 RPM', fuel: 'Programmed FI', tank: '10 L', weight: '122 kg', seat: '798 mm', clearance: '180 mm', brakes: '240mm Disc (CBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '5-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' },
+                'HF 100': { disp: '97.2 CC', power: '7.91 BHP @ 8000 RPM', torque: '8.05 Nm @ 6000 RPM', fuel: 'xSens FI', tank: '9.1 L', weight: '110 kg', seat: '785 mm', clearance: '165 mm', brakes: '130mm Drum (IBS)', brakesRear: '130mm Drum', suspFront: 'Telescopic Hydraulic', suspRear: '2-step Adj. Shocks', valves: '2 Valves, OHC', cooling: 'Air-Cooled' }
+            },
+
             // Local Simulated database review streams
             reviewsList: [
-                { author: 'Raapz Razi', rating: 5, comment: 'Nallath. Clean handover procedure.' },
-                { author: 'Sreejith P', rating: 5, comment: 'One of the best Hero service centre in kannur. Good customer support and service.' },
-                { author: 'Damodaran Sudhara', rating: 5, comment: 'Iam a loyal customer of pavizham associates. I got good service and experience from there.' },
-                { author: 'Akash VP', rating: 5, comment: 'Delivered the vehicle within a week. Good customer support and completely satisfied.' }
+                { author: 'Raapz Razi', rating: 4, comment: 'Nallath', date: '16-05-2026' },
+                { author: 'sreejith p', rating: 4, comment: 'One of the best Hero service centre in kannur.Good customer support and service.Please go there and experience it.', date: '24-04-2026' },
+                { author: 'damodaran Sudhara', rating: 5, comment: 'iam a loyal customer of pavizham associates.I got good service and experience from there.Totally Good and liked it.👍👍👍', date: '24-04-2026' },
+                { author: 'Akash VP', rating: 5, comment: 'Delivered the vehicle within a week. Good customer support and completely satisfied.', date: '12-04-2026' }
             ],
 
             dummyStatusDatabase: {
@@ -975,6 +1515,18 @@
         }
 
         // CLIENT-SIDE ROUTER / SWITCHING VIEWS
+        function moveNavIndicator(viewId) {
+            const btn = document.getElementById(`nav-${viewId}`);
+            const indicator = document.getElementById('nav-indicator-capsule');
+            if (btn && indicator) {
+                indicator.style.left = `${btn.offsetLeft}px`;
+                indicator.style.width = `${btn.offsetWidth}px`;
+                indicator.style.height = `${btn.offsetHeight}px`;
+                indicator.style.top = `${btn.offsetTop}px`;
+                indicator.style.opacity = '1';
+            }
+        }
+
         function switchView(viewId) {
             state.currentView = viewId;
             
@@ -994,12 +1546,13 @@
                     // Sync Header Navigation active/inactive stylings
                     const links = document.querySelectorAll('.nav-link');
                     links.forEach(lnk => {
-                        lnk.className = "nav-link text-gray-100 hover:text-white hover:bg-brand-panel/50 hover:shadow-sm hover:shadow-brand-red/10 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-semibold";
+                        lnk.className = "nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative";
                     });
 
                     const activeLink = document.getElementById(`nav-${viewId}`);
                     if (activeLink) {
-                        activeLink.className = "nav-link text-white bg-brand-panel border border-brand-red/30 shadow-md shadow-brand-red/5 px-3 py-2 rounded-lg transition-all duration-300 font-sans text-sm font-bold";
+                        activeLink.className = "nav-link text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-bold z-10 relative";
+                        moveNavIndicator(viewId);
                     }
 
                     initScrollReveal();
@@ -1114,7 +1667,10 @@
                 if (query && !v.name.toLowerCase().includes(query)) return;
 
                 const card = document.createElement('div');
-                card.className = "bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card";
+                card.className = "bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card cursor-pointer";
+                card.onclick = () => {
+                    openProductDetail(v.name);
+                };
                 card.innerHTML = `
                     <div class="p-6 relative flex-grow flex flex-col justify-between">
                         <div>
@@ -1159,8 +1715,8 @@
                                 <span class="text-base font-extrabold text-white">₹${v.price.toLocaleString('en-IN')}*</span>
                             </div>
                             <div class="grid grid-cols-2 gap-3 mt-2 font-sans">
-                                <button onclick="showSpecsModal('${v.name.replace(/'/g, "\\'")}', '${v.disp}', '${v.power}', '${v.fuelTank}', '${v.feature.replace(/'/g, "\\'")}', '₹${v.price.toLocaleString('en-IN')}')" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded bg-brand-slate hover:bg-brand-border text-white border border-brand-border transition-all">Check Specs</button>
-                                <button onclick="handleProductEmiTrigger('${v.name.replace(/'/g, "\\'")}', ${v.price})" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded bg-brand-red hover:bg-brand-redHover text-white transition-all">Calculate EMI</button>
+                                <button onclick="event.stopPropagation(); openProductDetail('${v.name.replace(/'/g, "\\'")}')" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded bg-brand-slate hover:bg-brand-border text-white border border-brand-border transition-all">Check Specs</button>
+                                <button onclick="event.stopPropagation(); handleProductEmiTrigger('${v.name.replace(/'/g, "\\'")}', ${v.price})" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded bg-brand-red hover:bg-brand-redHover text-white transition-all">Calculate EMI</button>
                             </div>
                         </div>
                     </div>
@@ -1191,14 +1747,61 @@
             }, 300);
         }
 
+        // Odometer Rolling Number Animator
+        function animateValue(id, start, end, duration, prefix = '₹') {
+            const obj = document.getElementById(id);
+            if (!obj) return;
+            
+            // If values match, display immediately
+            if (start === end) {
+                obj.innerText = `${prefix}${end.toLocaleString('en-IN')}`;
+                return;
+            }
+
+            const range = end - start;
+            const startTime = performance.now();
+
+            function step(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Ease out cubic curves
+                const ease = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(start + range * ease);
+
+                obj.innerText = `${prefix}${current.toLocaleString('en-IN')}`;
+
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                } else {
+                    obj.innerText = `${prefix}${end.toLocaleString('en-IN')}`;
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
         // EMI SIMULATOR CONTROLS
         function setTenure(months, btn) {
             state.selectedEmiTenure = months;
+            
+            const activeBg = document.getElementById('tenure-active-bg');
+            if (activeBg && btn) {
+                activeBg.style.left = `${btn.offsetLeft}px`;
+                activeBg.style.width = `${btn.offsetWidth}px`;
+                activeBg.style.height = `${btn.offsetHeight}px`;
+                activeBg.style.top = `${btn.offsetTop}px`;
+                activeBg.style.opacity = '1';
+            }
+
             const btns = document.querySelectorAll('.tenure-btn');
             btns.forEach(b => {
-                b.className = "tenure-btn px-3 py-2.5 text-xs font-bold rounded-lg border border-brand-border bg-brand-onyx text-gray-200 hover:text-white transition-all font-mono";
+                if (b === btn) {
+                    b.className = "tenure-btn px-2 py-2.5 text-[10px] font-bold rounded-lg text-white transition-all font-mono z-10 relative";
+                } else {
+                    b.className = "tenure-btn px-2 py-2.5 text-[10px] font-bold rounded-lg text-gray-300 hover:text-white transition-all font-mono z-10 relative";
+                }
             });
-            btn.className = "tenure-btn px-3 py-2.5 text-xs font-bold rounded-lg border border-brand-red bg-brand-red/10 text-white transition-all font-mono";
+
             calculateEMI();
         }
 
@@ -1220,7 +1823,10 @@
             document.getElementById('breakdown-down').innerText = `-₹${downpayment.toLocaleString('en-IN')}`;
             
             const netLoanPrincipal = Math.max(0, principal + rtoTax + insurance + safetyCess);
-            document.getElementById('breakdown-net').innerText = `₹${netLoanPrincipal.toLocaleString('en-IN')}`;
+            
+            // Odometer rolling transition for Remaining Loan Balance
+            animateValue('breakdown-net', state.prevCalculatedNet, netLoanPrincipal, 500, '₹');
+            state.prevCalculatedNet = netLoanPrincipal;
 
             // Standard Amortization formula
             const annualRate = 8.5; 
@@ -1229,9 +1835,12 @@
 
             let monthlyEMI = 0;
             if (netLoanPrincipal > 0) {
-                monthlyEMI = (netLoanPrincipal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+                monthlyEMI = Math.round((netLoanPrincipal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1));
             }
-            document.getElementById('calculated-emi').innerText = `₹${Math.round(monthlyEMI).toLocaleString('en-IN')}`;
+            
+            // Odometer rolling transition for Calculated Monthly EMI
+            animateValue('calculated-emi', state.prevCalculatedEmi, monthlyEMI, 500, '₹');
+            state.prevCalculatedEmi = monthlyEMI;
         }
 
         function triggerQuickEMI(bikeName, exShowroomPrice) {
@@ -1246,6 +1855,19 @@
             slider.value = Math.round(exShowroomPrice * 0.25);
             
             calculateEMI();
+            
+            // Sync active tenure selector slider coordinates
+            setTimeout(() => {
+                const activeBtn = document.getElementById(`tenure-btn-${state.selectedEmiTenure}`);
+                const activeBg = document.getElementById('tenure-active-bg');
+                if (activeBg && activeBtn) {
+                    activeBg.style.left = `${activeBtn.offsetLeft}px`;
+                    activeBg.style.width = `${activeBtn.offsetWidth}px`;
+                    activeBg.style.height = `${activeBtn.offsetHeight}px`;
+                    activeBg.style.top = `${activeBtn.offsetTop}px`;
+                    activeBg.style.opacity = '1';
+                }
+            }, 100);
             
             // Scroll to simulator with dynamic glow feedback
             const finSection = document.getElementById('financing');
@@ -1284,26 +1906,39 @@
         // REVIEWS FEED COMPONENT
         function renderReviews() {
             const container = document.getElementById('reviews-feed');
+            if (!container) return;
             container.innerHTML = '';
 
             state.reviewsList.forEach(r => {
                 const item = document.createElement('div');
-                item.className = "p-6 bg-brand-slate rounded-2xl border border-brand-border relative interactive-card";
+                item.className = "p-6 bg-brand-panel rounded-2xl border border-brand-border relative interactive-card flex flex-col justify-between";
                 
                 let stars = '';
-                for (let i = 0; i < r.rating; i++) {
-                    stars += '★';
+                for (let i = 0; i < 5; i++) {
+                    if (i < r.rating) {
+                        stars += '<span class="text-amber-500">★</span>';
+                    } else {
+                        stars += '<span class="text-gray-600">★</span>';
+                    }
                 }
 
                 item.innerHTML = `
-                    <div class="flex items-center gap-2 mb-2 font-sans">
-                        <span class="text-amber-500 text-sm font-mono">${stars}</span>
-                        <span class="text-sm text-gray-200 font-sans">Verified Customer</span>
+                    <div class="flex justify-between items-start gap-4 mb-3 font-sans">
+                        <div>
+                            <h4 class="font-bold text-white text-base leading-tight">${r.author}</h4>
+                            <span class="text-[10px] text-brand-textMuted uppercase tracking-wider mt-0.5 block">Verified Customer</span>
+                        </div>
+                        <div class="flex gap-0.5 text-sm select-none">
+                            ${stars}
+                        </div>
                     </div>
-                    <p class="text-sm text-white italic leading-relaxed font-sans">"${r.comment}"</p>
-                    <div class="mt-4 flex items-center gap-3 font-sans">
-                        <div class="w-8 h-8 rounded-full bg-brand-onyx flex items-center justify-center font-bold text-xs text-brand-red">${r.author.slice(0,2).toUpperCase()}</div>
-                        <span class="text-xs font-bold text-brand-textLight block">${r.author}</span>
+                    <p class="text-sm text-gray-200 leading-relaxed font-sans mt-2">"${r.comment}"</p>
+                    <div class="mt-6 pt-3 border-t border-brand-border/40 flex justify-between items-center text-[10px] text-brand-textMuted font-mono">
+                        <span>Posted On: ${r.date || '24-04-2026'}</span>
+                        <span class="text-brand-red font-bold uppercase tracking-wider font-sans flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 bg-brand-red rounded-full"></span>
+                            Google Review
+                        </span>
                     </div>
                 `;
                 container.appendChild(item);
@@ -1347,19 +1982,438 @@
         }
 
         // GENERAL MODALS & DIALOG ACTIONS
-        function showSpecsModal(title, disp, power, fuel, feature, price) {
-            document.getElementById('specs-modal-title').innerText = `${title} Specifications`;
-            document.getElementById('specs-val-disp').innerText = disp;
-            document.getElementById('specs-val-power').innerText = power;
-            document.getElementById('specs-val-fuel').innerText = fuel;
-            document.getElementById('specs-val-feature').innerText = feature;
-            document.getElementById('specs-val-price').innerText = price;
-            document.getElementById('specs-modal').classList.remove('hidden');
+        // ================= IMMERSIVE PRODUCT DETAIL PAGE ENGINE =================
+        let activeDetailBike = null;
+        let activeBentoTenure = 24; // Default tenure for bento quote
+
+        function openProductDetail(bikeName) {
+            const bike = state.vehiclesList.find(v => v.name === bikeName);
+            if (!bike) return;
+
+            activeDetailBike = bike;
+            activeBentoTenure = 24;
+
+            // Load and populate basic details
+            document.getElementById('detail-bike-title').innerText = bike.name;
+            document.getElementById('detail-start-price').innerText = `₹${bike.price.toLocaleString('en-IN')}*`;
+            
+            // Background text behind the motorcycle
+            const cleanName = bike.name.replace(/[^A-Za-z0-9\s\+]/g, '');
+            document.getElementById('detail-bg-text').innerText = cleanName;
+
+            // Main vehicle image sources
+            document.getElementById('detail-vehicle-img').src = bike.image;
+            document.getElementById('detail-bento-vehicle-img').src = bike.image;
+            document.getElementById('detail-bento-bike-name').innerText = bike.name;
+            document.getElementById('detail-bento-bike-price').innerText = `₹${bike.price.toLocaleString('en-IN')}*`;
+
+            // Load technical specs from mapping
+            const spec = state.specsDetail[bike.name] || {
+                disp: bike.disp || '125 CC',
+                power: bike.power || '10 BHP',
+                torque: '10 Nm',
+                fuel: bike.feature || 'xSens FI',
+                tank: bike.fuelTank || '10 L',
+                weight: '120 kg',
+                seat: '790 mm',
+                clearance: '165 mm',
+                brakes: '130mm Drum (IBS)',
+                brakesRear: '130mm Drum',
+                suspFront: 'Telescopic Hydraulic',
+                suspRear: '5-step Adj. Shocks',
+                valves: '2 Valves, OHC',
+                cooling: 'Air-Cooled'
+            };
+
+            // Populate Checkpoint 2 technical margins
+            document.getElementById('detail-spec-disp').innerText = spec.disp;
+            document.getElementById('detail-spec-power').innerText = spec.power;
+            document.getElementById('detail-spec-torque').innerText = spec.torque;
+            document.getElementById('detail-spec-fuel').innerText = spec.fuel;
+
+            // Populate Bento Cells
+            document.getElementById('bento-val-disp').innerText = spec.disp;
+            document.getElementById('bento-val-power').innerText = spec.power;
+            document.getElementById('bento-val-valves').innerText = spec.valves;
+            document.getElementById('bento-val-cooling').innerText = spec.cooling;
+            
+            document.getElementById('bento-val-tank').innerText = spec.tank;
+            document.getElementById('bento-val-weight').innerText = spec.weight;
+            document.getElementById('bento-val-seat').innerText = spec.seat;
+            document.getElementById('bento-val-clearance').innerText = spec.clearance;
+
+            document.getElementById('bento-val-brakes').innerText = spec.brakes;
+            document.getElementById('bento-val-brakes-rear').innerText = spec.brakesRear;
+            document.getElementById('bento-val-susp-front').innerText = spec.suspFront;
+            document.getElementById('bento-val-susp-rear').innerText = spec.suspRear;
+
+            // Setup real-time bento quote calculator values
+            const quoteSlider = document.getElementById('bento-dp-slider');
+            const minDp = Math.round(bike.price * 0.15);
+            const maxDp = Math.round(bike.price * 0.80);
+            const defaultDp = Math.round(bike.price * 0.25);
+            
+            quoteSlider.min = minDp;
+            quoteSlider.max = maxDp;
+            quoteSlider.value = defaultDp;
+
+            // Setup slider text
+            document.getElementById('bento-dp-label').innerText = `₹${defaultDp.toLocaleString('en-IN')}`;
+
+            setBentoTenure(24);
+            calculateBentoQuote();
+
+            // Open the container
+            const container = document.getElementById('product-detail-experience');
+            container.classList.remove('hidden');
+            container.scrollTop = 0; // Reset scroll
+            
+            // Reset scroll instruction visibility
+            const instruction = document.getElementById('scroll-instruction');
+            if (instruction) {
+                instruction.classList.remove('opacity-0');
+                instruction.classList.add('opacity-100');
+            }
+            
+            // Force redraw/reflow
+            container.offsetWidth;
+
+            container.classList.remove('opacity-0', 'translate-y-8');
+            container.classList.add('opacity-100', 'translate-y-0');
+
+            // Lock body scroll
+            document.body.style.overflow = 'hidden';
+
+            // Initial rendering of connector lines and highlights
+            setTimeout(() => {
+                updateDetailAnimations(0);
+            }, 100);
         }
 
-        // Close functions
-        function closeSpecsModal() {
-            document.getElementById('specs-modal').classList.add('hidden');
+        function closeProductDetail() {
+            const container = document.getElementById('product-detail-experience');
+            container.classList.remove('opacity-100', 'translate-y-0');
+            container.classList.add('opacity-0', 'translate-y-8');
+
+            setTimeout(() => {
+                container.classList.add('hidden');
+                document.body.style.overflow = '';
+            }, 700);
+        }
+
+        // Real-time bento quote calculations
+        function calculateBentoQuote() {
+            if (!activeDetailBike) return;
+            const price = activeDetailBike.price;
+            const downpayment = parseInt(document.getElementById('bento-dp-slider').value);
+            document.getElementById('bento-dp-label').innerText = `₹${downpayment.toLocaleString('en-IN')}`;
+
+            const rtoTax = Math.round(price * 0.10);
+            const insurance = price > 100000 ? 9500 : (price > 75000 ? 7200 : 6000);
+            const safetyCess = 1850;
+            
+            const onRoadEstimate = price + rtoTax + insurance + safetyCess;
+            
+            // Update all instances of bento-quote-onroad
+            const quoteOnroads = document.querySelectorAll('#bento-quote-onroad');
+            quoteOnroads.forEach(el => {
+                el.innerText = `₹${onRoadEstimate.toLocaleString('en-IN')}`;
+            });
+
+            const netLoanPrincipal = Math.max(0, onRoadEstimate - downpayment);
+
+            // Amortization
+            const annualRate = 8.5;
+            const monthlyRate = (annualRate / 12) / 100;
+            const totalMonths = activeBentoTenure;
+
+            let monthlyEMI = 0;
+            if (netLoanPrincipal > 0) {
+                monthlyEMI = (netLoanPrincipal * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+            }
+            document.getElementById('bento-calculated-emi').innerText = `₹${Math.round(monthlyEMI).toLocaleString('en-IN')}`;
+        }
+
+        function setBentoTenure(months) {
+            activeBentoTenure = months;
+            const tenures = [12, 24, 36];
+            tenures.forEach(t => {
+                const btn = document.getElementById(`bento-tenure-${t}`);
+                if (btn) {
+                    if (t === months) {
+                        btn.className = "py-1.5 rounded border border-brand-red bg-brand-red/10 text-white font-bold transition-all";
+                    } else {
+                        btn.className = "py-1.5 rounded border border-brand-border bg-brand-onyx text-gray-200 font-bold transition-all";
+                    }
+                }
+            });
+            calculateBentoQuote();
+        }
+
+        function bookActiveProduct() {
+            if (!activeDetailBike) return;
+            closeProductDetail();
+            setTimeout(() => {
+                switchView('enquiry');
+                const enqSelect = document.getElementById('enq-model');
+                if (enqSelect) enqSelect.value = activeDetailBike.name;
+                document.getElementById('enq-notes').value = `Priority Booking inquiry for ${activeDetailBike.name}. (Quote details: Down Payment - ${document.getElementById('bento-dp-label').innerText}, Tenure - ${activeBentoTenure} Months, Est. EMI - ${document.getElementById('bento-calculated-emi').innerText})`;
+                showToast("Booking Context Loaded", `Enquiry form loaded with ${activeDetailBike.name} booking specifications.`, "success");
+            }, 350);
+        }
+
+        // Scroll listener implementation
+        document.getElementById('product-detail-experience').addEventListener('scroll', function(e) {
+            const scrollTop = this.scrollTop;
+            const maxScroll = this.scrollHeight - this.clientHeight;
+            if (maxScroll <= 0) return;
+            const scrollPercent = scrollTop / maxScroll;
+            
+            // Fade out scroll instruction after 5% scroll
+            const instruction = document.getElementById('scroll-instruction');
+            if (instruction) {
+                if (scrollPercent > 0.05) {
+                    instruction.classList.remove('opacity-100');
+                    instruction.classList.add('opacity-0');
+                } else {
+                    instruction.classList.remove('opacity-0');
+                    instruction.classList.add('opacity-100');
+                }
+            }
+
+            updateDetailAnimations(scrollPercent);
+        });
+
+        function updateDetailAnimations(scrollPercent) {
+            const vehicleImg = document.getElementById('detail-vehicle-img');
+            const bgText = document.getElementById('detail-bg-text');
+            const spotlight = document.getElementById('detail-spotlight');
+            const floorGrid = document.getElementById('detail-floor-grid');
+            const svgOverlay = document.getElementById('detail-svg-lines');
+
+            if (!vehicleImg || !bgText || !spotlight || !floorGrid || !svgOverlay) return;
+
+            // 1. Dynamic spotlight expansion
+            const intensity = 0.04 + (1 - scrollPercent) * 0.04;
+            const centerShift = -10 + scrollPercent * 30;
+            const radius = 65 + scrollPercent * 15;
+            spotlight.style.background = `radial-gradient(ellipse at center ${centerShift}%, rgba(255,255,255,${intensity}), transparent ${radius}%)`;
+
+            // 2. 3D grid floor perspective parallax shifting
+            const gridShift = -scrollPercent * 120;
+            floorGrid.style.transform = `rotateX(75deg) translateY(${gridShift}px)`;
+
+            // Get elements for each checkpoint overlay
+            const cp1 = document.getElementById('checkpoint-1-info');
+            const cp2Left = document.getElementById('checkpoint-2-info-left');
+            const cp2Right = document.getElementById('checkpoint-2-info-right');
+            const cp3 = document.getElementById('checkpoint-3-info');
+            const cp4 = document.getElementById('checkpoint-4-info');
+            const bentoWrapper = document.getElementById('bento-vehicle-wrapper');
+
+            // Get line connector paths
+            const lCylinder = document.getElementById('line-cylinder');
+            const cCylinder = document.getElementById('circle-cylinder');
+            const lFrontHub = document.getElementById('line-front-hub');
+            const cFrontHub = document.getElementById('circle-front-hub');
+            const lRearHub = document.getElementById('line-rear-hub');
+            const cRearHub = document.getElementById('circle-rear-hub');
+            const lPrice = document.getElementById('line-price');
+            const cPrice = document.getElementById('circle-price');
+
+            // Coordinates calculation for connector lines using getBoundingClientRect()
+            const imgRect = vehicleImg.getBoundingClientRect();
+            const svgRect = svgOverlay.getBoundingClientRect();
+
+            const cX = imgRect.left + imgRect.width * 0.49 - svgRect.left;
+            const cY = imgRect.top + imgRect.height * 0.58 - svgRect.top;
+            const fhX = imgRect.left + imgRect.width * 0.81 - svgRect.left;
+            const fhY = imgRect.top + imgRect.height * 0.74 - svgRect.top;
+            const rhX = imgRect.left + imgRect.width * 0.17 - svgRect.left;
+            const rhY = imgRect.top + imgRect.height * 0.74 - svgRect.top;
+
+            // Checkpoint 1: Hero Reveal (0% to 25% scroll)
+            if (scrollPercent <= 0.25) {
+                const subPercent = scrollPercent / 0.25;
+
+                // Visual updates: normal centered scaling
+                vehicleImg.style.transform = `translate3d(0, 0, 0) scale(${1 + subPercent * 0.15})`;
+                vehicleImg.style.opacity = 1;
+                bgText.style.transform = `scale(${1 - subPercent * 0.1}) translateY(${-subPercent * 20}px)`;
+                bgText.style.opacity = (1 - subPercent * 0.5) * 0.05;
+
+                // Checkpoint 1 info fades out
+                cp1.style.opacity = 1 - subPercent;
+                cp1.style.transform = `translateY(${-subPercent * 20}px)`;
+
+                // Technical connectors check values
+                cp2Left.style.opacity = 0;
+                cp2Right.style.opacity = 0;
+                cp3.style.opacity = 0;
+                cp4.style.opacity = 0;
+                cp4.style.pointerEvents = 'none';
+                bentoWrapper.style.opacity = 0;
+                bentoWrapper.style.transform = 'scale(0.95)';
+
+                // Draw line pointing from bottom left price tag to engine cylinder
+                const priceRect = cp1.getBoundingClientRect();
+                const pStartX = priceRect.right - svgRect.left;
+                const pStartY = priceRect.top + priceRect.height * 0.3 - svgRect.top;
+
+                if (scrollPercent > 0.02 && scrollPercent < 0.22) {
+                    svgOverlay.style.opacity = 1;
+                    lPrice.setAttribute('x1', pStartX);
+                    lPrice.setAttribute('y1', pStartY);
+                    lPrice.setAttribute('x2', cX);
+                    lPrice.setAttribute('y2', cY);
+                    lPrice.setAttribute('opacity', 1 - subPercent);
+                    cPrice.setAttribute('cx', cX);
+                    cPrice.setAttribute('cy', cY);
+                    cPrice.setAttribute('opacity', 1 - subPercent);
+                } else {
+                    lPrice.setAttribute('opacity', 0);
+                    cPrice.setAttribute('opacity', 0);
+                }
+
+                // Hide other lines
+                lCylinder.setAttribute('opacity', 0);
+                cCylinder.setAttribute('opacity', 0);
+                lFrontHub.setAttribute('opacity', 0);
+                cFrontHub.setAttribute('opacity', 0);
+                lRearHub.setAttribute('opacity', 0);
+                cRearHub.setAttribute('opacity', 0);
+
+            }
+            // Checkpoint 2: Core Engine Internals (25% to 50% scroll)
+            else if (scrollPercent <= 0.50) {
+                const subPercent = (scrollPercent - 0.25) / 0.25;
+
+                // Bike maintains zoom scale-115, slides slightly right or stays center
+                vehicleImg.style.transform = `translate3d(0, 0, 0) scale(1.15)`;
+                vehicleImg.style.opacity = 1;
+                bgText.style.opacity = 0;
+
+                // Fades in margins details
+                cp1.style.opacity = 0;
+                cp2Left.style.opacity = subPercent;
+                cp2Left.style.transform = `translateY(-50%) translate3d(${ (subPercent - 1) * 20 }px, 0, 0)`;
+                cp2Right.style.opacity = subPercent;
+                cp2Right.style.transform = `translateY(-50%) translate3d(${ (1 - subPercent) * 20 }px, 0, 0)`;
+
+                cp3.style.opacity = 0;
+                cp4.style.opacity = 0;
+                cp4.style.pointerEvents = 'none';
+                bentoWrapper.style.opacity = 0;
+
+                // Set SVG lines visibility
+                svgOverlay.style.opacity = 1;
+                lPrice.setAttribute('opacity', 0);
+                cPrice.setAttribute('opacity', 0);
+
+                // Math for line endpoints from margins to hubs
+                const leftRect = cp2Left.getBoundingClientRect();
+                const rightRect = cp2Right.getBoundingClientRect();
+
+                const leftMetricEndX = leftRect.right - svgRect.left;
+                const leftMetricY1 = (leftRect.top + leftRect.height * 0.25) - svgRect.top;
+                const leftMetricY2 = (leftRect.top + leftRect.height * 0.75) - svgRect.top;
+
+                const rightMetricStartX = rightRect.left - svgRect.left;
+                const rightMetricY1 = (rightRect.top + rightRect.height * 0.25) - svgRect.top;
+                const rightMetricY2 = (rightRect.top + rightRect.height * 0.75) - svgRect.top;
+
+                // 1. Line from CC block (left top) to Cylinder
+                lCylinder.setAttribute('x1', leftMetricEndX);
+                lCylinder.setAttribute('y1', leftMetricY1);
+                lCylinder.setAttribute('x2', cX);
+                lCylinder.setAttribute('y2', cY);
+                lCylinder.setAttribute('opacity', subPercent);
+                cCylinder.setAttribute('cx', cX);
+                cCylinder.setAttribute('cy', cY);
+                cCylinder.setAttribute('opacity', subPercent);
+
+                // 2. Line from Power block (left bottom) to Front Hub
+                lFrontHub.setAttribute('x1', leftMetricEndX);
+                lFrontHub.setAttribute('y1', leftMetricY2);
+                lFrontHub.setAttribute('x2', fhX);
+                lFrontHub.setAttribute('y2', fhY);
+                lFrontHub.setAttribute('opacity', subPercent);
+                cFrontHub.setAttribute('cx', fhX);
+                cFrontHub.setAttribute('cy', fhY);
+                cFrontHub.setAttribute('opacity', subPercent);
+
+                // 3. Line from Torque block (right top) to Rear Hub
+                lRearHub.setAttribute('x1', rightMetricStartX);
+                lRearHub.setAttribute('y1', rightMetricY1);
+                lRearHub.setAttribute('x2', rhX);
+                lRearHub.setAttribute('y2', rhY);
+                lRearHub.setAttribute('opacity', subPercent);
+                cRearHub.setAttribute('cx', rhX);
+                cRearHub.setAttribute('cy', rhY);
+                cRearHub.setAttribute('opacity', subPercent);
+
+            }
+            // Checkpoint 3: Aerodynamics & Tech Panel Showcase (50% to 75% scroll)
+            else if (scrollPercent <= 0.75) {
+                const subPercent = (scrollPercent - 0.50) / 0.25;
+
+                // Vehicle transitions back to normal scale, and shifts slightly upward or centered
+                vehicleImg.style.transform = `translate3d(0, ${-subPercent * 40}px, 0) scale(${1.15 - subPercent * 0.15})`;
+                vehicleImg.style.opacity = 1;
+
+                // Tech panels fade in, engine details fade out
+                cp2Left.style.opacity = 1 - subPercent;
+                cp2Left.style.transform = `translateY(-50%) translate3d(${-subPercent * 20}px, 0, 0)`;
+                cp2Right.style.opacity = 1 - subPercent;
+                cp2Right.style.transform = `translateY(-50%) translate3d(${subPercent * 20}px, 0, 0)`;
+
+                cp3.style.opacity = subPercent;
+                cp3.style.transform = `translate3d(0, ${(1 - subPercent) * 20}px, 0)`;
+
+                cp4.style.opacity = 0;
+                cp4.style.pointerEvents = 'none';
+                bentoWrapper.style.opacity = 0;
+
+                // Add active border glow animation to capsule badges sequentially
+                const badge1 = document.getElementById('tech-badge-1');
+                const badge2 = document.getElementById('tech-badge-2');
+                const badge3 = document.getElementById('tech-badge-3');
+
+                if (subPercent > 0.2) badge1.classList.add('active-badge'); else badge1.classList.remove('active-badge');
+                if (subPercent > 0.5) badge2.classList.add('active-badge'); else badge2.classList.remove('active-badge');
+                if (subPercent > 0.8) badge3.classList.add('active-badge'); else badge3.classList.remove('active-badge');
+
+                // Fade technical lines
+                lCylinder.setAttribute('opacity', 1 - subPercent);
+                cCylinder.setAttribute('opacity', 1 - subPercent);
+                lFrontHub.setAttribute('opacity', 1 - subPercent);
+                cFrontHub.setAttribute('opacity', 1 - subPercent);
+                lRearHub.setAttribute('opacity', 1 - subPercent);
+                cRearHub.setAttribute('opacity', 1 - subPercent);
+
+            }
+            // Checkpoint 4: Bento Specifications Matrix & Quote Calculator (75% to 100% scroll)
+            else {
+                const subPercent = (scrollPercent - 0.75) / 0.25;
+
+                // Vehicle locks into bento placement: fades out from central view, fades in inside bento container
+                vehicleImg.style.transform = `translate3d(${-subPercent * 25}%, -40px, 0) scale(${1 - subPercent * 0.3})`;
+                vehicleImg.style.opacity = 1 - subPercent;
+
+                cp3.style.opacity = 1 - subPercent;
+                cp3.style.transform = `translate3d(0, ${subPercent * 20}px, 0)`;
+
+                // Bento specs container fades in on the right
+                cp4.style.opacity = subPercent;
+                cp4.style.transform = `translate3d(0, ${(1 - subPercent) * 30}px, 0)`;
+                cp4.style.pointerEvents = 'auto';
+
+                bentoWrapper.style.opacity = subPercent;
+                bentoWrapper.style.transform = `scale(${0.95 + subPercent * 0.05})`;
+
+                // Hide all connector lines
+                svgOverlay.style.opacity = 0;
+            }
         }
 
         // ENQUIRY SYSTEM HANDLER
@@ -1373,6 +2427,34 @@
             event.target.reset();
         }
 
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initial positioning for header navigation sliding indicator
+            setTimeout(() => {
+                moveNavIndicator('home');
+
+                // Initial position for tenure buttons active background selection box
+                const defaultTenureBtn = document.getElementById('tenure-btn-24');
+                const activeBg = document.getElementById('tenure-active-bg');
+                if (activeBg && defaultTenureBtn) {
+                    activeBg.style.left = `${defaultTenureBtn.offsetLeft}px`;
+                    activeBg.style.width = `${defaultTenureBtn.offsetWidth}px`;
+                    activeBg.style.height = `${defaultTenureBtn.offsetHeight}px`;
+                    activeBg.style.top = `${defaultTenureBtn.offsetTop}px`;
+                    activeBg.style.opacity = '1';
+                }
+            }, 300);
+
+            // Bento hover coordinates light tracking
+            document.querySelectorAll('.bento-panel-border').forEach(panel => {
+                panel.addEventListener('mousemove', e => {
+                    const rect = panel.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    panel.style.setProperty('--mouse-x', `${x}px`);
+                    panel.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+        });
     </script>
 </body>
 </html>
