@@ -299,10 +299,11 @@
 
                     <button onclick="switchView('home')" id="nav-home" class="nav-link text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-bold z-10 relative">Home</button>
                     <button onclick="switchView('products')" id="nav-products" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Bikes</button>
+                    <button onclick="switchView('compare')" id="nav-compare" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Compare</button>
                     <button onclick="switchView('offers')" id="nav-offers" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Offers</button>
                     <button onclick="switchView('reviews')" id="nav-reviews" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Reviews</button>
                     <button onclick="switchView('social')" id="nav-social" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Social</button>
-                    <button onclick="switchView('articles')" id="nav-articles" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Tips</button>
+                    <!-- <button onclick="switchView('articles')" id="nav-articles" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Tips</button>-->
                     <button onclick="switchView('gallery')" id="nav-gallery" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Photos</button>
                     <button onclick="switchView('locator')" id="nav-locator" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Find Dealer</button>
                     <button onclick="switchView('enquiry')" id="nav-enquiry" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Enquiry</button>
@@ -356,6 +357,7 @@
             <div id="mobile-menu" class="hidden xl:hidden bg-brand-onyx border-b border-brand-border px-4 py-4 space-y-2 font-semibold text-base tracking-wide">
                 <button onclick="switchView('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-white bg-brand-panel/80 border border-brand-red/20 transition-colors">Home</button>
                 <button onclick="switchView('products'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Bikes &amp; Scooters</button>
+                <button onclick="switchView('compare'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Compare</button>
                 <button onclick="switchView('offers'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Offers</button>
                 <button onclick="switchView('reviews'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Reviews</button>
                 <button onclick="switchView('social'); toggleMobileMenu()" class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Social</button>
@@ -883,57 +885,7 @@
                 </section>
             </div>
 
-            <!-- ================= ARTICLES PAGE VIEW ================= -->
-            <div id="view-articles" class="view-section">
-                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
-                    <div class="text-center max-w-3xl mx-auto mb-16 font-sans">
-                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest">Tips &amp; Useful Articles</span>
-                        <h1 class="text-4xl font-extrabold text-white mt-2">Bike Maintenance &amp; Tech Guide</h1>
-                        <p class="text-base text-gray-100 mt-1">Read simple tips on monsoon riding, technology details, and bike maintenance.</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <!-- Blog 1 -->
-                        <div class="bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
-                            <div class="p-6">
-                                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-mono">Technology</span>
-                                <h3 class="text-lg font-bold text-white mt-2 group-hover:text-brand-red transition-colors font-sans">What is XSENS Technology in Pleasure Plus?</h3>
-                                <p class="text-base text-gray-200 leading-relaxed mt-3 font-sans font-sans">Understand how Hero\'s smart 10-sensor system helps save fuel, gives better mileage, and protects your scooter engine during Kerala weather changes.</p>
-                            </div>
-                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
-                                <span class="text-sm text-gray-200 font-mono">July 10, 2026</span>
-                                <button onclick="readArticleFull('XSENS Technology', 'The XSENS program on the Pleasure Plus XTEC is a smart system that helps you save fuel. It uses 10 different sensors to check engine heat, altitude, and scooter angle. This makes sure that your scooter starts instantly even in cold mornings and gives you the best mileage on flat roads as well as hilly areas in Kannur.')" class="text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider">Read Article</button>
-                            </div>
-                        </div>
-
-                        <!-- Blog 2 -->
-                        <div class="bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
-                            <div class="p-6">
-                                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-mono">Maintenance Tips</span>
-                                <h3 class="text-lg font-bold text-white mt-2 group-hover:text-brand-red transition-colors font-sans">Monsoon Riding &amp; Safety Guide for Kerala</h3>
-                                <p class="text-base text-gray-200 leading-relaxed mt-3 font-sans font-sans">A simple guide from our showroom mechanics explaining brake adjustments, chain lubing, and tire safety checks during heavy rains.</p>
-                            </div>
-                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
-                                <span class="text-sm text-gray-200 font-mono">June 24, 2026</span>
-                                <button onclick="readArticleFull('Monsoon Guide', 'Riding in Kerala monsoons requires extra care. Our head mechanic suggests: 1) Keep your bike tire pressure 2 points lower than usual for better grip on wet roads. 2) Apply chain-lube every 400km as rainwater strips the grease. 3) Visit our service center to make sure your brakes have proper bite.')" class="text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider">Read Article</button>
-                            </div>
-                        </div>
-
-                        <!-- Blog 3 -->
-                        <div class="bg-brand-slate rounded-2xl border border-brand-border overflow-hidden group hover:border-brand-red/30 transition-all duration-300 flex flex-col justify-between interactive-card">
-                            <div class="p-6">
-                                <span class="text-xs font-bold text-brand-red uppercase tracking-widest font-mono">New Launch</span>
-                                <h3 class="text-lg font-bold text-white mt-2 group-hover:text-brand-red transition-colors font-sans">Why Xtreme 125R is the Best Choice?</h3>
-                                <p class="text-base text-gray-200 leading-relaxed mt-3 font-sans">Read why this stylish 125cc bike with sporty looks and safe ABS braking has become the most popular choice in Kannur showrooms.</p>
-                            </div>
-                            <div class="p-6 border-t border-brand-border flex items-center justify-between font-sans">
-                                <span class="text-sm text-gray-200 font-mono">May 18, 2026</span>
-                                <button onclick="readArticleFull('Xtreme 125R Focus', 'The Xtreme 125R is a sporty commuter bike. It comes with full LED lights, a muscular fuel tank, and most importantly, Single-Channel ABS braking. ABS prevents tires from skidding during sudden brakes on wet roads, making your daily rides extremely safe.')" class="text-brand-red hover:text-white transition-colors text-xs font-bold uppercase tracking-wider">Read Article</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
+           
 
             <!-- ================= GALLERY PAGE VIEW ================= -->
             <div id="view-gallery" class="view-section">
@@ -1100,6 +1052,140 @@
                 </section>
             </div>
 
+            <!-- ================= COMPARE VIEW ================= -->
+            <div id="view-compare" class="view-section">
+                <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest font-sans">Comparison & Decision Center</span>
+                        <h1 class="text-4xl font-extrabold text-white mt-2 font-sans">Side-by-Side Model Comparison</h1>
+                        <p class="text-base text-gray-200 mt-1 font-sans">Compare detailed technical specs, analyze differences, and use our decision matrix to find your perfect ride.</p>
+                    </div>
+
+                    <!-- EMPTY STATE PANEL (Visible when < 2 models) -->
+                    <div id="compare-empty-state" class="hidden bg-brand-panel p-12 rounded-3xl border border-brand-border text-center py-20 font-sans max-w-2xl mx-auto premium-glow">
+                        <div class="w-16 h-16 rounded-full bg-brand-red/10 border border-brand-red/20 flex items-center justify-center text-brand-red mx-auto mb-6">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Select Models to Compare</h3>
+                        <p class="text-sm text-brand-textMuted max-w-md mx-auto mb-8">You need to select at least 2 models to begin comparing. Pick models from our catalog or choose one directly below to start.</p>
+                        
+                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
+                            <select id="compare-empty-select-1" onchange="addCompareFromEmptySelect(1)" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                                <option value="" disabled selected>Choose First Model...</option>
+                            </select>
+                            <span class="text-brand-textMuted text-xs font-bold uppercase tracking-widest font-mono">VS</span>
+                            <select id="compare-empty-select-2" onchange="addCompareFromEmptySelect(2)" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                                <option value="" disabled selected>Choose Second Model...</option>
+                            </select>
+                        </div>
+                        <div class="mt-8">
+                            <button onclick="switchView('products')" class="px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-widest border border-brand-border hover:border-brand-red text-white hover:text-brand-red transition-all">Browse Catalog</button>
+                        </div>
+                    </div>
+
+                    <!-- COMPARE CONTENT (Visible when >= 2 models) -->
+                    <div id="compare-content-area" class="space-y-12">
+                        <!-- Matrix Table Container -->
+                        <div class="bg-brand-panel rounded-3xl border border-brand-border overflow-x-auto shadow-2xl premium-glow">
+                            <table class="w-full min-w-[700px] border-collapse text-left text-sm font-sans">
+                                <thead>
+                                    <tr class="border-b border-brand-border bg-brand-onyx/50">
+                                        <!-- Spec Name Column -->
+                                        <th class="p-6 text-xs font-extrabold uppercase tracking-widest text-brand-textMuted w-[220px]">Specifications</th>
+                                        <!-- Column 1 -->
+                                        <th id="compare-col-head-0" class="p-6 text-center border-l border-brand-border/40 w-[calc((100%-220px)/3)]"></th>
+                                        <!-- Column 2 -->
+                                        <th id="compare-col-head-1" class="p-6 text-center border-l border-brand-border/40 w-[calc((100%-220px)/3)]"></th>
+                                        <!-- Column 3 -->
+                                        <th id="compare-col-head-2" class="p-6 text-center border-l border-brand-border/40 w-[calc((100%-220px)/3)]"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="compare-matrix-body">
+                                    <!-- Dynamic spec rows populated by renderCompareView() -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- SMART DECISION MATRIX SECTION -->
+                        <div class="bg-brand-panel p-8 rounded-3xl border border-brand-border shadow-2xl relative overflow-hidden premium-glow">
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-brand-red/[0.04] via-transparent to-transparent pointer-events-none z-0"></div>
+                            
+                            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                                <!-- Preferences Panel (5 cols) -->
+                                <div class="lg:col-span-5 space-y-6">
+                                    <div>
+                                        <span class="text-[10px] font-extrabold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 px-2.5 py-1 rounded border border-brand-red/20 font-sans">Decision Helper</span>
+                                        <h2 class="text-2xl font-extrabold text-white mt-3 font-sans">Define Your Riding Priorities</h2>
+                                        <p class="text-xs text-brand-textMuted mt-1 leading-relaxed font-sans">Adjust weights below to calculate a personalized compatibility score for each compared vehicle.</p>
+                                    </div>
+                                    
+                                    <!-- Sliders list -->
+                                    <div class="space-y-4 pt-2 font-sans">
+                                        <!-- Budget Slider -->
+                                        <div class="space-y-1.5">
+                                            <div class="flex justify-between text-xs font-bold uppercase tracking-wider">
+                                                <span class="text-gray-200">Budget / Value for Money</span>
+                                                <span id="weight-label-budget" class="text-brand-red font-mono">Medium</span>
+                                            </div>
+                                            <input type="range" id="weight-slider-budget" min="0" max="5" step="1" value="3" oninput="updateDecisionWeights()" class="w-full accent-brand-red bg-brand-onyx rounded-lg appearance-none h-1.5 cursor-pointer">
+                                        </div>
+
+                                        <!-- Performance Slider -->
+                                        <div class="space-y-1.5">
+                                            <div class="flex justify-between text-xs font-bold uppercase tracking-wider">
+                                                <span class="text-gray-200">Performance &amp; Speed</span>
+                                                <span id="weight-label-power" class="text-brand-red font-mono">Medium</span>
+                                            </div>
+                                            <input type="range" id="weight-slider-power" min="0" max="5" step="1" value="3" oninput="updateDecisionWeights()" class="w-full accent-brand-red bg-brand-onyx rounded-lg appearance-none h-1.5 cursor-pointer">
+                                        </div>
+
+                                        <!-- Commute Slider -->
+                                        <div class="space-y-1.5">
+                                            <div class="flex justify-between text-xs font-bold uppercase tracking-wider">
+                                                <span class="text-gray-200">Daily Commute &amp; Fuel Savings</span>
+                                                <span id="weight-label-commute" class="text-brand-red font-mono">Medium</span>
+                                            </div>
+                                            <input type="range" id="weight-slider-commute" min="0" max="5" step="1" value="3" oninput="updateDecisionWeights()" class="w-full accent-brand-red bg-brand-onyx rounded-lg appearance-none h-1.5 cursor-pointer">
+                                        </div>
+
+                                        <!-- Highway Slider -->
+                                        <div class="space-y-1.5">
+                                            <div class="flex justify-between text-xs font-bold uppercase tracking-wider">
+                                                <span class="text-gray-200">Highway &amp; Long Journeys</span>
+                                                <span id="weight-label-highway" class="text-brand-red font-mono">Medium</span>
+                                            </div>
+                                            <input type="range" id="weight-slider-highway" min="0" max="5" step="1" value="3" oninput="updateDecisionWeights()" class="w-full accent-brand-red bg-brand-onyx rounded-lg appearance-none h-1.5 cursor-pointer">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Decision Results Panel (7 cols) -->
+                                <div class="lg:col-span-7 bg-brand-onyx/40 border border-brand-border/60 p-6 rounded-2xl flex flex-col justify-between h-full min-h-[350px]">
+                                    <div>
+                                        <h3 class="text-sm font-bold text-white uppercase tracking-wider border-b border-brand-border/40 pb-2 mb-4 font-sans">Compatibility Ranking</h3>
+                                        
+                                        <div id="decision-ranks-container" class="space-y-4">
+                                            <!-- Dynamically populated rankings -->
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Detailed Dynamic Analysis Card -->
+                                    <div class="mt-6 p-4 rounded-xl bg-brand-red/5 border border-brand-red/20 font-sans">
+                                        <div class="flex items-center gap-2 mb-1.5">
+                                            <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                            <span class="text-xs font-bold text-white uppercase tracking-wider">AI Recommendation Details</span>
+                                        </div>
+                                        <p id="decision-matrix-desc" class="text-xs text-brand-textMuted leading-relaxed">
+                                            Select two or more vehicles and adjust priority weights to generate a detailed recommendation on which vehicle is the best choice for you.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
         <!-- SECURE PRE-APPROVAL DIALOG / MODAL -->
         <div id="preapproval-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-brand-onyx/85 backdrop-blur-sm hidden">
             <div class="bg-brand-slate max-w-md w-full rounded-2xl border border-brand-border p-6 shadow-2xl relative animate-fade-in">
@@ -1230,9 +1316,14 @@
                 <span class="font-bold text-xs uppercase tracking-widest font-sans">Back to Showroom</span>
             </button>
             <span id="detail-bike-title" class="font-mono text-sm sm:text-base md:text-lg font-bold text-white uppercase tracking-widest">Xtreme 125R</span>
-            <button onclick="bookActiveProduct()" class="bg-brand-red hover:bg-brand-redHover text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_15px_rgba(223,25,33,0.5)] hover:-translate-y-0.5 font-sans">
-                Book Now
-            </button>
+            <div class="flex items-center gap-2">
+                <button id="detail-compare-btn" onclick="toggleCompareFromActiveDetail()" class="bg-brand-slate hover:bg-brand-border text-white border border-brand-border px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300">
+                    Compare
+                </button>
+                <button onclick="bookActiveProduct()" class="bg-brand-red hover:bg-brand-redHover text-white px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_15px_rgba(223,25,33,0.5)] hover:-translate-y-0.5 font-sans">
+                    Book Now
+                </button>
+            </div>
         </div>
 
         <!-- Floating Scroll for Specs Instruction -->
@@ -1453,11 +1544,32 @@
         </div>
     </div>
 
+    <!-- FLOATING COMPARE BAR -->
+    <div id="floating-compare-bar" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-brand-panel/95 backdrop-blur-md border border-brand-red/30 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-6 transition-all duration-300 translate-y-24 opacity-0 hidden max-w-lg w-[calc(100%-2rem)]">
+        <div class="flex items-center gap-3">
+            <span class="relative flex h-2 w-2 flex-shrink-0">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
+            </span>
+            <div class="font-sans">
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Compare Models (<span id="compare-bar-count">0</span>)</h4>
+                <p class="text-[10px] text-brand-textMuted leading-normal">Compare specs and decide</p>
+            </div>
+        </div>
+        <div id="compare-bar-thumbnails" class="flex items-center gap-2 flex-grow overflow-x-auto min-w-0 py-1">
+            <!-- Dynamic thumbnails will be populated here -->
+        </div>
+        <div class="flex gap-2 flex-shrink-0">
+            <button onclick="switchView('compare')" class="bg-brand-red hover:bg-brand-redHover text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap">Compare &rarr;</button>
+        </div>
+    </div>
+
     <!-- MAIN CORE INTERACTIVE STATE SCRIPT -->
     <script>
         // Active multi-page framework configurations
         const state = {
             currentView: 'home',
+            compareList: [],
             currentHeroTab: 'ride',
             selectedCatalogSegment: 'all',
             selectedEmiBike: 'XTREME 125R',
@@ -2078,6 +2190,10 @@
         function switchView(viewId) {
             state.currentView = viewId;
             
+            if (viewId === 'compare') {
+                renderCompareView();
+            }
+            
             // Toggle active components
             const sections = document.querySelectorAll('.view-section');
             sections.forEach(sec => {
@@ -2219,6 +2335,12 @@
                 card.onclick = () => {
                     openProductDetail(v.name);
                 };
+                
+                const isCompared = state.compareList.includes(v.name);
+                const compareBtnClass = isCompared 
+                    ? "p-1 rounded-lg bg-brand-red text-white border border-brand-red hover:bg-brand-redHover transition-all flex items-center justify-center shadow-lg shadow-brand-red/20" 
+                    : "p-1 rounded-lg bg-brand-onyx border border-brand-border hover:border-brand-red text-gray-400 hover:text-white transition-all flex items-center justify-center";
+                
                 card.innerHTML = `
                     <div class="p-6 relative flex-grow flex flex-col justify-between">
                         <div>
@@ -2226,9 +2348,17 @@
                                 <span class="text-[10px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 px-2.5 py-1 rounded border border-brand-red/20">
                                     ${v.category === 'scooter' ? 'Scooter' : v.category.toUpperCase().replace('_', ' ')}
                                 </span>
-                                <span class="px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider ${v.inStock ? 'bg-green-500/10 text-green-500 border border-green-500/20' : 'bg-brand-red/10 text-brand-red border border-brand-red/25'} font-sans">
-                                    ${v.inStock ? 'Available' : 'High Demand'}
-                                </span>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider ${v.inStock ? 'bg-green-500/10 text-green-500 border border-green-500/20' : 'bg-brand-red/10 text-brand-red border border-brand-red/25'} font-sans">
+                                        ${v.inStock ? 'Available' : 'High Demand'}
+                                    </span>
+                                    <button onclick="event.stopPropagation(); toggleCompare('${v.name.replace(/'/g, "\\'")}')" class="${compareBtnClass}" title="${isCompared ? 'Remove from Compare' : 'Add to Compare'}">
+                                        ${isCompared 
+                                            ? `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>`
+                                            : `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path></svg>`
+                                        }
+                                    </button>
+                                </div>
                             </div>
                             <h3 class="text-lg font-extrabold text-white mt-3 group-hover:text-brand-red transition-colors font-sans">${v.name}</h3>
                             
@@ -2293,6 +2423,511 @@
             setTimeout(() => {
                 triggerQuickEMI(name, price);
             }, 300);
+        }
+
+        // COMPARE SYSTEM FUNCTIONS
+        function toggleCompare(bikeName) {
+            const index = state.compareList.indexOf(bikeName);
+            if (index > -1) {
+                state.compareList.splice(index, 1);
+                showToast("Removed from Compare", `${bikeName} removed from comparison list.`, "success");
+            } else {
+                if (state.compareList.length >= 3) {
+                    showToast("Limit Reached", "You can compare up to 3 models simultaneously to make a clear decision.", "error");
+                    return;
+                }
+                state.compareList.push(bikeName);
+                showToast("Added to Compare", `${bikeName} added to comparison list.`, "success");
+            }
+            
+            // Re-render components that depend on compare list
+            renderCatalog();
+            updateFloatingCompareBar();
+            if (state.currentView === 'compare') {
+                renderCompareView();
+            }
+            
+            // Sync details page compare button if detail panel is active
+            updateDetailCompareButton(bikeName);
+        }
+
+        function toggleCompareFromActiveDetail() {
+            if (!activeDetailBike) return;
+            toggleCompare(activeDetailBike.name);
+        }
+
+        function updateDetailCompareButton(bikeName) {
+            if (!activeDetailBike || activeDetailBike.name !== bikeName) return;
+            const btn = document.getElementById('detail-compare-btn');
+            if (btn) {
+                if (state.compareList.includes(bikeName)) {
+                    btn.innerText = "Remove Compare";
+                    btn.className = "bg-brand-red/20 hover:bg-brand-red/30 text-white border border-brand-red/50 px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300";
+                } else {
+                    btn.innerText = "Compare";
+                    btn.className = "bg-brand-slate hover:bg-brand-border text-white border border-brand-border px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300";
+                }
+            }
+        }
+
+        function updateFloatingCompareBar() {
+            const bar = document.getElementById('floating-compare-bar');
+            if (!bar) return;
+            
+            const count = state.compareList.length;
+            if (count === 0) {
+                bar.classList.add('translate-y-24', 'opacity-0');
+                setTimeout(() => {
+                    if (state.compareList.length === 0) {
+                        bar.classList.add('hidden');
+                    }
+                }, 300);
+                return;
+            }
+            
+            bar.classList.remove('hidden');
+            // Force reflow
+            bar.offsetWidth;
+            bar.classList.remove('translate-y-24', 'opacity-0');
+            
+            // Populate thumbnails
+            const thumbnailsContainer = document.getElementById('compare-bar-thumbnails');
+            if (thumbnailsContainer) {
+                thumbnailsContainer.innerHTML = '';
+                state.compareList.forEach(name => {
+                    const bike = state.vehiclesList.find(v => v.name === name);
+                    if (bike) {
+                        const img = document.createElement('div');
+                        img.className = "w-10 h-10 rounded-lg bg-brand-onyx border border-brand-border overflow-hidden p-1 flex items-center justify-center relative group/thumb flex-shrink-0 cursor-pointer";
+                        img.onclick = () => openProductDetail(name);
+                        img.innerHTML = `
+                            <img src="${bike.imageLocal}" onerror="this.onerror=null; this.src='${bike.imageRemote || ''}';" alt="${name}" class="max-h-full max-w-full object-contain">
+                            <button onclick="event.stopPropagation(); toggleCompare('${name.replace(/'/g, "\\'")}')" class="absolute inset-0 bg-brand-red/90 text-white flex items-center justify-center opacity-0 group-hover/thumb:opacity-100 transition-opacity rounded-lg text-[9px] font-bold uppercase">Remove</button>
+                        `;
+                        thumbnailsContainer.appendChild(img);
+                    }
+                });
+            }
+            
+            const countEl = document.getElementById('compare-bar-count');
+            if (countEl) {
+                countEl.innerText = count;
+            }
+        }
+
+        // PARSE UTILITIES FOR SPECIFICATIONS
+        function parseNum(str) {
+            if (!str) return 0;
+            const matches = String(str).match(/[0-9.]+/);
+            return matches ? parseFloat(matches[0]) : 0;
+        }
+
+        function getNormalizedPower(bike) {
+            const powerStr = bike.power || "";
+            let powerVal = parseNum(powerStr);
+            if (/kW/i.test(powerStr)) {
+                powerVal = powerVal * 1.341; // Convert kW to BHP
+            }
+            return powerVal;
+        }
+
+        // COMPARE VIEW MATRIX RENDER
+        function renderCompareView() {
+            const list = state.compareList;
+            const emptyState = document.getElementById('compare-empty-state');
+            const contentArea = document.getElementById('compare-content-area');
+            
+            populateCompareDropdowns();
+            
+            if (list.length < 2) {
+                if (emptyState) emptyState.classList.remove('hidden');
+                if (contentArea) contentArea.classList.add('hidden');
+                return;
+            }
+            
+            if (emptyState) emptyState.classList.add('hidden');
+            if (contentArea) contentArea.classList.remove('hidden');
+            
+            const vehicles = list.map(name => state.vehiclesList.find(v => v.name === name)).filter(Boolean);
+            const specs = vehicles.map(v => state.specsDetail[v.name] || {});
+            
+            // Identify advantages
+            let minPrice = Infinity;
+            let maxPower = -Infinity;
+            let maxTank = -Infinity;
+            let minWeight = Infinity;
+            
+            vehicles.forEach((v, idx) => {
+                const spec = specs[idx];
+                const price = v.price || 0;
+                const power = getNormalizedPower(v);
+                const tank = parseNum(v.fuelTank || spec.tank);
+                const weight = parseNum(spec.weight);
+                
+                if (price > 0 && price < minPrice) minPrice = price;
+                if (power > 0 && power > maxPower) maxPower = power;
+                if (tank > 0 && tank > maxTank) maxTank = tank;
+                if (weight > 0 && weight < minWeight) minWeight = weight;
+            });
+            
+            // Render Column Headers (up to 3 slots)
+            for (let i = 0; i < 3; i++) {
+                const headEl = document.getElementById(`compare-col-head-${i}`);
+                if (!headEl) continue;
+                
+                const bike = vehicles[i];
+                if (bike) {
+                    const spec = specs[i];
+                    headEl.className = "p-6 text-center border-l border-brand-border/40 bg-brand-panel relative group/head";
+                    headEl.innerHTML = `
+                        <button onclick="toggleCompare('${bike.name.replace(/'/g, "\\'")}')" class="absolute top-3 right-3 p-1 rounded bg-brand-onyx border border-brand-border hover:border-brand-red text-gray-400 hover:text-white transition-all opacity-0 group-hover/head:opacity-100" title="Remove model">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                        <div class="h-24 flex items-center justify-center mb-3">
+                            <img src="${bike.imageLocal}" onerror="this.onerror=null; this.src='${bike.imageRemote || ''}';" alt="${bike.name}" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]">
+                        </div>
+                        <h4 class="text-sm font-bold text-white tracking-wide">${bike.name}</h4>
+                        <span class="text-[9px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 px-2 py-0.5 rounded border border-brand-red/20 inline-block mt-1">
+                            ${bike.category === 'scooter' ? 'Scooter' : bike.category.toUpperCase().replace('_', ' ')}
+                        </span>
+                    `;
+                } else {
+                    // Render Selector Dropdown
+                    headEl.className = "p-6 text-center border-l border-brand-border/40 bg-brand-onyx/20";
+                    
+                    let optionsMarkup = `<option value="" disabled selected>Add Model...</option>`;
+                    state.vehiclesList.forEach(v => {
+                        if (!state.compareList.includes(v.name)) {
+                            optionsMarkup += `<option value="${v.name}">${v.name}</option>`;
+                        }
+                    });
+                    
+                    headEl.innerHTML = `
+                        <div class="h-24 flex flex-col items-center justify-center text-brand-textMuted border border-dashed border-brand-border rounded-xl p-4">
+                            <svg class="w-6 h-6 mb-1 text-brand-textMuted/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"></path></svg>
+                            <span class="text-[9px] uppercase font-bold tracking-widest text-brand-textMuted/60">Empty Slot</span>
+                        </div>
+                        <select onchange="selectCompareForColumn(${i}, this.value)" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-2 py-2 text-xs text-white focus:outline-none focus:border-brand-red mt-3">
+                            ${optionsMarkup}
+                        </select>
+                    `;
+                }
+            }
+            
+            // Spec Rows Definition
+            const specRows = [
+                { label: "Category", isCore: true, getValue: (v, s) => v.category === 'scooter' ? 'Scooter' : v.category.toUpperCase().replace('_', ' ') },
+                { 
+                    label: "Showroom Price", 
+                    isCore: true, 
+                    getValue: (v, s) => `₹${v.price.toLocaleString('en-IN')}`, 
+                    badge: (v, s) => (v.price === minPrice) ? `<span class="bg-green-500/10 text-green-500 border border-green-500/20 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase ml-1.5 whitespace-nowrap">Cheapest</span>` : '' 
+                },
+                { label: "Engine Displacement", getValue: (v, s) => s.disp || v.disp || '--' },
+                { 
+                    label: "Max Power Output", 
+                    getValue: (v, s) => s.power || v.power || '--',
+                    badge: (v, s) => (getNormalizedPower(v) === maxPower) ? `<span class="bg-amber-500/10 text-amber-500 border border-amber-500/20 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase ml-1.5 whitespace-nowrap font-sans">Most Powerful</span>` : '' 
+                },
+                { label: "Max Torque", getValue: (v, s) => s.torque || '--' },
+                { label: "Fuel System", getValue: (v, s) => s.fuel || '--' },
+                { 
+                    label: "Fuel Tank Capacity", 
+                    isCore: true, 
+                    getValue: (v, s) => v.fuelTank || s.tank || '--',
+                    badge: (v, s) => (parseNum(v.fuelTank || s.tank) === maxTank && maxTank > 0) ? `<span class="bg-blue-500/10 text-blue-500 border border-blue-500/20 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase ml-1.5 whitespace-nowrap font-sans">Max Range</span>` : ''
+                },
+                { 
+                    label: "Kerb Weight", 
+                    getValue: (v, s) => s.weight || '--',
+                    badge: (v, s) => (parseNum(s.weight) === minWeight && minWeight < Infinity) ? `<span class="bg-purple-500/10 text-purple-500 border border-purple-500/20 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase ml-1.5 whitespace-nowrap font-sans">Lightest</span>` : ''
+                },
+                { label: "Seat Height", getValue: (v, s) => s.seat || '--' },
+                { label: "Ground Clearance", getValue: (v, s) => s.clearance || '--' },
+                { label: "Front Suspension", getValue: (v, s) => s.suspFront || '--' },
+                { label: "Rear Suspension", getValue: (v, s) => s.suspRear || '--' },
+                { label: "Front Brakes", getValue: (v, s) => s.brakes || '--' },
+                { label: "Rear Brakes", getValue: (v, s) => s.brakesRear || '--' },
+                { label: "Valves configuration", getValue: (v, s) => s.valves || '--' },
+                { label: "Cooling System", getValue: (v, s) => s.cooling || '--' },
+                { label: "Key Feature", isCore: true, getValue: (v, s) => v.feature || '--' }
+            ];
+            
+            // Render spec rows
+            const bodyEl = document.getElementById('compare-matrix-body');
+            if (bodyEl) {
+                bodyEl.innerHTML = '';
+                specRows.forEach((row, rowIdx) => {
+                    const tr = document.createElement('tr');
+                    tr.className = `border-b border-brand-border/30 hover:bg-brand-panel/30 transition-colors ${row.isCore ? 'bg-brand-onyx/10 font-medium' : ''}`;
+                    
+                    let tdMarkup = `<td class="p-4 font-bold text-gray-200 text-xs">${row.label}</td>`;
+                    
+                    for (let i = 0; i < 3; i++) {
+                        const bike = vehicles[i];
+                        if (bike) {
+                            const spec = specs[i];
+                            const value = row.getValue(bike, spec);
+                            const badge = row.badge ? row.badge(bike, spec) : '';
+                            tdMarkup += `
+                                <td class="p-4 border-l border-brand-border/40 text-center text-xs text-white">
+                                    <span class="font-semibold">${value}</span>
+                                    ${badge}
+                                </td>
+                            `;
+                        } else {
+                            tdMarkup += `<td class="p-4 border-l border-brand-border/40 text-center text-brand-textMuted text-xs font-mono">-</td>`;
+                        }
+                    }
+                    tr.innerHTML = tdMarkup;
+                    bodyEl.appendChild(tr);
+                });
+                
+                // Add final CTA button row
+                const trCta = document.createElement('tr');
+                trCta.className = "bg-brand-onyx/40";
+                let ctaMarkup = `<td class="p-6 font-bold text-brand-textMuted text-xs uppercase tracking-wider font-sans">Actions</td>`;
+                
+                for (let i = 0; i < 3; i++) {
+                    const bike = vehicles[i];
+                    if (bike) {
+                        ctaMarkup += `
+                            <td class="p-6 border-l border-brand-border/40 text-center">
+                                <div class="flex flex-col sm:flex-row gap-2 justify-center font-sans">
+                                    <button onclick="event.stopPropagation(); handleProductEmiTrigger('${bike.name.replace(/'/g, "\\'")}', ${bike.price})" class="px-3 py-2 text-[10px] font-bold uppercase tracking-wider rounded bg-brand-slate hover:bg-brand-border text-white border border-brand-border transition-all flex-grow">Calculate EMI</button>
+                                    <button onclick="event.stopPropagation(); triggerBookingFromCompare('${bike.name.replace(/'/g, "\\'")}')" class="px-3 py-2 text-[10px] font-bold uppercase tracking-wider rounded bg-brand-red hover:bg-brand-redHover text-white transition-all flex-grow">Book Ride</button>
+                                </div>
+                            </td>
+                        `;
+                    } else {
+                        ctaMarkup += `<td class="p-6 border-l border-brand-border/40 text-center text-brand-textMuted text-xs font-mono">-</td>`;
+                    }
+                }
+                trCta.innerHTML = ctaMarkup;
+                bodyEl.appendChild(trCta);
+            }
+            
+            // Run Decision Score Calculations
+            calculateDecisionScore();
+        }
+
+        function triggerBookingFromCompare(bikeName) {
+            switchView('enquiry');
+            const enqSelect = document.getElementById('enq-model');
+            if (enqSelect) enqSelect.value = bikeName;
+            document.getElementById('enq-notes').value = `Priority test ride enquiry for ${bikeName} generated from Comparison Matrix.`;
+            showToast("Booking Context Loaded", `Enquiry form loaded for ${bikeName}.`, "success");
+        }
+
+        function selectCompareForColumn(colIdx, bikeName) {
+            if (!bikeName) return;
+            state.compareList.push(bikeName);
+            showToast("Added to Compare", `${bikeName} added to comparison list.`, "success");
+            
+            renderCatalog();
+            updateFloatingCompareBar();
+            renderCompareView();
+        }
+
+        function addCompareFromEmptySelect(selectNum) {
+            const select = document.getElementById(`compare-empty-select-${selectNum}`);
+            if (!select || !select.value) return;
+            
+            const bikeName = select.value;
+            if (!state.compareList.includes(bikeName)) {
+                state.compareList.push(bikeName);
+            }
+            
+            renderCatalog();
+            updateFloatingCompareBar();
+            renderCompareView();
+        }
+
+        function populateCompareDropdowns() {
+            const select1 = document.getElementById('compare-empty-select-1');
+            const select2 = document.getElementById('compare-empty-select-2');
+            
+            if (select1) {
+                select1.innerHTML = '<option value="" disabled selected>Choose First Model...</option>';
+                state.vehiclesList.forEach(v => {
+                    const opt = document.createElement('option');
+                    opt.value = v.name;
+                    opt.innerText = v.name;
+                    select1.appendChild(opt);
+                });
+            }
+            
+            if (select2) {
+                select2.innerHTML = '<option value="" disabled selected>Choose Second Model...</option>';
+                state.vehiclesList.forEach(v => {
+                    const opt = document.createElement('option');
+                    opt.value = v.name;
+                    opt.innerText = v.name;
+                    select2.appendChild(opt);
+                });
+            }
+        }
+
+        // SMART DECISION MATRIX COMPUTATION
+        function updateDecisionWeights() {
+            const weights = ['budget', 'power', 'commute', 'highway'];
+            const weightLabels = {
+                0: 'Off',
+                1: 'V. Low',
+                2: 'Low',
+                3: 'Medium',
+                4: 'High',
+                5: 'Critical'
+            };
+            
+            weights.forEach(w => {
+                const val = document.getElementById(`weight-slider-${w}`).value;
+                document.getElementById(`weight-label-${w}`).innerText = weightLabels[val];
+            });
+            
+            calculateDecisionScore();
+        }
+
+        function calculateDecisionScore() {
+            const container = document.getElementById('decision-ranks-container');
+            const descEl = document.getElementById('decision-matrix-desc');
+            if (!container || !descEl) return;
+            
+            if (state.compareList.length < 2) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-brand-textMuted text-xs font-sans">
+                        Add at least 2 models above to calculate compatibility rankings.
+                    </div>
+                `;
+                descEl.innerText = "Select two or more vehicles and adjust priority weights to generate a detailed recommendation on which vehicle is the best choice for you.";
+                return;
+            }
+            
+            const wBudget = parseInt(document.getElementById('weight-slider-budget').value);
+            const wPower = parseInt(document.getElementById('weight-slider-power').value);
+            const wCommute = parseInt(document.getElementById('weight-slider-commute').value);
+            const wHighway = parseInt(document.getElementById('weight-slider-highway').value);
+            
+            const vehicles = state.compareList.map(name => state.vehiclesList.find(v => v.name === name)).filter(Boolean);
+            const specs = vehicles.map(v => state.specsDetail[v.name] || {});
+            
+            // Catalog Benchmarks
+            let catalogPrices = state.vehiclesList.map(v => v.price).filter(Boolean);
+            let minCatalogPrice = Math.min(...catalogPrices);
+            let maxCatalogPrice = Math.max(...catalogPrices);
+
+            let catalogPowers = state.vehiclesList.map(v => getNormalizedPower(v)).filter(Boolean);
+            let minCatalogPower = Math.min(...catalogPowers);
+            let maxCatalogPower = Math.max(...catalogPowers);
+
+            let catalogTanks = state.vehiclesList.map(v => parseNum(v.fuelTank || (state.specsDetail[v.name] && state.specsDetail[v.name].tank))).filter(Boolean);
+            let minCatalogTank = Math.min(...catalogTanks);
+            let maxCatalogTank = Math.max(...catalogTanks);
+
+            let catalogWeights = state.vehiclesList.map(v => parseNum(state.specsDetail[v.name] && state.specsDetail[v.name].weight)).filter(Boolean);
+            let minCatalogWeight = Math.min(...catalogWeights);
+            let maxCatalogWeight = Math.max(...catalogWeights);
+            
+            const results = vehicles.map((v, idx) => {
+                const spec = specs[idx];
+                const price = v.price || 0;
+                const power = getNormalizedPower(v);
+                const tank = parseNum(v.fuelTank || spec.tank);
+                const weight = parseNum(spec.weight);
+                const disp = parseNum(v.disp || spec.disp);
+                
+                // 1. Budget Score (lower price = higher score)
+                let S_budget = 1 - (price - minCatalogPrice) / (maxCatalogPrice - minCatalogPrice);
+                
+                // 2. Power Score (higher power = higher score)
+                let S_power = (power - minCatalogPower) / (maxCatalogPower - minCatalogPower);
+                
+                // 3. Commuter Score
+                let baseCategoryScore = 0.5;
+                if (v.category === '100cc') baseCategoryScore = 1.0;
+                else if (v.category === '125cc') baseCategoryScore = 0.8;
+                else if (v.category === 'scooter') baseCategoryScore = 0.7;
+                else if (v.category === '160cc_above') baseCategoryScore = 0.3;
+                let commuteBonus = (v.feature && v.feature.includes("i3S")) ? 0.15 : 0;
+                let S_commute = Math.min(1.0, baseCategoryScore + commuteBonus);
+                
+                // 4. Highway Score (bigger tank, heavier weight, bigger displacement)
+                let S_tank = (tank - minCatalogTank) / (maxCatalogTank - minCatalogTank);
+                let S_weight = (weight - minCatalogWeight) / (maxCatalogWeight - minCatalogWeight);
+                let S_disp = (disp - 97.2) / (440 - 97.2);
+                let S_highway = S_tank * 0.4 + S_weight * 0.3 + S_disp * 0.3;
+                
+                // Final Weighted Score
+                const totalWeight = wBudget + wPower + wCommute + wHighway;
+                let finalScore = 0;
+                if (totalWeight > 0) {
+                    finalScore = (wBudget * S_budget + wPower * S_power + wCommute * S_commute + wHighway * S_highway) / totalWeight;
+                } else {
+                    finalScore = (S_budget + S_power + S_commute + S_highway) / 4;
+                }
+                
+                return {
+                    name: v.name,
+                    price: price,
+                    power: v.power,
+                    tank: tank,
+                    weight: weight,
+                    feature: v.feature,
+                    match: Math.round(finalScore * 100)
+                };
+            });
+            
+            // Sort by match percentage
+            results.sort((a, b) => b.match - a.match);
+            
+            // Render Rankings list
+            container.innerHTML = '';
+            results.forEach((res, idx) => {
+                const isWinner = idx === 0;
+                const div = document.createElement('div');
+                div.className = `flex items-center justify-between gap-4 p-4 rounded-xl bg-brand-slate border ${isWinner ? 'border-brand-red/50 shadow-md shadow-brand-red/5' : 'border-brand-border'} font-sans`;
+                div.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-full ${isWinner ? 'bg-brand-red text-white' : 'bg-brand-onyx text-gray-400'} flex items-center justify-center text-xs font-black font-mono">
+                            #${idx + 1}
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">${res.name}</h4>
+                            <span class="text-[9px] text-brand-textMuted font-mono">Starting at ₹${res.price.toLocaleString('en-IN')}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3 w-32 sm:w-48">
+                        <div class="w-full bg-brand-onyx h-2 rounded-full overflow-hidden">
+                            <div class="bg-brand-red h-full rounded-full transition-all duration-500" style="width: ${res.match}%"></div>
+                        </div>
+                        <span class="text-xs font-extrabold text-white font-mono min-w-[35px] text-right">${res.match}%</span>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            
+            // Generate Personalized description text for winner
+            const winner = results[0];
+            let reasoning = "";
+            
+            // Find what was highly weighted and where the winner excelled
+            const maxWeight = Math.max(wBudget, wPower, wCommute, wHighway);
+            if (maxWeight === 0) {
+                reasoning = `The **${winner.name}** offers the most balanced set of specifications across all categories with a **${winner.match}% compatibility score**.`;
+            } else {
+                let primaryPriority = "";
+                if (maxWeight === wBudget) {
+                    reasoning = `The **${winner.name}** is your best match because it offers a highly competitive price of **₹${winner.price.toLocaleString('en-IN')}**, aligning perfectly with your budget-first driving priorities.`;
+                } else if (maxWeight === wPower) {
+                    reasoning = `The **${winner.name}** comes out on top due to its superior power specifications (**${winner.power}**), meeting your demand for a quick and powerful ride.`;
+                } else if (maxWeight === wCommute) {
+                    reasoning = `The **${winner.name}** is highly recommended for city traffic and commuter efficiency. Its category optimization and features (like ${winner.feature}) focus on low fuel usage.`;
+                } else if (maxWeight === wHighway) {
+                    reasoning = `The **${winner.name}** is the ideal partner for highway cruises, offering solid stability with a weight of **${winner.weight} kg** and a generous fuel capacity of **${winner.tank} L** for fewer pitstops.`;
+                }
+            }
+            
+            descEl.innerHTML = reasoning;
         }
 
         // Odometer Rolling Number Animator
@@ -2544,6 +3179,7 @@
             // Load and populate basic details
             document.getElementById('detail-bike-title').innerText = bike.name;
             document.getElementById('detail-start-price').innerText = `₹${bike.price.toLocaleString('en-IN')}*`;
+            updateDetailCompareButton(bike.name);
             
             // Background text behind the motorcycle
             const cleanName = bike.name.replace(/[^A-Za-z0-9\s\+]/g, '');
