@@ -282,37 +282,37 @@
 
         <!-- HEADER / NAVIGATION -->
         <header class="sticky top-0 z-40 bg-brand-onyx border-b border-brand-border transition-all duration-300">
-            <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="max-w-[1440px] mx-auto px-4 sm:px-6 xl:px-4 2xl:px-8 h-20 flex items-center justify-between gap-2 xl:gap-4">
                 <!-- Official Hero Brand Logo -->
-                <a href="https://dealers.heromotocorp.com/" class="flex items-center gap-4 group flex-shrink-0" style="flex-shrink: 0;">
+                <a href="https://dealers.heromotocorp.com/" class="flex items-center gap-2 xl:gap-3 group flex-shrink-0" style="flex-shrink: 0;">
                     <img src="image_528be7.png" alt="Hero MotoCorp Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
-                    <div class="border-l border-brand-border pl-4 py-1" style="flex-shrink: 0; min-width: max-content;">
+                    <div class="border-l border-brand-border pl-2 xl:pl-3 2xl:pl-4 py-1" style="flex-shrink: 0; min-width: max-content;">
                         <span class="font-extrabold text-base tracking-wider text-white block leading-none transition-colors group-hover:text-brand-red duration-300 whitespace-nowrap" style="white-space: nowrap;">PAVIZHAM&nbsp;ASSOCIATES</span>
                         <span class="text-xs text-brand-red font-bold tracking-widest uppercase mt-1.5 block whitespace-nowrap" style="white-space: nowrap;">Authorized&nbsp;Showroom</span>
                     </div>
                 </a>
 
                 <!-- Desktop Navigation Menu (Multi-Page SaaS Simulation Router) -->
-                <nav class="hidden xl:flex items-center gap-1.5 text-sm font-bold tracking-wider uppercase bg-white/[0.02] border border-white/[0.05] backdrop-blur-xl px-2 py-1.5 rounded-full relative z-10" style="flex-shrink: 0;">
+                <nav class="hidden xl:flex items-center gap-0.5 2xl:gap-1.5 text-sm font-bold tracking-wider uppercase bg-white/[0.02] border border-white/[0.05] backdrop-blur-xl px-1.5 py-1 2xl:px-2 2xl:py-1.5 rounded-full relative z-10" style="flex-shrink: 0;">
                     <!-- Sliding active indicator capsule -->
                     <div id="nav-indicator-capsule" class="absolute bg-brand-red/10 border border-brand-red/30 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-0 opacity-0 pointer-events-none"></div>
 
-                    <button onclick="switchView('home')" id="nav-home" class="nav-link text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-bold z-10 relative">Home</button>
-                    <button onclick="switchView('products')" id="nav-products" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Bikes</button>
-                    <button onclick="switchView('compare')" id="nav-compare" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Compare</button>
-                    <button onclick="switchView('offers')" id="nav-offers" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Offers</button>
-                    <button onclick="switchView('reviews')" id="nav-reviews" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Reviews</button>
-                    <button onclick="switchView('social')" id="nav-social" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Social</button>
-                    <!-- <button onclick="switchView('articles')" id="nav-articles" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Tips</button>-->
-                    <button onclick="switchView('gallery')" id="nav-gallery" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Photos</button>
-                    <button onclick="switchView('locator')" id="nav-locator" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Find Dealer</button>
-                    <button onclick="switchView('enquiry')" id="nav-enquiry" class="nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Enquiry</button>
+                    <button onclick="switchView('home')" id="nav-home" class="nav-link text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-bold z-10 relative">Home</button>
+                    <button onclick="switchView('products')" id="nav-products" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Bikes</button>
+                    <button onclick="switchView('compare')" id="nav-compare" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Compare</button>
+                    <button onclick="switchView('offers')" id="nav-offers" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Offers</button>
+                    <button onclick="switchView('reviews')" id="nav-reviews" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Reviews</button>
+                    <button onclick="switchView('social')" id="nav-social" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Social</button>
+                    <!-- <button onclick="switchView('articles')" id="nav-articles" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Tips</button>-->
+                    <button onclick="switchView('gallery')" id="nav-gallery" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Photos</button>
+                    <button onclick="switchView('locator')" id="nav-locator" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Find Dealer</button>
+                    <button onclick="switchView('enquiry')" id="nav-enquiry" class="nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative">Enquiry</button>
                     
                     <div class="h-4 w-px bg-brand-border mx-1 z-10 relative"></div>
                     
                     <!-- Pulsing Location with Dropdown Showroom Hours -->
                     <div class="relative group z-10">
-                        <a href="https://maps.app.goo.gl/UqUzgUpgsa774DCw5" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[10px] text-gray-300 hover:text-brand-red transition-all duration-300 bg-brand-slate px-3.5 py-2 rounded-full border border-brand-border normal-case font-semibold whitespace-nowrap">
+                        <a href="https://maps.app.goo.gl/UqUzgUpgsa774DCw5" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[10px] text-gray-300 hover:text-brand-red transition-all duration-300 bg-brand-slate px-2 py-1.5 xl:px-2 xl:py-1.5 2xl:px-3.5 2xl:py-2 rounded-full border border-brand-border normal-case font-semibold whitespace-nowrap">
                             <span class="relative flex h-2 w-2">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -339,8 +339,8 @@
                 </nav>
  
                 <!-- Action button -->
-                <div class="flex items-center gap-3 flex-shrink-0">
-                    <button onclick="switchView('enquiry')" class="bg-brand-red hover:bg-transparent border border-brand-red hover:border-brand-red text-white hover:text-brand-red px-6 py-3 rounded-lg text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_15px_rgba(223, 25, 33, 0.4)] hover:-translate-y-0.5 font-sans flex items-center gap-2 group">
+                <div class="flex items-center gap-2 2xl:gap-3 flex-shrink-0">
+                    <button onclick="switchView('enquiry')" class="bg-brand-red hover:bg-transparent border border-brand-red hover:border-brand-red text-white hover:text-brand-red px-3.5 py-2.5 xl:px-3.5 xl:py-2.5 xl:text-xs 2xl:px-6 2xl:py-3 2xl:text-sm rounded-lg font-bold uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_15px_rgba(223,25,33,0.4)] hover:-translate-y-0.5 font-sans flex items-center gap-1.5 xl:gap-2 group">
                         <span>Book Free Test Ride</span>
                         <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform text-white group-hover:text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
@@ -761,8 +761,34 @@
                                 </div>
                                 <span class="text-xs text-gray-500 font-semibold mt-2 block">Based on 230 Reviews</span>
                                 <a href="https://www.google.com/search?hl=en-IN&gl=in&q=Ground+Floor,+M/S.+Pavizham+Associates+-+Hero+MotoCorp,+NH+Perumba,+Kandoth,+Payyanur,+Kerala+670307&ludocid=17717779202755109983&lsig=AB86z5VjcowaLq4jca48I_TcU9sF#" target="_blank" rel="noopener noreferrer" class="w-full mt-8 bg-[#DF1921] hover:bg-[#C11219] text-white text-center py-3.5 rounded font-bold uppercase tracking-widest text-xs transition-all duration-300 block shadow-md shadow-red-500/10 hover:shadow-red-500/20 hover:-translate-y-0.5">
-                                    WRITE A REVIEW
+                                    WRITE A GOOGLE REVIEW
                                 </a>
+                            </div>
+
+                            <!-- Write Showroom Review Form -->
+                            <div class="mt-8 bg-brand-panel p-6 rounded-2xl border border-brand-border font-sans">
+                                <h3 class="text-base font-extrabold text-white mb-4">Share Your Showroom Experience</h3>
+                                <form onsubmit="handleReviewSubmission(event)" class="space-y-4">
+                                    <div class="space-y-1">
+                                        <label class="text-xs font-bold text-gray-200 uppercase tracking-wider block">Your Name</label>
+                                        <input required type="text" id="review-author" placeholder="Enter your name" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-xs font-bold text-gray-200 uppercase tracking-wider block">Rating</label>
+                                        <select required id="review-rating" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red appearance-none cursor-pointer">
+                                            <option value="5">5 Stars - Excellent</option>
+                                            <option value="4">4 Stars - Very Good</option>
+                                            <option value="3">3 Stars - Good</option>
+                                            <option value="2">2 Stars - Fair</option>
+                                            <option value="1">1 Star - Poor</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-xs font-bold text-gray-200 uppercase tracking-wider block">Your Review</label>
+                                        <textarea required id="review-comment" rows="3" placeholder="Tell us about customer service, delivery, or support..." class="w-full bg-brand-onyx border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red"></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all shadow-md shadow-brand-red/10">Submit Review</button>
+                                </form>
                             </div>
                         </div>
 
@@ -1200,11 +1226,11 @@
                 <form onsubmit="handlePreApprovalSubmission(event)" class="space-y-4">
                     <div class="space-y-1">
                         <label class="text-sm font-bold text-gray-200 uppercase tracking-wider block font-sans">Full Name</label>
-                        <input required type="text" placeholder="Your Name" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
+                        <input required id="pre-name" type="text" placeholder="Your Name" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red">
                     </div>
                     <div class="space-y-1">
                         <label class="text-sm font-bold text-gray-200 uppercase tracking-wider block font-sans">WhatsApp Mobile Number</label>
-                        <input required type="tel" placeholder="Mobile Number" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red font-mono">
+                        <input required id="pre-phone" type="tel" placeholder="Mobile Number" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red font-mono">
                     </div>
                     <button type="submit" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3.5 rounded-lg text-xs font-bold tracking-widest uppercase transition-all mt-6 shadow-md shadow-brand-red/10 font-sans">
                         Submit Details
@@ -2117,6 +2143,16 @@
             } catch (error) {
                 console.error('Error fetching catalog:', error);
             }
+            try {
+                const response = await fetch('/api/reviews');
+                if (response.ok) {
+                    state.reviewsList = await response.json();
+                } else {
+                    console.error('Failed to fetch reviews from backend');
+                }
+            } catch (error) {
+                console.error('Error fetching reviews:', error);
+            }
             populateModelSelects();
             renderCatalog();
             renderReviews();
@@ -2210,12 +2246,12 @@
                     // Sync Header Navigation active/inactive stylings
                     const links = document.querySelectorAll('.nav-link');
                     links.forEach(lnk => {
-                        lnk.className = "nav-link text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative";
+                        lnk.className = "nav-link text-gray-300 hover:text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-semibold z-10 relative";
                     });
 
                     const activeLink = document.getElementById(`nav-${viewId}`);
                     if (activeLink) {
-                        activeLink.className = "nav-link text-white px-4 py-2 rounded-full transition-all duration-300 font-sans text-xs font-bold z-10 relative";
+                        activeLink.className = "nav-link text-white px-3 py-1.5 xl:px-2.5 xl:py-1.5 2xl:px-4 2xl:py-2 rounded-full transition-all duration-300 font-sans text-xs font-bold z-10 relative";
                         moveNavIndicator(viewId);
                     }
 
@@ -2283,15 +2319,33 @@
             }
         }
 
-        function handleQuickRide(event) {
+        async function handleQuickRide(event) {
             event.preventDefault();
             const model = document.getElementById('quick-model-select').value;
             const phone = document.getElementById('quick-phone').value;
-            showToast("Test Ride Scheduled!", `We have booked a priority test ride slot for ${model}. Our team will call you on ${phone} shortly.`, "success");
-            event.target.reset();
+            try {
+                const response = await fetch('/api/test-ride', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ model, phone })
+                });
+                if (response.ok) {
+                    showToast("Test Ride Scheduled!", `We have booked a priority test ride slot for ${model}. Our team will call you on ${phone} shortly.`, "success");
+                    event.target.reset();
+
+                    // WhatsApp enquiry routing
+                    const waText = `Hello Pavizham Associates,\n\nI would like to book a Test Ride.\n\n*Details:*\n- Model: ${model}\n- Phone: ${phone}\n\nThank you!`;
+                    window.open(`https://wa.me/919747695525?text=${encodeURIComponent(waText)}`, '_blank');
+                } else {
+                    showToast("Submission Failed", "There was an error booking your test ride. Please try again.", "error");
+                }
+            } catch (error) {
+                console.error(error);
+                showToast("Connection Error", "Could not reach the server. Please check your network.", "error");
+            }
         }
 
-        function handleTrackStatus(event) {
+        async function handleTrackStatus(event) {
             event.preventDefault();
             const id = document.getElementById('tracking-id').value.toUpperCase().trim();
             const responseBox = document.getElementById('tracker-response');
@@ -2303,9 +2357,10 @@
             heading.innerText = "Querying showroom database...";
             body.innerText = "Retrieving your bike service record details...";
 
-            setTimeout(() => {
-                const data = state.dummyStatusDatabase[id];
-                if (data) {
+            try {
+                const response = await fetch(`/api/track-status/${id}`);
+                if (response.ok) {
+                    const data = await response.json();
                     glow.className = `w-2.5 h-2.5 rounded-full animate-pulse ${data.glowColor}`;
                     heading.innerText = `${id}: ${data.heading}`;
                     body.innerText = data.body;
@@ -2316,7 +2371,13 @@
                     body.innerText = "Check your Job Card number and try again (Try sandboxes: PV-901 or PV-904).";
                     showToast("Not Found", "No service details matching this number.", "error");
                 }
-            }, 600);
+            } catch (error) {
+                console.error(error);
+                glow.className = "w-2.5 h-2.5 rounded-full bg-red-600";
+                heading.innerText = "Connection Error";
+                body.innerText = "Could not reach the database. Please try again later.";
+                showToast("Error", "Could not fetch status due to a connection issue.", "error");
+            }
         }
 
         // PRODUCTS RENDER & LOGIC
@@ -3072,11 +3133,33 @@
             document.getElementById('preapproval-modal').classList.add('hidden');
         }
 
-        function handlePreApprovalSubmission(event) {
+        async function handlePreApprovalSubmission(event) {
             event.preventDefault();
-            closePreApproval();
-            showToast("Details Submitted!", "Your loan eligibility inquiry has been logged. Our showroom staff will reach you soon on WhatsApp.", "success");
-            event.target.reset();
+            const name = document.getElementById('pre-name').value;
+            const phone = document.getElementById('pre-phone').value;
+            const bike = state.selectedEmiBike;
+            const emi = document.getElementById('modal-emi').innerText;
+            try {
+                const response = await fetch('/api/pre-approval', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, phone, bike, emi })
+                });
+                if (response.ok) {
+                    closePreApproval();
+                    showToast("Details Submitted!", "Your loan eligibility inquiry has been logged. Our showroom staff will reach you soon on WhatsApp.", "success");
+                    event.target.reset();
+
+                    // WhatsApp enquiry routing
+                    const waText = `Hello Pavizham Associates,\n\nI would like to check my loan eligibility / book a vehicle.\n\n*Details:*\n- Name: ${name}\n- Phone: ${phone}\n- Selected Model: ${bike}\n- Estimated EMI: ${emi}\n\nThank you!`;
+                    window.open(`https://wa.me/919747695525?text=${encodeURIComponent(waText)}`, '_blank');
+                } else {
+                    showToast("Submission Failed", "Could not submit loan details.", "error");
+                }
+            } catch (error) {
+                console.error(error);
+                showToast("Connection Error", "Failed to connect to the server.", "error");
+            }
         }
 
         // OFFERS ACTIONS
@@ -3128,16 +3211,31 @@
             });
         }
 
-        function handleReviewSubmission(event) {
+        async function handleReviewSubmission(event) {
             event.preventDefault();
             const author = document.getElementById('review-author').value;
             const rating = parseInt(document.getElementById('review-rating').value);
             const comment = document.getElementById('review-comment').value;
-
-            state.reviewsList.unshift({ author, rating, comment });
-            renderReviews();
-            showToast("Review Submitted!", "Thank you for rating Pavizham Associates Showroom.", "success");
-            event.target.reset();
+            const date = new Date().toLocaleDateString('en-GB').replace(/\//g, '-');
+            try {
+                const response = await fetch('/api/reviews', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ author, rating, comment, date })
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    state.reviewsList = data;
+                    renderReviews();
+                    showToast("Review Submitted!", "Thank you for rating Pavizham Associates Showroom.", "success");
+                    event.target.reset();
+                } else {
+                    showToast("Submission Failed", "Could not submit review.", "error");
+                }
+            } catch (error) {
+                console.error(error);
+                showToast("Connection Error", "Failed to connect to the server.", "error");
+            }
         }
 
         // GALLERY MULTIMEDIA LIGHTBOX
@@ -3609,14 +3707,33 @@
         }
 
         // ENQUIRY SYSTEM HANDLER
-        function handleEnquiryFormSubmission(event) {
+        async function handleEnquiryFormSubmission(event) {
             event.preventDefault();
             const name = document.getElementById('enq-name').value;
+            const phone = document.getElementById('enq-phone').value;
             const model = document.getElementById('enq-model').value;
-            const mode = document.getElementById('enq-finance').value;
+            const finance = document.getElementById('enq-finance').value;
+            const notes = document.getElementById('enq-notes').value;
+            try {
+                const response = await fetch('/api/enquiry', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, phone, model, finance, notes })
+                });
+                if (response.ok) {
+                    showToast("Enquiry Received!", `Thank you, ${name}. Our staff will send the on-road price sheet for ${model} directly to your mobile number.`, "success");
+                    event.target.reset();
 
-            showToast("Enquiry Received!", `Thank you, ${name}. Our staff will send the on-road price sheet for ${model} directly to your mobile number.`, "success");
-            event.target.reset();
+                    // WhatsApp enquiry routing
+                    const waText = `Hello Pavizham Associates,\n\nI would like to submit a new showroom enquiry.\n\n*Details:*\n- Name: ${name}\n- Phone: ${phone}\n- Model: ${model}\n- Payment Mode: ${finance.toUpperCase()}\n- Notes: ${notes || 'None'}\n\nThank you!`;
+                    window.open(`https://wa.me/919747695525?text=${encodeURIComponent(waText)}`, '_blank');
+                } else {
+                    showToast("Submission Failed", "Could not submit enquiry. Please try again.", "error");
+                }
+            } catch (error) {
+                console.error(error);
+                showToast("Connection Error", "Failed to connect to the server.", "error");
+            }
         }
 
         window.addEventListener('DOMContentLoaded', () => {

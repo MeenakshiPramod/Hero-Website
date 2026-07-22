@@ -1,0 +1,17 @@
+{
+  "PV-901": {
+    "heading": "In Wash Bay",
+    "body": "Servicing is 85% complete. Your bike is entering the final polishing loop. Pickup expected in 18 minutes.",
+    "glowColor": "bg-yellow-500"
+  },
+  "PV-902": {
+    "heading": "Awaiting Spares",
+    "body": "We are awaiting authorization on an air-filter swap. Estimated delivery shifted to 6:00 PM today.",
+    "glowColor": "bg-amber-500"
+  },
+  "PV-904": {
+    "heading": "Completed & Ready",
+    "body": "Completed 90-minute express service profile. Your vehicle is safely parked in Bay 3 for pickup.",
+    "glowColor": "bg-green-500"
+  }
+}
