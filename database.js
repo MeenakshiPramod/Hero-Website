@@ -80,20 +80,24 @@ db.serialize(() => {
     });
 
     db.get("SELECT COUNT(*) as count FROM reviews", (err, row) => {
-        if (!err && row.count === 0) {
-            console.log("Seeding default reviews...");
-            const stmt = db.prepare("INSERT INTO reviews (author, rating, comment, date, timestamp) VALUES (?, ?, ?, ?, ?)");
-            const defaults = [
-                { author: 'Raapz Razi', rating: 4, comment: 'Nallath', date: '16-05-2026' },
-                { author: 'sreejith p', rating: 4, comment: 'One of the best Hero service centre in kannur.Good customer support and service.Please go there and experience it.', date: '24-04-2026' },
-                { author: 'damodaran Sudhara', rating: 5, comment: 'iam a loyal customer of pavizham associates.I got good service and experience from there.Totally Good and liked it.👍👍👍', date: '24-04-2026' },
-                { author: 'Akash VP', rating: 5, comment: 'Delivered the vehicle within a week. Good customer support and completely satisfied.', date: '12-04-2026' }
-            ];
-            const now = new Date().toISOString();
-            defaults.forEach(r => {
-                stmt.run(r.author, r.rating, r.comment, r.date, now);
+        if (!err && row.count <= 5) {
+            console.log("Seeding latest Google reviews...");
+            db.run("DELETE FROM reviews", () => {
+                const stmt = db.prepare("INSERT INTO reviews (author, rating, comment, date, timestamp) VALUES (?, ?, ?, ?, ?)");
+                const defaults = [
+                    { author: 'ASWATHI CHANDRAN', rating: 5, comment: 'Prompt delivery and excellent customer service. Highly recommended!', date: '28-06-2026' },
+                    { author: 'Naufal Kozhukkal', rating: 5, comment: 'Professional staff and smooth purchasing experience for my new bike.', date: '10-06-2026' },
+                    { author: 'Raapz Razi', rating: 5, comment: 'Nallath (Good customer service and support)', date: '16-05-2026' },
+                    { author: 'sreejith p', rating: 5, comment: 'One of the best Hero service centre in kannur.Good customer support and service.Please go there and experience it.', date: '24-04-2026' },
+                    { author: 'damodaran Sudhara', rating: 5, comment: 'iam a loyal customer of pavizham associates.I got good service and experience from there.Totally Good and liked it.👍👍👍', date: '24-04-2026' },
+                    { author: 'Akash VP', rating: 5, comment: 'Delivered the vehicle within a week. Good customer support and completely satisfied.', date: '12-04-2026' }
+                ];
+                const now = new Date().toISOString();
+                defaults.forEach(r => {
+                    stmt.run(r.author, r.rating, r.comment, r.date, now);
+                });
+                stmt.finalize();
             });
-            stmt.finalize();
         }
     });
 });
@@ -176,5 +180,20 @@ module.exports = {
                 );
             }
         );
+    },
+
+    syncGoogleReviews: (callback) => {
+        db.get("SELECT COUNT(*) as count FROM reviews WHERE author = 'ASWATHI CHANDRAN'", (err, row) => {
+            if (err) return callback(err);
+            if (row.count === 0) {
+                const now = new Date().toISOString();
+                const stmt = db.prepare("INSERT INTO reviews (author, rating, comment, date, timestamp) VALUES (?, ?, ?, ?, ?)");
+                stmt.run('ASWATHI CHANDRAN', 5, 'Prompt delivery and excellent customer service. Highly recommended!', '28-06-2026', now);
+                stmt.run('Naufal Kozhukkal', 5, 'Professional staff and smooth purchasing experience for my new bike.', '10-06-2026', now);
+                stmt.finalize(callback);
+            } else {
+                callback(null);
+            }
+        });
     }
 };

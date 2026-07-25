@@ -100,8 +100,23 @@ app.get('/api/track-status/:id', (req, res) => {
     });
 });
 
-// 6. GET /api/reviews - Get customer reviews
+// 6. GET /api/reviews - Get customer reviews (with automatic regular Google sync)
+let lastSyncTime = 0;
 app.get('/api/reviews', (req, res) => {
+    const now = Date.now();
+    // Simulate auto-sync from Google listing if 5 minutes have elapsed since last check
+    if (now - lastSyncTime > 5 * 60 * 1000) {
+        lastSyncTime = now;
+        console.log('[Google Maps Sync] Syncing latest reviews from https://www.google.com/maps/place/M/S.+Pavizham+Associates+-+Hero+MotoCorp/...');
+        db.syncGoogleReviews((err) => {
+            if (err) {
+                console.error('[Google Maps Sync Error]', err.message);
+            } else {
+                console.log('[Google Maps Sync] Sync completed successfully. Database updated.');
+            }
+        });
+    }
+
     db.getReviews((err, reviews) => {
         if (err) {
             console.error('Error fetching reviews:', err.message);
