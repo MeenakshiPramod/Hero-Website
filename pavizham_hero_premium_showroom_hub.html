@@ -6,10 +6,10 @@
     <title>M/S. Pavizham Associates - Authorized Hero Showroom, Payyanur</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <!-- Google Fonts: Inter, JetBrains Mono & Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -18,6 +18,7 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
+                        outfit: ['Outfit', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -340,6 +341,148 @@
         .animate-studio-pulse {
             animation: studio-pulse 8s ease-in-out infinite;
         }
+
+        /* LUXURY AUTOMOTIVE REDESIGN STYLES */
+
+        /* High-energy gradient sweep hover animation for CTA button */
+        .gradient-sweep {
+            background-size: 200% auto !important;
+            background-image: linear-gradient(135deg, #DF1921 0%, #ff5252 50%, #DF1921 100%) !important;
+            transition: all 0.4s ease !important;
+        }
+        .gradient-sweep:hover {
+            background-position: right center !important;
+            box-shadow: 0 0 25px rgba(223, 25, 33, 0.5) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        /* Active tab laser top border style matching class applied by JS */
+        .hero-tab-btn[class*="bg-brand-red"] {
+            border-top: 2px solid #DF1921 !important;
+            box-shadow: inset 0 4px 12px rgba(223, 25, 33, 0.15), 0 -2px 10px rgba(223, 25, 33, 0.4) !important;
+            position: relative;
+        }
+        .hero-tab-btn[class*="bg-brand-red"]::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 10% !important;
+            right: 10% !important;
+            height: 2px !important;
+            background: #DF1921 !important;
+            box-shadow: 0 0 10px #DF1921, 0 0 20px #DF1921 !important;
+        }
+
+        /* Pulsing Location Green Radar Ring */
+        @keyframes green-radar-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+                transform: scale(0.95);
+            }
+            70% {
+                box-shadow: 0 0 0 8px rgba(74, 222, 128, 0);
+                transform: scale(1.4);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(74, 222, 128, 0);
+                transform: scale(0.95);
+            }
+        }
+        .green-radar-dot {
+            animation: green-radar-pulse 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite !important;
+        }
+
+        /* Parallax Zoom on Load */
+        @keyframes hero-zoom-on-load {
+            0% {
+                transform: scale(1.12);
+            }
+            100% {
+                transform: scale(1.02);
+            }
+        }
+        .hero-zoom-bg {
+            animation: hero-zoom-on-load 9s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+        }
+
+        /* Universal Carbon Field styling */
+        input, select, textarea {
+            background-color: #0F1015 !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            color: #FFFFFF !important;
+            font-family: 'JetBrains Mono', monospace !important;
+            transition: all 0.3s ease !important;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #DF1921 !important;
+            box-shadow: 0 0 20px rgba(223, 25, 33, 0.3) !important;
+            outline: none !important;
+        }
+
+        /* High-octane Bento/Interactive Cards styling */
+        .interactive-card, 
+        #catalog-grid > div, 
+        #reviews-feed > div,
+        #view-offers .grid > div {
+            background-color: rgba(15, 16, 21, 0.9) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 1rem !important; /* rounded-2xl */
+            position: relative !important;
+            overflow: hidden !important;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            transform: translateY(0) scale(1) !important;
+        }
+        
+        /* Cursor-following light reflection */
+        .interactive-card::before,
+        #catalog-grid > div::before,
+        #reviews-feed > div::before,
+        #view-offers .grid > div::before {
+            content: '' !important;
+            position: absolute !important;
+            inset: -1px !important;
+            border-radius: 1rem !important;
+            background: radial-gradient(300px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(223, 25, 33, 0.18), transparent 65%) !important;
+            z-index: 0 !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            transition: opacity 0.4s ease !important;
+        }
+        
+        .interactive-card:hover::before,
+        #catalog-grid > div:hover::before,
+        #reviews-feed > div:hover::before,
+        #view-offers .grid > div:hover::before {
+            opacity: 1 !important;
+        }
+        
+        .interactive-card:hover,
+        #catalog-grid > div:hover,
+        #reviews-feed > div:hover,
+        #view-offers .grid > div:hover {
+            border-color: rgba(223, 25, 33, 0.5) !important;
+            box-shadow: 0 10px 30px rgba(223, 25, 33, 0.2) !important;
+            transform: translateY(-8px) !important; /* hover:-translate-y-2 */
+        }
+
+        /* Ensure card children sit above mouse light reflection layer */
+        .interactive-card > *,
+        #catalog-grid > div > *,
+        #reviews-feed > div > *,
+        #view-offers .grid > div > * {
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        /* Globally enhance descriptions contrast & titles font */
+        p, .text-[#9A9A9A], .text-gray-300, .text-gray-400, .text-brand-textMuted {
+            color: #A1A1AA !important;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: #FFFFFF !important;
+            font-family: 'Outfit', sans-serif !important;
+        }
     </style>
 </head>
 <body class="bg-brand-onyx text-brand-textLight font-sans antialiased selection:bg-brand-red selection:text-white">
@@ -375,7 +518,7 @@
 
         <!-- HEADER / NAVIGATION -->
         <header class="sticky top-4 z-40 max-w-[1440px] mx-auto px-4 sm:px-6 transition-all duration-300">
-            <div class="backdrop-blur-xl bg-brand-onyx/70 border border-white/10 rounded-full px-6 h-20 flex items-center justify-between gap-1.5 xl:gap-2 2xl:gap-3 shadow-lg">
+            <div class="backdrop-blur-2xl bg-black/70 border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] rounded-full px-6 h-20 flex items-center justify-between gap-1.5 xl:gap-2 2xl:gap-3">
                 <!-- Official Hero Brand Logo -->
                 <a href="https://dealers.heromotocorp.com/" class="flex items-center gap-1 xl:gap-1.5 2xl:gap-2 group flex-shrink-0" style="flex-shrink: 0;">
                     <img src="images\pavizham_logo.jpeg" alt="Hero MotoCorp Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
@@ -404,10 +547,10 @@
                     
                     <!-- Pulsing Location with Dropdown Showroom Hours -->
                     <div class="relative group z-10">
-                        <a href="https://maps.app.goo.gl/UqUzgUpgsa774DCw5" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 xl:gap-1 2xl:gap-1.5 text-[10px] text-gray-300 hover:text-brand-red transition-all duration-300 bg-brand-slate px-2.5 py-1.5 xl:px-2 xl:py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-brand-border normal-case font-semibold whitespace-nowrap">
-                            <span class="relative flex h-2 w-2">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        <a href="https://maps.app.goo.gl/UqUzgUpgsa774DCw5" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 xl:gap-1 2xl:gap-1.5 text-[10px] text-gray-300 hover:text-brand-red transition-all duration-300 bg-brand-slate px-2.5 py-1.5 xl:px-2 xl:py-1 2xl:px-3 2xl:py-1.5 rounded-full border border-brand-border normal-case font-semibold whitespace-nowrap">
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 green-radar-dot"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500 shadow-[0_0_8px_#22c55e]"></span>
                             </span>
                             <span>Open Now &bull; Payyanur, Kannur</span>
                             <svg class="w-3.5 h-3.5 text-gray-400 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -432,9 +575,9 @@
  
                 <!-- Action button -->
                 <div class="flex items-center gap-2 2xl:gap-3 flex-shrink-0">
-                    <button onclick="switchView('enquiry')" class="bg-brand-red hover:bg-transparent border border-brand-red hover:border-brand-red text-white hover:text-brand-red px-3 py-2 xl:px-2 xl:py-1.5 xl:text-[11px] xl:tracking-wide 2xl:px-3.5 2xl:py-2 2xl:text-xs 2xl:tracking-wide rounded-lg font-bold uppercase transition-all duration-300 hover:shadow-[0_0_15px_rgba(223,25,33,0.4)] hover:-translate-y-0.5 font-sans flex items-center gap-1 xl:gap-1.5 2xl:gap-1.5 group">
+                    <button onclick="switchView('enquiry')" class="gradient-sweep text-white px-3 py-2 xl:px-2 xl:py-1.5 xl:text-[11px] xl:tracking-wide 2xl:px-3.5 2xl:py-2 2xl:text-xs 2xl:tracking-wide rounded-full font-bold uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(223,25,33,0.5)] hover:-translate-y-0.5 font-sans flex items-center gap-1 xl:gap-1.5 2xl:gap-1.5 group">
                         <span>Book Test Ride</span>
-                        <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform text-white group-hover:text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </button>
@@ -442,8 +585,7 @@
                     <button onclick="toggleMobileMenu()" class="xl:hidden p-2 text-gray-100 hover:text-white focus:outline-none rounded-lg hover:bg-brand-panel transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
-                </div>
-            </div>
+                </div>  </div>
 
             <!-- Mobile Navigation Overlay -->
             <div id="mobile-menu" class="hidden xl:hidden bg-brand-onyx border-b border-brand-border px-4 py-4 space-y-2 font-semibold text-base tracking-wide">
@@ -467,18 +609,25 @@
             <div id="view-home" class="view-section active">
                 <!-- HERO SECTION -->
                 <section class="relative pt-24 pb-28 border-b border-brand-border overflow-hidden">
-                    <!-- Slow-panning day/night cross-fading background visuals -->
+                    <!-- Cinematic Background & Studio Lighting -->
                     <div id="hero-bg-slideshow" class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-                        <img src="showroom_image.jpg" alt="Pavizham Hero Showroom Daytime" class="absolute inset-0 w-full h-full object-cover bg-pan-day transform scale-110 filter brightness-[0.3] contrast-[1.05]">
-                        <img src="showroom_night.jpeg" alt="Pavizham Hero Showroom Nighttime" class="absolute inset-0 w-full h-full object-cover bg-pan-night transform scale-110 filter brightness-[0.3] contrast-[1.05]">
+                        <!-- Showroom Night Background with Parallax Zoom on Load -->
+                        <img src="showroom_image_night.jpeg" alt="Pavizham Hero Showroom Night" class="absolute inset-0 w-full h-full object-cover hero-zoom-bg filter brightness-[0.4] contrast-[1.1]">
                         
-                        <!-- Studio Spotlight Masks -->
-                        <div class="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-brand-red rounded-full filter blur-[100px] pointer-events-none z-10 animate-studio-pulse" style="mix-blend-mode: screen;"></div>
-                        <div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-brand-red rounded-full filter blur-[120px] pointer-events-none z-10 animate-studio-pulse" style="animation-delay: -4s; mix-blend-mode: screen;"></div>
+                        <!-- Studio Spotlight Overlay -->
+                        <div class="absolute inset-0 z-10 pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(223, 25, 33, 0.15) 0%, transparent 60%); mix-blend-mode: screen;"></div>
+                        
+                        <!-- Top-down Crimson Spotlight Beam behind the Hero Headline -->
+                        <div class="absolute top-0 left-0 right-0 h-[70vh] z-10 pointer-events-none" style="background: radial-gradient(circle at 50% 0%, rgba(223, 25, 33, 0.25) 0%, transparent 60%);"></div>
 
-                        <!-- Dark overlays to maintain high display typography contrast -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-onyx via-brand-onyx/80 to-transparent z-10"></div>
-                        <div class="absolute inset-0 z-10" style="background: radial-gradient(circle at center, transparent 15%, rgba(7,7,9,0.85) 75%, #070709 100%);"></div>
+                        <!-- Dramatic Dark Vignette -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-onyx via-brand-onyx/75 to-transparent z-10"></div>
+                        <div class="absolute inset-0 z-10" style="background: radial-gradient(circle at center, transparent 20%, rgba(7,7,9,0.9) 70%, #070709 100%);"></div>
+                        
+                        <!-- 3D Reflective Grid Layer at the Bottom of Hero Canvas -->
+                        <div class="absolute bottom-0 left-0 right-0 h-[25vh] overflow-hidden pointer-events-none z-10" style="perspective: 1000px;">
+                            <div class="w-[200%] h-[200%] -ml-[50%] opacity-80" style="background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 30px 30px; transform: rotateX(75deg); transform-origin: top center;"></div>
+                        </div>
                     </div>
 
                     <!-- Horizontal Electric Trace Line Loader -->
@@ -490,28 +639,26 @@
                             Official Showroom Website
                         </span>
 
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-tight pb-1 overflow-hidden select-none">
+                        <h1 class="font-extrabold text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase font-[#df1921] font-['Outfit'] max-w-5xl mx-auto leading-tight pb-1 overflow-hidden select-none">
                             <span class="inline-block overflow-hidden align-bottom">
-                                <span class="inline-block animate-slide-up" style="animation-delay: 1200ms;">Ride</span>
+                                <span class="inline-block animate-slide-up text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-gray-400" style="animation-delay: 1200ms;">Ride</span>
                             </span>
                             <span class="inline-block overflow-hidden align-bottom">
-                                <span class="inline-block animate-slide-up" style="animation-delay: 1300ms;">&nbsp;With&nbsp;</span>
+                                <span class="inline-block animate-slide-up text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-gray-400" style="animation-delay: 1300ms;">&nbsp;With&nbsp;</span>
                             </span>
                             <span class="inline-block overflow-hidden align-bottom">
-                                <span class="inline-block animate-slide-up" style="animation-delay: 1400ms;">Power.</span>
+                                <span class="inline-block animate-slide-up text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-gray-400" style="animation-delay: 1400ms;">Power.</span>
                             </span>
                             <br>
-                            <span class="inline-block overflow-hidden align-bottom text-brand-red">
-                                <span class="inline-block animate-slide-up" style="animation-delay: 1700ms;">Experience Hero at Payyanur.</span>
+                            <span class="inline-block overflow-hidden align-bottom">
+                                <span class="inline-block animate-slide-up text-brand-red drop-shadow-[0_0_25px_rgba(223,25,33,0.6)]" style="animation-delay: 1700ms;">Experience Hero at Payyanur.</span>
                             </span>
                         </h1>
                         
                         <p class="mt-6 text-lg sm:text-lg text-[#9A9A9A] max-w-2xl mx-auto font-normal leading-relaxed animate-fade-in-up" style="animation-delay: 2000ms;">
                             Check showroom prices, calculate your monthly EMI (installments), and book a free test ride at M/S. Pavizham Associates showroom instantly.
-                        </p>
-
-                        <!-- SaaS Interactive Hub Control -->
-                        <div class="mt-12 max-w-3xl mx-auto backdrop-blur-2xl bg-[#0D0F12]/85 rounded-2xl border border-white/10 p-4 sm:p-6 animate-fade-in-up shadow-[0_0_50px_rgba(223,25,33,0.15)]" style="animation-delay: 2200ms;">
+                                                <!-- SaaS Interactive Hub Control -->
+                        <div class="mt-12 max-w-3xl mx-auto backdrop-blur-2xl bg-[#0D0F14]/80 border border-brand-red/40 shadow-[0_0_50px_rgba(223,25,33,0.15)] rounded-2xl p-6 animate-fade-in-up" style="animation-delay: 2200ms;">
                             <div class="flex border-b border-brand-border pb-3 mb-6 gap-2 overflow-x-auto whitespace-nowrap">
                                 <button onclick="switchHeroTab('ride')" id="tab-btn-ride" class="hero-tab-btn flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 text-white bg-brand-red/10 border border-brand-red/20 font-sans">
                                     <svg class="w-4 h-4 text-brand-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
@@ -531,7 +678,7 @@
                             <div id="hero-tab-ride" class="hero-tab-content block">
                                 <form id="quick-ride-form" class="grid grid-cols-1 sm:grid-cols-3 gap-4" onsubmit="handleQuickRide(event)">
                                     <div class="relative">
-                                        <select required id="quick-model-select" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red appearance-none cursor-pointer font-sans">
+                                        <select required id="quick-model-select" class="w-full bg-[#0F1015] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red appearance-none cursor-pointer font-mono carbon-input">
                                             <option value="" disabled selected>Select Bike / Scooter...</option>
                                             <option value="Xtreme 125R">Xtreme 125R</option>
                                             <option value="Xpulse 200 4V">Xpulse 200 4V</option>
@@ -543,10 +690,10 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <input required type="tel" id="quick-phone" placeholder="WhatsApp Phone Number" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red placeholder:text-gray-400 font-mono">
+                                        <input required type="tel" id="quick-phone" placeholder="WhatsApp Phone Number" class="w-full bg-[#0F1015] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red placeholder:text-gray-400 font-mono carbon-input">
                                     </div>
                                     <div>
-                                        <button type="submit" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3 rounded-lg text-xs font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-md shadow-brand-red/20 font-sans">
+                                        <button type="submit" class="w-full gradient-sweep text-white py-3 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(223,25,33,0.5)] font-sans">
                                             <span>Book Test Ride</span>
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                                         </button>
@@ -558,14 +705,14 @@
                             <div id="hero-tab-tracker" class="hero-tab-content hidden">
                                 <form class="flex flex-col sm:flex-row gap-4" onsubmit="handleTrackStatus(event)">
                                     <div class="flex-grow">
-                                        <input required type="text" id="tracking-id" placeholder="Enter Job Card Number (e.g., PV-901)" class="w-full bg-brand-onyx border border-brand-border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red placeholder:text-gray-400 uppercase font-mono tracking-wider">
+                                        <input required type="text" id="tracking-id" placeholder="Enter Job Card Number (e.g., PV-901)" class="w-full bg-[#0F1015] border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red placeholder:text-gray-400 uppercase font-mono tracking-wider carbon-input">
                                     </div>
-                                    <button type="submit" class="bg-brand-red hover:bg-brand-redHover text-white px-6 py-3 rounded-lg text-xs font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 shadow-md shadow-brand-red/20 font-sans">
+                                    <button type="submit" class="gradient-sweep text-white px-6 py-3 rounded-full text-xs font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(223,25,33,0.5)] font-sans">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                                         <span>Check Status</span>
                                     </button>
                                 </form>
-                                <div id="tracker-response" class="hidden mt-4 p-4 rounded-lg bg-brand-onyx border border-brand-border text-left">
+                                <div id="tracker-response" class="hidden mt-4 p-4 rounded-lg bg-[#0F1015] border border-white/10 text-left">
                                     <div class="flex items-center gap-3">
                                         <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 animate-pulse" id="tracker-status-glow"></span>
                                         <span class="font-bold text-sm text-white" id="tracker-heading">Checking showroom database...</span>
@@ -576,17 +723,17 @@
 
                             <!-- 3. Showroom Services -->
                             <div id="hero-tab-delivery" class="hero-tab-content hidden">
-                                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-left bg-brand-onyx p-4 rounded-xl border border-brand-border">
+                                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-left bg-[#0F1015] p-4 rounded-xl border border-white/10">
                                     <div>
                                         <h4 class="font-semibold text-white text-sm font-sans">Do you want to know the On-Road price?</h4>
                                         <p class="text-base text-gray-200 mt-1 font-mono">Use our easy calculator below to find the exact On-Road price and monthly installment (EMI).</p>
                                     </div>
-                                    <button onclick="switchView('enquiry')" class="bg-brand-slate hover:bg-brand-border text-white text-xs font-semibold px-4 py-2.5 rounded-lg border border-brand-border tracking-wider uppercase transition-colors font-sans">
+                                    <button onclick="switchView('enquiry')" class="gradient-sweep text-white text-xs font-bold px-4 py-2.5 rounded-full tracking-wider uppercase transition-all font-sans">
                                         Send Inquiry
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div>  </div>
                     </div>
                 </section>
 
@@ -945,7 +1092,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button onclick="claimOfferCode('ZERO-DOWN-HERO')" class="w-full bg-brand-red hover:bg-brand-redHover text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all font-sans">Get Offer Code</button>
+                            <button onclick="claimOfferCode('ZERO-DOWN-HERO')" class="w-full bg-[#DF1921] hover:bg-[#C11219] hover:shadow-[0_0_20px_rgba(223,25,33,0.4)] text-white py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 font-sans flex items-center justify-center gap-1.5 group/btn">
+                                <span>Get Offer Code</span>
+                                <span class="inline-block transform group-hover/btn:translate-x-1 transition-transform">→</span>
+                            </button>
                         </div>
 
                         <!-- Offer 2 -->
@@ -965,7 +1115,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <button onclick="claimOfferCode('LOYALTY-UP-XP')" class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all font-sans">Get Loyalty Coupon</button>
+                            <button onclick="claimOfferCode('LOYALTY-UP-XP')" class="w-full bg-green-600 hover:bg-green-700 hover:shadow-[0_0_20px_rgba(74,222,128,0.4)] text-white py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 font-sans flex items-center justify-center gap-1.5 group/btn">
+                                <span>Get Loyalty Coupon</span>
+                                <span class="inline-block transform group-hover/btn:translate-x-1 transition-transform">→</span>
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -2706,8 +2859,14 @@
                                 <span class="text-base font-extrabold text-white">₹${v.price.toLocaleString('en-IN')}*</span>
                             </div>
                             <div class="grid grid-cols-2 gap-3 mt-2 font-sans">
-                                <button onclick="event.stopPropagation(); openProductDetail('${v.name.replace(/'/g, "\\'")}')" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded bg-brand-slate hover:bg-brand-border text-white border border-[#1E2129] transition-all duration-300">Check Specs</button>
-                                <button onclick="event.stopPropagation(); handleProductEmiTrigger('${v.name.replace(/'/g, "\\'")}', ${v.price})" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded bg-brand-red hover:bg-brand-redHover text-white transition-all duration-300">Calculate EMI</button>
+                                <button onclick="event.stopPropagation(); openProductDetail('${v.name.replace(/'/g, "\\'")}')" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#0F1015] hover:bg-brand-red/10 text-white border border-white/10 hover:border-brand-red/50 hover:shadow-[0_0_15px_rgba(223,25,33,0.3)] transition-all duration-300 flex items-center justify-center gap-1 group/btn">
+                                    <span>Check Specs</span>
+                                    <span class="inline-block transform group-hover/btn:translate-x-1 transition-transform">→</span>
+                                </button>
+                                <button onclick="event.stopPropagation(); handleProductEmiTrigger('${v.name.replace(/'/g, "\\'")}', ${v.price})" class="px-3 py-2 text-xs font-bold uppercase tracking-wider rounded-full bg-[#DF1921] hover:bg-[#C11219] text-white hover:shadow-[0_0_15px_rgba(223,25,33,0.4)] transition-all duration-300 flex items-center justify-center gap-1 group/btn">
+                                    <span>Calculate EMI</span>
+                                    <span class="inline-block transform group-hover/btn:translate-x-1 transition-transform">→</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -4010,15 +4169,16 @@
                 }
             }, 300);
 
-            // Bento hover coordinates light tracking
-            document.querySelectorAll('.bento-panel-border').forEach(panel => {
-                panel.addEventListener('mousemove', e => {
+            // Bento & Interactive Cards hover coordinates light tracking (dynamic event delegation)
+            document.addEventListener('mousemove', e => {
+                const panel = e.target.closest('.interactive-card, .bento-panel-border, #catalog-grid > div, #reviews-feed > div, #view-offers .grid > div');
+                if (panel) {
                     const rect = panel.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
                     panel.style.setProperty('--mouse-x', `${x}px`);
                     panel.style.setProperty('--mouse-y', `${y}px`);
-                });
+                }
             });
         });
 
