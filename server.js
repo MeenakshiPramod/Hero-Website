@@ -33,6 +33,27 @@ app.get('/api/catalog', (req, res) => {
     res.json(catalogData);
 });
 
+// POST /api/catalog/update - Save updated catalog database to JSON
+app.post('/api/catalog/update', (req, res) => {
+    const { vehiclesList, specsDetail } = req.body;
+    if (!vehiclesList || !specsDetail) {
+        return res.status(400).json({ error: 'Vehicles list and specifications are required' });
+    }
+    
+    try {
+        const catalogPath = path.join(__dirname, 'data', 'catalog.json');
+        const updatedData = { vehiclesList, specsDetail };
+        
+        fs.writeFileSync(catalogPath, JSON.stringify(updatedData, null, 2), 'utf8');
+        catalogData = updatedData;
+        console.log(`Successfully updated and saved catalog with ${catalogData.vehiclesList.length} vehicles.`);
+        res.status(200).json({ message: 'Catalog database updated successfully', count: catalogData.vehiclesList.length });
+    } catch (error) {
+        console.error('Error writing catalog database:', error);
+        res.status(500).json({ error: 'Database save error' });
+    }
+});
+
 // 2. POST /api/test-ride - Schedule quick test ride
 app.post('/api/test-ride', (req, res) => {
     const { model, phone } = req.body;
@@ -145,7 +166,7 @@ app.post('/api/reviews', (req, res) => {
 
 // Map root / to serve our premium showroom hub HTML file
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'pavizham_hero_premium_showroom_hub.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => {
