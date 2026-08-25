@@ -3498,10 +3498,22 @@
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 6000);
 
-                const response = await fetch(LIVE_CATALOG_ENDPOINT, { signal: controller.signal });
+                let response;
+                try {
+                    response = await fetch(LIVE_CATALOG_ENDPOINT, { signal: controller.signal });
+                } catch (e) {
+                    console.warn("Primary API endpoint failed, trying static fallback data/catalog.json...", e);
+                    response = await fetch('data/catalog.json', { signal: controller.signal });
+                }
+
+                if (response && !response.ok) {
+                    console.warn(`Primary endpoint returned status ${response.status}, trying static fallback data/catalog.json...`);
+                    response = await fetch('data/catalog.json', { signal: controller.signal });
+                }
+
                 clearTimeout(timeoutId);
 
-                if (response.ok) {
+                if (response && response.ok) {
                     const data = await response.json();
                     if (data && data.vehiclesList) {
                         state.vehiclesList = data.vehiclesList;
