@@ -747,10 +747,14 @@
                 <!-- Official Hero Brand Logo -->
                 <a href="https://dealers.heromotocorp.com/"
                     class="flex items-center gap-1 xl:gap-1.5 2xl:gap-2 group flex-shrink-0" style="flex-shrink: 0;">
-                    <img src="images\pavizham_logo.jpeg" alt="Pavizham Logo"
+                    <img src="./images/pavizham_logo.jpeg" alt="Pavizham Logo"
+                        onerror="this.style.display='none'; document.getElementById('pavizham-logo-fallback').classList.remove('hidden');"
                         class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
-                    <img src="images\hero_logo.jpg" alt="Hero Logo"
+                    <span id="pavizham-logo-fallback" class="hidden text-white font-extrabold tracking-wider text-xs transition-colors group-hover:text-brand-red duration-300 uppercase">PAVIZHAM</span>
+                    <img src="./images/hero_logo.jpg" alt="Hero Logo"
+                        onerror="this.style.display='none'; document.getElementById('hero-logo-fallback').classList.remove('hidden');"
                         class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
+                    <div id="hero-logo-fallback" class="hidden px-2 py-0.5 bg-brand-red text-white font-sans font-black text-[9px] rounded tracking-wide uppercase transition-colors duration-300">HERO</div>
                     <div class="border-l border-brand-border pl-1.5 xl:pl-2 2xl:pl-2.5 py-1"
                         style="flex-shrink: 0; min-width: max-content;">
                         <span
@@ -886,7 +890,8 @@
                 <section class="relative pt-24 pb-28 border-b border-brand-border overflow-hidden">
                     <!-- Cinematic Background & Studio Lighting -->
                     <div id="hero-bg-slideshow"
-                        class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+                        class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none"
+                        style="background-image: url('./images/showroom_image_bg.jpeg'); background-size: cover; background-position: center;">
                         <!-- Full-screen Background Video -->
                         <video autoplay loop muted playsinline preload="auto" poster="./images/showroom_image_bg.jpeg"
                             class="absolute inset-0 w-full h-full object-cover z-0">
@@ -1281,7 +1286,7 @@
                                 <p class="text-[#9A9A9A] text-xs mt-1 leading-relaxed font-sans mb-4">Sporty styling, high mileage, and standard single-channel ABS.</p>
 
                                 <div class="relative h-44 flex items-center justify-center mb-4">
-                                    <img src="images/xtreme-125r.png" alt="Xtreme 125R"
+                                    <img src="./images/xtreme-125r.png" alt="Xtreme 125R"
                                         class="max-h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500">
                                 </div>
                             </div>
@@ -1357,7 +1362,7 @@
 
                             <!-- Centered Motorcycle Graphic -->
                             <div class="w-full md:w-[40%] flex items-center justify-center relative z-20">
-                                <img src="images/xtreme-125r.png" alt="Hero Xtreme 125R Silhouette"
+                                <img src="./images/xtreme-125r.png" alt="Hero Xtreme 125R Silhouette"
                                     class="max-h-[350px] w-auto object-contain filter drop-shadow-[0_20px_40px_rgba(223,25,33,0.25)] group-hover:scale-105 transition-transform duration-700">
                                 <!-- Glowing pulsing point overlay anchors -->
                                 <span
@@ -2408,8 +2413,10 @@
                     <div class="space-y-4">
                         <!-- Clickable Footer Logo -->
                         <a href="https://dealers.heromotocorp.com/" class="flex items-center gap-4 group inline-flex">
-                            <img src="images\pavizham_logo.jpeg" alt="Hero MotoCorp Logo"
+                            <img src="./images/pavizham_logo.jpeg" alt="Hero MotoCorp Logo"
+                                onerror="this.style.display='none'; document.getElementById('footer-logo-fallback').classList.remove('hidden');"
                                 class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
+                            <span id="footer-logo-fallback" class="hidden text-white font-extrabold tracking-wider text-sm transition-colors group-hover:text-brand-red duration-300 uppercase">PAVIZHAM</span>
                             <!--<img src="image_528be7.png" alt="Hero MotoCorp Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">-->
                             <div class="border-l border-brand-border pl-4 py-0.5">
                                 <span
@@ -2962,7 +2969,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/splendorplus_xtec.png",
-                                "imageLocal": "images/splendorplus_xtec.png",
+                                "imageLocal": "./images/splendorplus_xtec.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/splendorplus_xtec_2.0?fmt=webp-alpha",
                                 "fuelTank": "9.8 L",
                                 "feature": "i3S Technology"
@@ -2979,7 +2986,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/final-passion-new8.png",
-                                "imageLocal": "images/final-passion-new8.png",
+                                "imageLocal": "./images/final-passion-new8.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/final-passion-new?fmt=webp-alpha",
                                 "fuelTank": "11 L",
                                 "feature": "i3S Technology"
@@ -2996,7 +3003,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/splendor-plus.png",
-                                "imageLocal": "images/splendor-plus.png",
+                                "imageLocal": "./images/splendor-plus.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/splendor-plus-nav?fmt=webp-alpha",
                                 "fuelTank": "9.8 L",
                                 "feature": "i3S Technology"
@@ -3013,7 +3020,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/glamour-x.png",
-                                "imageLocal": "images/glamour-x.png",
+                                "imageLocal": "./images/glamour-x.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/glamour-x-navigation?fmt=webp-alpha",
                                 "fuelTank": "10 L",
                                 "feature": "Advanced Electronic Ride Assist (AERA) Tech"
@@ -3030,7 +3037,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/xtreme-125r.png",
-                                "imageLocal": "images/xtreme-125r.png",
+                                "imageLocal": "./images/xtreme-125r.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xtreme-new-05?fmt=webp-alpha",
                                 "fuelTank": "10 L",
                                 "feature": "0-60 in 5.7 seconds Fastest in Segment"
@@ -3047,7 +3054,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/glamour-xtec.png",
-                                "imageLocal": "images/glamour-xtec.png",
+                                "imageLocal": "./images/glamour-xtec.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/glamour-xtec?fmt=webp-alpha",
                                 "fuelTank": "10 L",
                                 "feature": "Bluetooth Connectivity & Navigation"
@@ -3064,7 +3071,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/destini-125.png",
-                                "imageLocal": "images/destini-125.png",
+                                "imageLocal": "./images/destini-125.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/new-destini-125?fmt=webp-alpha",
                                 "fuelTank": "5.3 L",
                                 "feature": "Auto-Cancel Winkers"
@@ -3081,7 +3088,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/destini prime.png",
-                                "imageLocal": "images/destini prime.png",
+                                "imageLocal": "./images/destini prime.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/destini-prime?fmt=webp-alpha",
                                 "fuelTank": "5 L",
                                 "feature": "i3S Technology"
@@ -3098,7 +3105,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/pleasure+xtec.png",
-                                "imageLocal": "images/pleasure+xtec.png",
+                                "imageLocal": "./images/pleasure+xtec.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/Pleasure-plus-xtec-nav?fmt=webp-alpha",
                                 "fuelTank": "4.8 L",
                                 "feature": "i3S Technology"
@@ -3115,7 +3122,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/xtreme_160r_4v.png",
-                                "imageLocal": "images/xtreme_160r_4v.png",
+                                "imageLocal": "./images/xtreme_160r_4v.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xtreme160R-4v-combat?fmt=webp-alpha",
                                 "fuelTank": "12 L",
                                 "feature": "First in Segment New Panic Brake Alert"
@@ -3132,7 +3139,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/super-splendor-xtec2.0.png",
-                                "imageLocal": "images/super-splendor-xtec2.0.png",
+                                "imageLocal": "./images/super-splendor-xtec2.0.png",
                                 "imageRemote": "https://www.heromotocorp.com/content/dam/aem-eds-website/super-splendor-xtec-2-0/homepage/homepage-navigation.png",
                                 "fuelTank": "12 L",
                                 "feature": "i3S Technology"
@@ -3149,7 +3156,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/splendor+fleex.png",
-                                "imageLocal": "images/splendor+fleex.png",
+                                "imageLocal": "./images/splendor+fleex.png",
                                 "imageRemote": "https://www.heromotocorp.com/content/dam/hero-aem-website/in/en-in/homepage/header/motorcycles/Navigation_Splendor%20Flex_483.png",
                                 "fuelTank": "9.8 L",
                                 "feature": "i3S Technology"
@@ -3166,7 +3173,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/hf-deluxe-flex.png",
-                                "imageLocal": "images/hf-deluxe-flex.png",
+                                "imageLocal": "./images/hf-deluxe-flex.png",
                                 "imageRemote": "https://www.heromotocorp.com/content/dam/hero-aem-website/in/en-in/homepage/header/motorcycles/Navigation_HF%20Deluxe%20Flex_483.png",
                                 "fuelTank": "9.6 L",
                                 "feature": "i3S Technology"
@@ -3183,7 +3190,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/super-splendor-xtec.png",
-                                "imageLocal": "images/super-splendor-xtec.png",
+                                "imageLocal": "./images/super-splendor-xtec.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/super-splendor-xtec?fmt=webp-alpha",
                                 "fuelTank": "12 L",
                                 "feature": "i3S Technology"
@@ -3200,7 +3207,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/xoom125.png",
-                                "imageLocal": "images/xoom125.png",
+                                "imageLocal": "./images/xoom125.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xoom_125?fmt=webp-alpha",
                                 "fuelTank": "5 L",
                                 "feature": "Digital Speedometer with TBT Navigation"
@@ -3217,7 +3224,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/xtreme160r.png",
-                                "imageLocal": "images/xtreme160r.png",
+                                "imageLocal": "./images/xtreme160r.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xtreme160r-image-06?fmt=webp-alpha",
                                 "fuelTank": "12 L",
                                 "feature": "First in Segment Drag Timer"
@@ -3234,7 +3241,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/xpulse2004v.png",
-                                "imageLocal": "images/xpulse2004v.png",
+                                "imageLocal": "./images/xpulse2004v.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xpulse-200-4v?fmt=webp-alpha",
                                 "fuelTank": "13 L",
                                 "feature": "Adjustable Front and Rear Suspension"
@@ -3251,7 +3258,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/hf-deluxe.png",
-                                "imageLocal": "images/hf-deluxe.png",
+                                "imageLocal": "./images/hf-deluxe.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/hf-deluxe-new?fmt=webp-alpha",
                                 "fuelTank": "9.6 L",
                                 "feature": "i3S Technology"
@@ -3268,7 +3275,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/xoom.png",
-                                "imageLocal": "images/xoom.png",
+                                "imageLocal": "./images/xoom.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xoom-110?fmt=webp-alpha",
                                 "fuelTank": "5.2 L",
                                 "feature": "i3S Technology"
@@ -3285,7 +3292,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/splendor+xtec.png",
-                                "imageLocal": "images/splendor+xtec.png",
+                                "imageLocal": "./images/splendor+xtec.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/Splendor-Xtec-updated?fmt=webp-alpha",
                                 "fuelTank": "9.8 L",
                                 "feature": "i3S Technology"
@@ -3302,7 +3309,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/glamour.png",
-                                "imageLocal": "images/glamour.png",
+                                "imageLocal": "./images/glamour.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/glamour?fmt=webp-alpha",
                                 "fuelTank": "10 L",
                                 "feature": "65 kmpl Mileage"
@@ -3319,7 +3326,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/hf100.png",
-                                "imageLocal": "images/hf100.png",
+                                "imageLocal": "./images/hf100.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/hf-100?fmt=webp-alpha",
                                 "fuelTank": "9.1 L",
                                 "feature": "xSens FI Technology"
@@ -3336,7 +3343,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/xtreme_250r-1.png",
-                                "imageLocal": "images/xtreme_250r-1.png",
+                                "imageLocal": "./images/xtreme_250r-1.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xtreme_250r-1?fmt=webp-alpha",
                                 "fuelTank": "11.5 L",
                                 "feature": "0-60 in 3.2 seconds Fastest in Its Class"
@@ -3353,7 +3360,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/xpulse_210-1.png",
-                                "imageLocal": "images/xpulse_210-1.png",
+                                "imageLocal": "./images/xpulse_210-1.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xpulse_210-1?fmt=webp-alpha",
                                 "fuelTank": "13 L",
                                 "feature": "Dual Channel ABS with 3 Modes"
@@ -3370,7 +3377,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/Karizma_xmr.png",
-                                "imageLocal": "images/Karizma_xmr.png",
+                                "imageLocal": "./images/Karizma_xmr.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/Karizma_xmr?fmt=webp-alpha",
                                 "fuelTank": "11 L",
                                 "feature": "Liquid Cooled DOHC Engine"
@@ -3387,7 +3394,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/Harleyx440bike-.png",
-                                "imageLocal": "images/Harleyx440bike-.png",
+                                "imageLocal": "./images/Harleyx440bike-.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/Harleyx440bike-?fmt=webp-alpha",
                                 "fuelTank": "13.5 L",
                                 "feature": "Bluetooth Connectivity and USB Charger"
@@ -3404,7 +3411,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/harley-davidson-x440-t-new.png",
-                                "imageLocal": "images/harley-davidson-x440-t-new.png",
+                                "imageLocal": "./images/harley-davidson-x440-t-new.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/harley-davidson-x440-t-new?fmt=webp-alpha",
                                 "fuelTank": "13.5 L",
                                 "feature": "Premium Cruiser Styling"
@@ -3421,7 +3428,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/destini-prime.png",
-                                "imageLocal": "images/destini-prime.png",
+                                "imageLocal": "./images/destini-prime.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/destini-prime?fmt=webp-alpha",
                                 "fuelTank": "5.3 L",
                                 "feature": "Best in Class-56.2kmpl Mileage"
@@ -3438,7 +3445,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/xoom_160-1.png",
-                                "imageLocal": "images/xoom_160-1.png",
+                                "imageLocal": "./images/xoom_160-1.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/xoom_160-1?fmt=webp-alpha",
                                 "fuelTank": "7 L",
                                 "feature": "i3S Technology & Liquid Cooled Engine"
@@ -3455,7 +3462,7 @@
                                 "isAvailableInRegion": false,
                                 "inStock": false,
                                 "image": "./images/vida-final.png",
-                                "imageLocal": "images/vida-final.png",
+                                "imageLocal": "./images/vida-final.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/vida-final?fmt=webp-alpha",
                                 "fuelTank": "110 km Range",
                                 "feature": "Removable Batteries & Fast Charging"
@@ -3472,7 +3479,7 @@
                                 "isAvailableInRegion": true,
                                 "inStock": true,
                                 "image": "./images/Harleyx440bike-.png",
-                                "imageLocal": "images/Harleyx440bike-.png",
+                                "imageLocal": "./images/Harleyx440bike-.png",
                                 "imageRemote": "https://s7ap1.scene7.com/is/image/hmcl/Mavrick_440_Navigation?fmt=webp-alpha",
                                 "fuelTank": "13.5 L",
                                 "feature": "Segment-first Digital Navigation & Connect 2.0"
@@ -3866,7 +3873,7 @@
                             
                             <!-- Premium Image Container with Parallax Hover -->
                             <div class="my-4 h-40 flex items-center justify-center bg-[#070709] rounded-xl border border-[#1E2129] relative overflow-hidden p-4">
-                                <img src="${v.imageLocal}" onerror="this.onerror=function(){ this.src='images/xtreme-125r.png'; }; this.src='${v.imageRemote || 'images/xtreme-125r.png'}';" alt="${v.name}" class="max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]">
+                                <img src="${v.imageLocal}" onerror="this.onerror=function(){ this.src='./images/xtreme-125r.png'; }; this.src='${v.imageRemote || './images/xtreme-125r.png'}';" alt="${v.name}" class="max-h-full max-w-full object-contain transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.65)]">
                             </div>
                             
                             <!-- Quick Specs Grid -->
@@ -4085,7 +4092,7 @@
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                         </button>
                         <div class="h-24 flex items-center justify-center mb-3">
-                            <img src="${bike.imageLocal}" onerror="this.onerror=function(){ this.src='images/xtreme-125r.png'; }; this.src='${bike.imageRemote || 'images/xtreme-125r.png'}';" alt="${bike.name}" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]">
+                            <img src="${bike.imageLocal}" onerror="this.onerror=function(){ this.src='./images/xtreme-125r.png'; }; this.src='${bike.imageRemote || './images/xtreme-125r.png'}';" alt="${bike.name}" class="max-h-full max-w-full object-contain filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]">
                         </div>
                         <h4 class="text-sm font-bold text-white tracking-wide">${bike.name}</h4>
                         <span class="text-[9px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 px-2 py-0.5 rounded border border-brand-red/20 inline-block mt-1">
@@ -4323,7 +4330,7 @@
             const disp = document.getElementById('admin-add-disp').value.trim();
             const power = document.getElementById('admin-add-power').value.trim();
             const mileage = document.getElementById('admin-add-mileage').value.trim();
-            const image = document.getElementById('admin-add-image').value.trim() || 'images/xtreme-125r.png';
+            const image = document.getElementById('admin-add-image').value.trim() || './images/xtreme-125r.png';
 
             if (!name) {
                 showToast("Input Error", "Please provide a model name.", "error");
@@ -4853,15 +4860,15 @@
 
             const imgEl = document.getElementById('detail-vehicle-img');
             imgEl.onerror = function () { 
-                this.onerror = function() { this.src = 'images/xtreme-125r.png'; }; 
-                this.src = bike.imageRemote || 'images/xtreme-125r.png'; 
+                this.onerror = function() { this.src = './images/xtreme-125r.png'; }; 
+                this.src = bike.imageRemote || './images/xtreme-125r.png'; 
             };
             imgEl.src = bikeImg;
 
             const bentoImgEl = document.getElementById('detail-bento-vehicle-img');
             bentoImgEl.onerror = function () { 
-                this.onerror = function() { this.src = 'images/xtreme-125r.png'; }; 
-                this.src = bike.imageRemote || 'images/xtreme-125r.png'; 
+                this.onerror = function() { this.src = './images/xtreme-125r.png'; }; 
+                this.src = bike.imageRemote || './images/xtreme-125r.png'; 
             };
             bentoImgEl.src = bikeImg;
 
