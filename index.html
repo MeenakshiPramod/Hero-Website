@@ -3742,7 +3742,7 @@
 
                     // WhatsApp enquiry routing
                     const waText = `Hello Pavizham Associates,\n\nI would like to book a Test Ride.\n\n*Details:*\n- Model: ${model}\n- Phone: ${phone}\n\nThank you!`;
-                    window.open(`https://wa.me/919947866467?text=${encodeURIComponent(waText)}`, '_blank');
+                    window.open(`https://wa.me/919207666613?text=${encodeURIComponent(waText)}`, '_blank');
                 } else {
                     showToast("Submission Failed", "There was an error booking your test ride. Please try again.", "error");
                 }
@@ -5040,7 +5040,7 @@
                     if (response.ok) {
                         showToast("Pre-Approval Submitted!", `Thank you, ${name}. Your loan request for ${emiVal}/month on ${bikeName} has been recorded. Redirecting to WhatsApp...`, "success");
                         const waText = `Hello Pavizham Associates,\n\nI would like to apply for loan pre-approval.\n\n*Details:*\n- Name: ${name}\n- Phone: ${phone}\n- Bike: ${bikeName}\n- Estimated EMI: ${emiVal}\n\nThank you!`;
-                        window.open(`https://wa.me/919947866467?text=${encodeURIComponent(waText)}`, '_blank');
+                        window.open(`https://wa.me/919207666613?text=${encodeURIComponent(waText)}`, '_blank');
                     } else {
                         showToast("Submission Failed", "Could not process pre-approval request.", "error");
                     }
@@ -5080,7 +5080,7 @@
 
                     // Pre-fill WhatsApp message
                     const whatsappMsg = `Hi Pavizham Hero showroom, I'd like to check the availability and price of these spare parts found in the e-catalogue:\n\n- Model: ${model}\n- Part Number/Name: ${partNo}\n- Details: ${notes}\n\nMy Name: ${name}\nWhatsApp: ${phone}`;
-                    const whatsappUrl = `https://wa.me/919947866467?text=${encodeURIComponent(whatsappMsg)}`;
+                    const whatsappUrl = `https://wa.me/919207666613?text=${encodeURIComponent(whatsappMsg)}`;
                     
                     setTimeout(() => {
                         window.open(whatsappUrl, '_blank');
@@ -5407,7 +5407,7 @@
 
                     // WhatsApp enquiry routing
                     const waText = `Hello Pavizham Associates,\n\nI would like to submit a new showroom enquiry.\n\n*Details:*\n- Name: ${name}\n- Phone: ${phone}\n- Model: ${model}\n- Notes: ${notes || 'None'}\n\nThank you!`;
-                    window.open(`https://wa.me/919947866467?text=${encodeURIComponent(waText)}`, '_blank');
+                    window.open(`https://wa.me/919207666613?text=${encodeURIComponent(waText)}`, '_blank');
                 } else {
                     showToast("Submission Failed", "Could not submit enquiry. Please try again.", "error");
                 }
