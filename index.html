@@ -1134,88 +1134,100 @@
                     </div>
                 </section>
 
-                <!-- NEW SHOWROOM TOUR SECTION -->
-                <section id="showroom-tour"
-                    class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-brand-border reveal">
-                    <div class="text-center max-w-3xl mx-auto mb-16">
-                        <span class="text-xs font-extrabold text-brand-red uppercase tracking-widest font-sans">Virtual
-                            Showroom Tour &amp; Experience</span>
-                        <h2
-                            class="text-3xl sm:text-4xl font-extrabold text-white mt-2 font-sans uppercase tracking-tight">
-                            Step Inside M/S Pavizham Associates</h2>
-                        <p class="text-[#9A9A9A] mt-2 text-base font-sans">Experience our state-of-the-art glass-facade
-                            display lounge and priority service center in Payyanur.</p>
-                    </div>
-
-                    <!-- Bento-Grid Photo Showcase -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Card 1 (Large Main Feature) -->
+                <!-- Dedicated Showroom Gallery Section -->
+                <section id="showroom-tour" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-brand-border reveal">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <!-- Left side: Large Showroom Hero Image (7 cols) -->
                         <div
-                            class="md:col-span-2 md:row-span-2 relative group showroom-tour-card h-[400px] md:h-[500px]">
-                            <!-- Light sweep effect -->
-                            <div class="light-sweep"></div>
-                            <img src="showroom_image_bg.jpeg" alt="Glass Lounge Display"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.7] contrast-[1.1]">
+                            class="lg:col-span-7 relative group rounded-2xl overflow-hidden border border-[#1E2129] shadow-2xl h-[450px]">
+                            <img src="./images/showroom_image.jpg" alt="Pavizham Hero Showroom Exterior"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.75] contrast-[1.05]">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-transparent pointer-events-none z-10">
+                                class="absolute inset-0 bg-gradient-to-t from-brand-onyx via-brand-onyx/40 to-transparent pointer-events-none">
                             </div>
-                            <div class="absolute bottom-6 left-6 right-6 z-20">
+                            <div class="absolute bottom-8 left-8 right-8">
                                 <span
-                                    class="text-[10px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 border border-brand-red/25 px-2.5 py-1 rounded inline-block mb-3">Glass
-                                    Lounge Display</span>
-                                <h4 class="text-xl font-extrabold text-white font-sans uppercase tracking-tight">Main
-                                    Exterior Facade at Dusk</h4>
-                                <p class="text-gray-400 text-xs mt-1 leading-relaxed font-sans">Our state-of-the-art
-                                    glass-facade display lounge showcases the entire Hero line-up under premium studio
-                                    lighting.</p>
+                                    class="text-[10px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 border border-brand-red/20 px-2.5 py-1 rounded inline-block mb-3">Premium
+                                    Showroom Hub</span>
+                                <h3 class="text-2xl font-extrabold text-white font-sans uppercase tracking-tight">M/S.
+                                    Pavizham Associates</h3>
+                                <p class="text-[#9A9A9A] text-sm mt-1 leading-relaxed font-sans">NH Perumba, Payyanur,
+                                    Kerala. Visit us to experience the latest Hero motorcycles in a premium showroom
+                                    atmosphere.</p>
                             </div>
                         </div>
 
-                        <!-- Card 2: Daytime entrance view -->
-                        <div class="relative group showroom-tour-card h-[240px]">
-                            <!-- Light sweep effect -->
-                            <div class="light-sweep"></div>
-                            <img src="showroom_image.jpg" alt="Customer Delivery Area"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.7] contrast-[1.1]">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-transparent pointer-events-none z-10">
-                            </div>
-                            <div class="absolute bottom-4 left-4 right-4 z-20">
+                        <!-- Right side: Interactive Showroom Cards (5 cols) -->
+                        <div class="lg:col-span-5 space-y-6">
+                            <div>
                                 <span
-                                    class="text-[9px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 border border-brand-red/25 px-2 py-0.5 rounded inline-block mb-2">Customer
-                                    Delivery Area</span>
-                                <h4 class="text-base font-extrabold text-white font-sans uppercase tracking-tight">
-                                    Daytime Entrance View</h4>
-                            </div>
-                        </div>
-
-                        <!-- Card 3: Interactive Video Modal Box -->
-                        <div onclick="openVideoModal()"
-                            class="relative group showroom-tour-card cursor-pointer h-[240px]">
-                            <!-- Light sweep effect -->
-                            <div class="light-sweep"></div>
-                            <img src="xtreme160r.jpg" alt="Xtreme 160R Video Walkthrough"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.6] contrast-[1.1]">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-transparent pointer-events-none z-10">
+                                    class="text-xs font-extrabold text-brand-red uppercase tracking-widest font-sans">Payyanur
+                                    Experience</span>
+                                <h2 class="text-3xl font-extrabold text-white mt-1 font-sans uppercase tracking-tight">
+                                    Visit Our Showroom</h2>
+                                <p class="text-[#9A9A9A] mt-1 text-sm font-sans">Explore our specialized zones
+                                    engineered for absolute customer comfort and priority vehicle support.</p>
                             </div>
 
-                            <!-- Glowing play button -->
-                            <div class="absolute inset-0 flex items-center justify-center z-20">
-                                <div
-                                    class="w-14 h-14 rounded-full bg-brand-red/90 flex items-center justify-center text-white border-2 border-white/50 transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-red group-hover:shadow-[0_0_25px_rgba(223,25,33,0.8)] animate-pulse">
-                                    <svg class="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
+                            <div class="space-y-4">
+                                <!-- Card 1: Display Lounge -->
+                                <div onclick="openLightbox('Glass Display Lounge', 'Our clean, temperature-controlled lounge features the entire Hero catalog on display.', './images/showroom_image_bg.jpeg', false)"
+                                    class="p-4 bg-[#0D0F12] border border-[#1E2129] rounded-xl flex gap-4 items-center cursor-pointer hover:border-brand-red/35 hover:scale-[1.01] transition-all duration-300 group">
+                                    <div
+                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-[#1E2129] bg-[#070709]">
+                                        <img src="./images/showroom_image_bg.jpeg"
+                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                            alt="Display Lounge">
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="text-sm font-bold text-white font-sans group-hover:text-brand-red transition-colors">
+                                            Glass Display Lounge</h4>
+                                        <p class="text-[11px] text-brand-textMuted mt-0.5 leading-normal font-sans">
+                                            Browse your favorite models in a comfortable, modern glass display lounge.
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="absolute bottom-4 left-4 right-4 z-20">
-                                <span
-                                    class="text-[9px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 border border-brand-red/25 px-2 py-0.5 rounded inline-block mb-2">Virtual
-                                    Video Tour</span>
-                                <h4 class="text-base font-extrabold text-white font-sans uppercase tracking-tight">
-                                    Showroom Video Experience</h4>
+                                <!-- Card 2: Handover Bay -->
+                                <div onclick="openLightbox('Delivery Handover Bay', 'We celebrate every new ride with a special delivery ceremony for you and your family.', './images/handover_bay.jpeg', false)"
+                                    class="p-4 bg-[#0D0F12] border border-[#1E2129] rounded-xl flex gap-4 items-center cursor-pointer hover:border-brand-red/35 hover:scale-[1.01] transition-all duration-300 group">
+                                    <div
+                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-[#1E2129] bg-[#070709]">
+                                        <img src="./images/handover_bay.jpeg"
+                                            onerror="this.onerror=null; this.src='./images/showroom_image_bg.jpeg';"
+                                            class="w-16 h-16 rounded-xl object-cover border border-white/10"
+                                            alt="Delivery Handover Bay">
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="text-sm font-bold text-white font-sans group-hover:text-brand-red transition-colors">
+                                            Delivery Handover Bay</h4>
+                                        <p class="text-[11px] text-brand-textMuted mt-0.5 leading-normal font-sans">
+                                            Celebrate your new vehicle purchase in our dedicated delivery bay with
+                                            family.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3: Workshop -->
+                                <div onclick="openLightbox('High-Tech Mechanic Workshop', 'Equipped with pneumatic lifts, specialized diagnosis rigs, and official Hero tools.', './images/mechanic_workshop.jpg', false)"
+                                    class="p-4 bg-[#0D0F12] border border-[#1E2129] rounded-xl flex gap-4 items-center cursor-pointer hover:border-brand-red/35 hover:scale-[1.01] transition-all duration-300 group">
+                                    <div
+                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-[#1E2129] bg-[#070709]">
+                                        <img src="./images/mechanic_workshop.jpg"
+                                             onerror="this.onerror=null; this.src='./images/showroom_image_bg.jpeg';"
+                                             class="w-16 h-16 rounded-xl object-cover border border-white/10"
+                                             alt="Mechanic Workshop">
+                                    </div>
+                                    <div>
+                                        <h4
+                                            class="text-sm font-bold text-white font-sans group-hover:text-brand-red transition-colors">
+                                            High-Tech Mechanic Workshop</h4>
+                                        <p class="text-[11px] text-brand-textMuted mt-0.5 leading-normal font-sans">Get
+                                            fast, authorized services using state-of-the-art diagnostic toolkits and
+                                            lifters.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1422,104 +1434,7 @@
 
 
 
-                <!-- Dedicated Showroom Gallery Section -->
-                <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-brand-border reveal">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                        <!-- Left side: Large Showroom Hero Image (7 cols) -->
-                        <div
-                            class="lg:col-span-7 relative group rounded-2xl overflow-hidden border border-[#1E2129] shadow-2xl h-[450px]">
-                            <img src="showroom_image.jpg" alt="Pavizham Hero Showroom Exterior"
-                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.75] contrast-[1.05]">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-brand-onyx via-brand-onyx/40 to-transparent pointer-events-none">
-                            </div>
-                            <div class="absolute bottom-8 left-8 right-8">
-                                <span
-                                    class="text-[10px] font-bold text-brand-red uppercase tracking-widest font-mono bg-brand-red/10 border border-brand-red/20 px-2.5 py-1 rounded inline-block mb-3">Premium
-                                    Showroom Hub</span>
-                                <h3 class="text-2xl font-extrabold text-white font-sans uppercase tracking-tight">M/S.
-                                    Pavizham Associates</h3>
-                                <p class="text-[#9A9A9A] text-sm mt-1 leading-relaxed font-sans">NH Perumba, Payyanur,
-                                    Kerala. Visit us to experience the latest Hero motorcycles in a premium showroom
-                                    atmosphere.</p>
-                            </div>
-                        </div>
 
-                        <!-- Right side: Interactive Showroom Cards (5 cols) -->
-                        <div class="lg:col-span-5 space-y-6">
-                            <div>
-                                <span
-                                    class="text-xs font-extrabold text-brand-red uppercase tracking-widest font-sans">Payyanur
-                                    Experience</span>
-                                <h2 class="text-3xl font-extrabold text-white mt-1 font-sans uppercase tracking-tight">
-                                    Visit Our Showroom</h2>
-                                <p class="text-[#9A9A9A] mt-1 text-sm font-sans">Explore our specialized zones
-                                    engineered for absolute customer comfort and priority vehicle support.</p>
-                            </div>
-
-                            <div class="space-y-4">
-                                <!-- Card 1: Display Lounge -->
-                                <div onclick="openLightbox('Glass Display Lounge', 'Our clean, temperature-controlled lounge features the entire Hero catalog on display.', './images/showroom_image_bg.jpeg', false)"
-                                    class="p-4 bg-[#0D0F12] border border-[#1E2129] rounded-xl flex gap-4 items-center cursor-pointer hover:border-brand-red/35 hover:scale-[1.01] transition-all duration-300 group">
-                                    <div
-                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-[#1E2129] bg-[#070709]">
-                                        <img src="./images/showroom_image_bg.jpeg"
-                                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                            alt="Display Lounge">
-                                    </div>
-                                    <div>
-                                        <h4
-                                            class="text-sm font-bold text-white font-sans group-hover:text-brand-red transition-colors">
-                                            Glass Display Lounge</h4>
-                                        <p class="text-[11px] text-brand-textMuted mt-0.5 leading-normal font-sans">
-                                            Browse your favorite models in a comfortable, modern glass display lounge.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Card 2: Handover Bay -->
-                                <div onclick="openLightbox('Delivery Handover Bay', 'We celebrate every new ride with a special delivery ceremony for you and your family.', './images/showroom_image_night.jpeg', false)"
-                                    class="p-4 bg-[#0D0F12] border border-[#1E2129] rounded-xl flex gap-4 items-center cursor-pointer hover:border-brand-red/35 hover:scale-[1.01] transition-all duration-300 group">
-                                    <div
-                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-[#1E2129] bg-[#070709]">
-                                        <img src="./images/showroom_image_night.jpeg"
-                                            onerror="this.onerror=null; this.src='./images/showroom_image_bg.jpeg';"
-                                            class="w-16 h-16 rounded-xl object-cover border border-white/10"
-                                            alt="Delivery Handover Bay">
-                                    </div>
-                                    <div>
-                                        <h4
-                                            class="text-sm font-bold text-white font-sans group-hover:text-brand-red transition-colors">
-                                            Delivery Handover Bay</h4>
-                                        <p class="text-[11px] text-brand-textMuted mt-0.5 leading-normal font-sans">
-                                            Celebrate your new vehicle purchase in our dedicated delivery bay with
-                                            family.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Card 3: Workshop -->
-                                <div onclick="openLightbox('High-Tech Mechanic Workshop', 'Equipped with pneumatic lifts, specialized diagnosis rigs, and official Hero tools.', './images/showroom_image.jpg', false)"
-                                    class="p-4 bg-[#0D0F12] border border-[#1E2129] rounded-xl flex gap-4 items-center cursor-pointer hover:border-brand-red/35 hover:scale-[1.01] transition-all duration-300 group">
-                                    <div
-                                        class="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 border border-[#1E2129] bg-[#070709]">
-                                        <img src="./images/showroom_image.jpg"
-                                             onerror="this.onerror=null; this.src='./images/showroom_image_bg.jpeg';"
-                                             class="w-16 h-16 rounded-xl object-cover border border-white/10"
-                                             alt="Mechanic Workshop">
-                                    </div>
-                                    <div>
-                                        <h4
-                                            class="text-sm font-bold text-white font-sans group-hover:text-brand-red transition-colors">
-                                            High-Tech Mechanic Workshop</h4>
-                                        <p class="text-[11px] text-brand-textMuted mt-0.5 leading-normal font-sans">Get
-                                            fast, authorized services using state-of-the-art diagnostic toolkits and
-                                            lifters.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
 
             <!-- ================= PRODUCTS PAGE VIEW ================= -->
@@ -1871,31 +1786,12 @@
                             </div>
                         </div>
 
-                        <!-- Image Grid Container -->
-                        <div class="grid grid-cols-2 gap-4">
-                            <!-- Photo Card 1 -->
-                            <div onclick="openLightbox('Kannur Premium Showroom Lounge', 'Our spacious, state-of-the-art lounge featuring the complete catalog display.', './images/showroom_image_bg.jpeg', false)" 
-                                 class="bg-[#0D0F12] border border-brand-border rounded-xl overflow-hidden relative cursor-pointer group h-full hover:border-brand-red/30 transition-all duration-300">
-                                <img src="./images/showroom_image_bg.jpeg" alt="Lounge Area" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/30 to-transparent"></div>
-                                <span class="absolute bottom-3 left-3 bg-[#070709]/90 border border-brand-border px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider text-brand-red font-mono">Premium Lounge</span>
-                            </div>
-
-                            <!-- Photo Card 2 -->
-                            <div onclick="openLightbox('Showroom Night Exterior', 'The glowing flagship facade of Pavizham Hero in Kannur during night hours.', './images/showroom_image_night.jpeg', false)" 
-                                 class="bg-[#0D0F12] border border-brand-border rounded-xl overflow-hidden relative cursor-pointer group h-full hover:border-brand-red/30 transition-all duration-300">
-                                <img src="./images/showroom_image_night.jpeg" alt="Night Exterior" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/30 to-transparent"></div>
-                                <span class="absolute bottom-3 left-3 bg-[#070709]/90 border border-brand-border px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider text-brand-red font-mono">Night Exterior</span>
-                            </div>
-
-                            <!-- Photo Card 3 -->
-                            <div onclick="openLightbox('Showroom Flagship Display', 'Close-up look of the flagship commuter and performance models.', './images/showroom_image.jpg', false)" 
-                                 class="bg-[#0D0F12] border border-brand-border rounded-xl overflow-hidden relative cursor-pointer group h-full hover:border-brand-red/30 transition-all duration-300 col-span-2">
-                                <img src="./images/showroom_image.jpg" alt="Showroom Lounge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/30 to-transparent"></div>
-                                <span class="absolute bottom-3 left-3 bg-[#070709]/90 border border-brand-border px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider text-brand-red font-mono">Flagship Showroom Floor</span>
-                            </div>
+                        <!-- Photo Card 1: Premium Lounge -->
+                        <div onclick="openLightbox('Kannur Premium Showroom Lounge', 'Our spacious, state-of-the-art lounge featuring the complete catalog display.', './images/showroom_image_bg.jpeg', false)" 
+                             class="bg-[#0D0F12] border border-brand-border rounded-xl overflow-hidden relative cursor-pointer group hover:border-brand-red/30 transition-all duration-300 aspect-video">
+                            <img src="./images/showroom_image_bg.jpeg" alt="Lounge Area" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/30 to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 bg-[#070709]/90 border border-brand-border px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider text-brand-red font-mono">Premium Lounge</span>
                         </div>
                     </div>
                 </section>
