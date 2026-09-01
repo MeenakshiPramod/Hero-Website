@@ -2522,11 +2522,9 @@
                         class="text-[10px] sm:text-xs uppercase tracking-widest text-brand-textMuted font-bold">Showroom Pricing</span>
                     <span id="detail-start-price"
                         class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-1">Price on Request</span>
-                    <span
-                        class="text-[10px] text-green-500 font-bold tracking-wider uppercase mt-1 flex items-center gap-1.5 font-mono">
-                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                        Ready for Delivery
-                    </span>
+                    <div id="detail-delivery-badge" class="mt-1">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> AVAILABLE IN SHOWROOM</span>
+                    </div>
                 </div>
 
                 <!-- ================= CHECKPOINT 2 OVERLAY (Engine Internals) ================= -->
@@ -4748,6 +4746,16 @@
             document.getElementById('detail-bike-title').innerText = bike.name;
             document.getElementById('detail-start-price').innerText = 'Price on Request';
             updateDetailCompareButton(bike.name);
+
+            // Update dynamic availability badge
+            const deliveryBadgeEl = document.getElementById('detail-delivery-badge');
+            if (deliveryBadgeEl) {
+                if (bike.isAvailableInRegion && bike.inStock) {
+                    deliveryBadgeEl.innerHTML = '<span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> AVAILABLE IN SHOWROOM</span>';
+                } else {
+                    deliveryBadgeEl.innerHTML = '<span class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400/90"><span class="w-2 h-2 rounded-full bg-amber-400"></span> CHECK SHOWROOM AVAILABILITY</span>';
+                }
+            }
 
             // Background text behind the motorcycle
             const cleanName = bike.name.replace(/[^A-Za-z0-9\s\+]/g, '');
