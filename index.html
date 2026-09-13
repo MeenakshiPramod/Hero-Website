@@ -2203,6 +2203,7 @@
                     <video id="modal-video-player" src="assets/showroom-promo.mp4" controls
                         class="w-full h-full object-cover"></video>
                 </div>
+            </div>
         </div>
 
         <!-- ================= BUILT-IN SHOWROOM ADMIN CONTROL DESK ================= -->
@@ -2365,12 +2366,18 @@
                             <button onclick="switchView('products')"
                                 class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Bikes
                                 &amp; Scooters</button>
+                            <button onclick="switchView('offers')"
+                                class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Showroom
+                                Offers</button>
                             <button onclick="switchView('reviews')"
                                 class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Customer
                                 Reviews</button>
                             <button onclick="switchView('social')"
                                 class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Social
                                 Media Feed</button>
+                            <button onclick="switchView('locator')"
+                                class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">Find
+                                Dealer</button>
                             <button onclick="switchView('parts')"
                                 class="text-left hover:text-brand-red transition-all duration-200 hover:translate-x-1 uppercase text-xs tracking-wider font-bold">E-Parts
                                 Portal</button>
@@ -3572,6 +3579,16 @@
 
                     initScrollReveal();
                 }, 50);
+            } else {
+                if (viewId === 'offers') {
+                    switchView('products');
+                    showToast('Viewing Pavizham Showroom vehicle catalog & seasonal offers!');
+                    return;
+                }
+                if (viewId === 'locator') {
+                    window.open('https://maps.app.goo.gl/UqUzgUpgsa774DCw5', '_blank');
+                    return;
+                }
             }
 
             // Scroll safely to top on transition
