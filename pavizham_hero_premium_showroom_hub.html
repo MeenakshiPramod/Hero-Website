@@ -741,28 +741,26 @@
         </div>
 
         <!-- HEADER / NAVIGATION -->
-        <header class="sticky top-4 z-40 max-w-[1440px] mx-auto px-4 sm:px-6 transition-all duration-300">
+        <header class="sticky top-2 sm:top-4 z-40 max-w-[1440px] mx-auto px-2 sm:px-6 transition-all duration-300">
             <div
-                class="backdrop-blur-2xl bg-black/70 border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] rounded-full px-6 h-20 flex items-center justify-between gap-1.5 xl:gap-2 2xl:gap-3">
+                class="backdrop-blur-2xl bg-black/70 border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] rounded-full px-3.5 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2 xl:gap-2 2xl:gap-3">
                 <!-- Official Hero Brand Logo -->
                 <a href="https://dealers.heromotocorp.com/"
-                    class="flex items-center gap-1 xl:gap-1.5 2xl:gap-2 group flex-shrink-0" style="flex-shrink: 0;">
+                    class="flex items-center gap-1.5 sm:gap-2 group flex-shrink-0" style="flex-shrink: 0;">
                     <img src="./images/pavizham_logo.jpeg" alt="Pavizham Logo"
                         onerror="this.style.display='none'; document.getElementById('pavizham-logo-fallback').classList.remove('hidden');"
-                        class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
+                        class="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
                     <span id="pavizham-logo-fallback" class="hidden text-white font-extrabold tracking-wider text-xs transition-colors group-hover:text-brand-red duration-300 uppercase">PAVIZHAM</span>
                     <img src="./images/hero_logo.jpg" alt="Hero Logo"
                         onerror="this.style.display='none'; document.getElementById('hero-logo-fallback').classList.remove('hidden');"
-                        class="h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
+                        class="h-7 sm:h-8 w-auto object-contain transition-transform group-hover:scale-105 duration-300">
                     <div id="hero-logo-fallback" class="hidden px-2 py-0.5 bg-brand-red text-white font-sans font-black text-[9px] rounded tracking-wide uppercase transition-colors duration-300">HERO</div>
-                    <div class="border-l border-brand-border pl-1.5 xl:pl-2 2xl:pl-2.5 py-1"
-                        style="flex-shrink: 0; min-width: max-content;">
+                    <div class="border-l border-brand-border pl-2 py-0.5 hidden sm:block"
+                        style="flex-shrink: 0;">
                         <span
-                            class="font-extrabold text-sm xl:text-xs 2xl:text-sm tracking-wide xl:tracking-normal 2xl:tracking-normal text-white block leading-none transition-colors group-hover:text-brand-red duration-300 whitespace-nowrap"
-                            style="white-space: nowrap;">M/S.PAVIZHAM&nbsp;ASSOCIATES</span>
+                            class="font-extrabold text-xs 2xl:text-sm tracking-wide text-white block leading-none transition-colors group-hover:text-brand-red duration-300 whitespace-nowrap">M/S. PAVIZHAM ASSOCIATES</span>
                         <span
-                            class="text-[9px] xl:text-[8px] 2xl:text-[10px] text-brand-red font-bold tracking-widest uppercase mt-0.5 xl:mt-0.5 2xl:mt-1 block whitespace-nowrap"
-                            style="white-space: nowrap;">Authorized&nbsp;Showroom</span>
+                            class="text-[8px] 2xl:text-[10px] text-brand-red font-bold tracking-widest uppercase mt-0.5 block whitespace-nowrap">Authorized Showroom</span>
                     </div>
                 </a>
 
@@ -836,21 +834,22 @@
                     </div>
                 </nav>
 
-                <!-- Action button -->
-                <div class="flex items-center gap-2 2xl:gap-3 flex-shrink-0">
+                <!-- Action button & Mobile Hamburger Menu Button -->
+                <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                     <button onclick="switchView('enquiry')"
-                        class="gradient-sweep text-white px-3 py-2 xl:px-2 xl:py-1.5 xl:text-[11px] xl:tracking-wide 2xl:px-3.5 2xl:py-2 2xl:text-xs 2xl:tracking-wide rounded-full font-bold uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(223,25,33,0.5)] hover:-translate-y-0.5 font-sans flex items-center gap-1 xl:gap-1.5 2xl:gap-1.5 group">
-                        <span>Book Test Ride</span>
-                        <svg class="w-4 h-4 transform group-hover:translate-x-1.5 transition-transform text-white"
+                        class="gradient-sweep text-white px-2.5 py-1.5 sm:px-3 sm:py-2 xl:px-2 xl:py-1.5 xl:text-[11px] 2xl:px-3.5 2xl:py-2 2xl:text-xs rounded-full font-bold uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(223,25,33,0.5)] hover:-translate-y-0.5 font-sans flex items-center gap-1 group text-[11px] sm:text-xs">
+                        <span class="hidden sm:inline">Book</span>
+                        <span>Test Ride</span>
+                        <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform text-white"
                             fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
                     </button>
                     <!-- Mobile Hamburger Menu Button -->
-                    <button onclick="toggleMobileMenu()"
-                        class="xl:hidden p-2 text-gray-100 hover:text-white focus:outline-none rounded-lg hover:bg-brand-panel transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation Menu"
+                        class="xl:hidden p-2 text-white hover:text-brand-red focus:outline-none rounded-full bg-white/5 border border-white/10 hover:bg-brand-panel transition-all flex items-center justify-center w-10 h-10 flex-shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -858,26 +857,65 @@
                 </div>
             </div>
 
-            <!-- Mobile Navigation Overlay -->
+            <!-- Mobile Navigation Overlay (Modern Floating Card) -->
             <div id="mobile-menu"
-                class="hidden xl:hidden bg-brand-onyx border-b border-brand-border px-4 py-4 space-y-2 font-semibold text-base tracking-wide">
+                class="hidden xl:hidden mt-2 rounded-2xl bg-black/95 backdrop-blur-2xl border border-white/10 shadow-2xl p-3 sm:p-4 space-y-1.5 font-semibold text-sm tracking-wide font-sans max-h-[80vh] overflow-y-auto">
                 <button onclick="switchView('home'); toggleMobileMenu()"
-                    class="block w-full text-left px-3 py-2.5 rounded-lg text-white bg-brand-panel/80 border border-brand-red/20 transition-colors">Home</button>
+                    class="block w-full text-left px-3.5 py-2.5 rounded-xl text-white bg-brand-red/15 border border-brand-red/30 transition-colors flex items-center justify-between">
+                    <span>Home</span>
+                    <span class="text-xs text-brand-red font-mono">&rarr;</span>
+                </button>
                 <button onclick="switchView('products'); toggleMobileMenu()"
-                    class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Bikes
-                    &amp; Scooters</button>
+                    class="block w-full text-left px-3.5 py-2.5 rounded-xl text-gray-200 hover:text-white hover:bg-brand-panel transition-colors flex items-center justify-between">
+                    <span>Bikes &amp; Scooters</span>
+                    <span class="text-xs text-gray-500 font-mono">&rarr;</span>
+                </button>
                 <button onclick="switchView('compare'); toggleMobileMenu()"
-                    class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Compare</button>
+                    class="block w-full text-left px-3.5 py-2.5 rounded-xl text-gray-200 hover:text-white hover:bg-brand-panel transition-colors flex items-center justify-between">
+                    <span>Compare Models</span>
+                    <span class="text-xs text-gray-500 font-mono">&rarr;</span>
+                </button>
                 <button onclick="switchView('reviews'); toggleMobileMenu()"
-                    class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Reviews</button>
+                    class="block w-full text-left px-3.5 py-2.5 rounded-xl text-gray-200 hover:text-white hover:bg-brand-panel transition-colors flex items-center justify-between">
+                    <span>Customer Reviews</span>
+                    <span class="text-xs text-gray-500 font-mono">&rarr;</span>
+                </button>
                 <button onclick="switchView('social'); toggleMobileMenu()"
-                    class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Social</button>
+                    class="block w-full text-left px-3.5 py-2.5 rounded-xl text-gray-200 hover:text-white hover:bg-brand-panel transition-colors flex items-center justify-between">
+                    <span>Social Media Feed</span>
+                    <span class="text-xs text-gray-500 font-mono">&rarr;</span>
+                </button>
                 <button onclick="switchView('parts'); toggleMobileMenu()"
-                    class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">E-Parts</button>
+                    class="block w-full text-left px-3.5 py-2.5 rounded-xl text-gray-200 hover:text-white hover:bg-brand-panel transition-colors flex items-center justify-between">
+                    <span>E-Parts Catalogue</span>
+                    <span class="text-xs text-gray-500 font-mono">&rarr;</span>
+                </button>
                 <button onclick="switchView('gallery'); toggleMobileMenu()"
-                    class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Gallery</button>
+                    class="block w-full text-left px-3.5 py-2.5 rounded-xl text-gray-200 hover:text-white hover:bg-brand-panel transition-colors flex items-center justify-between">
+                    <span>Showroom Gallery</span>
+                    <span class="text-xs text-gray-500 font-mono">&rarr;</span>
+                </button>
                 <button onclick="switchView('enquiry'); toggleMobileMenu()"
-                    class="block w-full text-left px-3 py-2.5 rounded-lg text-gray-100 hover:text-white hover:bg-brand-panel transition-colors">Enquiry</button>
+                    class="block w-full text-left px-3.5 py-2.5 rounded-xl text-gray-200 hover:text-white hover:bg-brand-panel transition-colors flex items-center justify-between">
+                    <span>Enquiry &amp; Finance</span>
+                    <span class="text-xs text-gray-500 font-mono">&rarr;</span>
+                </button>
+
+                <!-- Quick Showroom Hours / Location Card inside mobile drawer -->
+                <div class="pt-2 mt-2 border-t border-white/10 font-sans text-xs">
+                    <a href="https://maps.app.goo.gl/UqUzgUpgsa774DCw5" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-2 p-2.5 rounded-xl bg-brand-slate/80 border border-brand-border text-gray-300 hover:text-white transition-colors">
+                        <span class="relative flex h-2.5 w-2.5 flex-shrink-0">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                        </span>
+                        <div class="min-w-0 flex-grow">
+                            <span class="text-white font-bold block text-xs">Open Now &bull; Payyanur</span>
+                            <span class="text-[10px] text-brand-textMuted block">Mon - Sat: 9:00 AM - 6:00 PM</span>
+                        </div>
+                        <span class="text-brand-red text-xs font-bold font-mono">Map &rarr;</span>
+                    </a>
+                </div>
             </div>
         </header>
 
@@ -887,7 +925,7 @@
             <!-- ================= HOME PAGE VIEW ================= -->
             <div id="view-home" class="view-section active">
                 <!-- HERO SECTION -->
-                <section class="relative pt-24 pb-28 border-b border-brand-border overflow-hidden">
+                <section class="relative pt-16 pb-20 sm:pt-24 sm:pb-28 border-b border-brand-border overflow-hidden">
                     <!-- Cinematic Background & Studio Lighting -->
                     <div id="hero-bg-slideshow"
                         class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none"
@@ -924,7 +962,7 @@
 
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center">
                         <span
-                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-red/10 text-brand-red border border-brand-red/25 uppercase tracking-widest mb-8 font-sans animate-fade-in-up"
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold bg-brand-red/10 text-brand-red border border-brand-red/25 uppercase tracking-widest mb-6 sm:mb-8 font-sans animate-fade-in-up"
                             style="animation-delay: 900ms;">
                             <span
                                 class="w-2 h-2 bg-brand-red rounded-full animate-pulse shadow-[0_0_8px_#DF1921]"></span>
@@ -932,27 +970,27 @@
                         </span>
 
                         <h1
-                            class="font-bold text-5xl sm:text-6xl md:text-7xl tracking-tight uppercase font-['Outfit'] max-w-5xl mx-auto leading-tight pb-1 overflow-hidden select-none">
+                            class="font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight uppercase font-['Outfit'] max-w-5xl mx-auto leading-tight sm:leading-tight pb-1 overflow-hidden select-none">
                             <span class="inline-block overflow-hidden align-bottom">
                                 <span class="inline-block animate-slide-up text-white"
                                     style="animation-delay: 1200ms;">Ride With Power.</span>
                             </span>
-                            <br>
-                            <span class="inline-block overflow-hidden align-bottom">
+                            <br class="hidden sm:inline">
+                            <span class="inline-block overflow-hidden align-bottom mt-1 sm:mt-0">
                                 <span
                                     class="inline-block animate-slide-up text-[#DF1921] drop-shadow-[0_0_15px_rgba(223,25,33,0.8)] shadow-brand-red/60"
                                     style="animation-delay: 1700ms;">Experience Hero at Payyanur.</span>
                             </span>
                         </h1>
 
-                        <p class="mt-6 text-lg sm:text-lg text-[#9A9A9A] max-w-2xl mx-auto font-normal leading-relaxed animate-fade-in-up"
+                        <p class="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-[#9A9A9A] max-w-2xl mx-auto font-normal leading-relaxed animate-fade-in-up px-2"
                             style="animation-delay: 2000ms;">
                             Check showroom prices, explore genuine spare parts, and book a free test ride
                             at M/S. Pavizham Associates showroom instantly.
                         </p>
 
                         <!-- SaaS Interactive Hub Control -->
-                        <div class="mt-12 max-w-3xl mx-auto backdrop-blur-2xl bg-[#0D0F14]/80 border border-brand-red/40 shadow-[0_0_50px_rgba(223,25,33,0.15)] rounded-2xl p-6 animate-fade-in-up"
+                        <div class="mt-8 sm:mt-12 max-w-3xl mx-auto backdrop-blur-2xl bg-[#0D0F14]/80 border border-brand-red/40 shadow-[0_0_50px_rgba(223,25,33,0.15)] rounded-2xl p-4 sm:p-6 animate-fade-in-up"
                             style="animation-delay: 2200ms;">
                             <div
                                 class="flex border-b border-brand-border pb-3 mb-6 gap-2 overflow-x-auto whitespace-nowrap">
@@ -1135,11 +1173,11 @@
                 </section>
 
                 <!-- Dedicated Showroom Gallery Section -->
-                <section id="showroom-tour" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-brand-border reveal">
-                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <section id="showroom-tour" class="py-14 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-brand-border reveal">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
                         <!-- Left side: Large Showroom Hero Image (7 cols) -->
                         <div
-                            class="lg:col-span-7 relative group rounded-2xl overflow-hidden border border-[#1E2129] shadow-2xl h-[450px]">
+                            class="lg:col-span-7 relative group rounded-2xl overflow-hidden border border-[#1E2129] shadow-2xl h-[260px] sm:h-[350px] lg:h-[450px]">
                             <img src="./images/showroom_image.jpg" alt="Pavizham Hero Showroom Exterior"
                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-[0.75] contrast-[1.05]">
                             <div
@@ -1322,33 +1360,33 @@
 
                 <!-- EXPLODED 3D FLAGSHIP TECH PRESENTATION SECTION -->
                 <section id="flagship-showcase"
-                    class="py-24 border-b border-brand-border relative overflow-hidden reveal">
+                    class="py-14 sm:py-24 border-b border-brand-border relative overflow-hidden reveal">
                     <!-- Subtle ambient lighting glow behind the flagship bike -->
                     <div
                         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-red/5 filter blur-[100px] pointer-events-none z-0">
                     </div>
 
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-                        <div class="text-center max-w-3xl mx-auto mb-16">
+                        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
                             <span
                                 class="text-xs font-extrabold text-brand-red uppercase tracking-widest font-sans">Flagship
                                 Showcase</span>
                             <h2
-                                class="text-3xl sm:text-4xl font-extrabold text-white mt-2 font-sans uppercase tracking-tight">
+                                class="text-2xl sm:text-4xl font-extrabold text-white mt-2 font-sans uppercase tracking-tight">
                                 Xtreme 125R Tech Anatomy</h2>
-                            <p class="text-[#9A9A9A] mt-2 text-base font-sans">Inspect the advanced race-derived tech
+                            <p class="text-[#9A9A9A] mt-2 text-sm sm:text-base font-sans">Inspect the advanced race-derived tech
                                 and engineering features that power our flagship sport model.</p>
                         </div>
 
                         <!-- Showcase Layout Container -->
                         <div
-                            class="relative w-full min-h-[500px] flex flex-col md:flex-row items-center justify-between gap-8 md:gap-0 select-none">
+                            class="relative w-full min-h-0 md:min-h-[500px] flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0 select-none">
 
                             <!-- Left Specs Flank -->
-                            <div class="w-full md:w-[30%] flex flex-col gap-6 relative z-30">
+                            <div class="w-full md:w-[30%] flex flex-col gap-4 sm:gap-6 relative z-30">
                                 <!-- Hotspot 1: Engine -->
                                 <div
-                                    class="exploded-hotspot bg-[#0D0F12] p-5 rounded-xl border border-[#1E2129] hover:border-brand-red/35 transition-all duration-300 pointer-events-auto">
+                                    class="exploded-hotspot bg-[#0D0F12] p-4 sm:p-5 rounded-xl border border-[#1E2129] hover:border-brand-red/35 transition-all duration-300 pointer-events-auto">
                                     <span
                                         class="text-[9px] font-bold text-brand-red uppercase tracking-wider font-mono">01
                                         / Engine System</span>
@@ -1360,7 +1398,7 @@
                                 </div>
                                 <!-- Hotspot 2: i3S System -->
                                 <div
-                                    class="exploded-hotspot bg-[#0D0F12] p-5 rounded-xl border border-[#1E2129] hover:border-brand-red/35 transition-all duration-300 pointer-events-auto">
+                                    class="exploded-hotspot bg-[#0D0F12] p-4 sm:p-5 rounded-xl border border-[#1E2129] hover:border-brand-red/35 transition-all duration-300 pointer-events-auto">
                                     <span
                                         class="text-[9px] font-bold text-brand-red uppercase tracking-wider font-mono">02
                                         / Intelligent Efficiency</span>
@@ -1373,9 +1411,9 @@
                             </div>
 
                             <!-- Centered Motorcycle Graphic -->
-                            <div class="w-full md:w-[40%] flex items-center justify-center relative z-20">
+                            <div class="w-full md:w-[40%] flex items-center justify-center relative z-20 my-4 md:my-0">
                                 <img src="./images/xtreme-125r.png" alt="Hero Xtreme 125R Silhouette"
-                                    class="max-h-[350px] w-auto object-contain filter drop-shadow-[0_20px_40px_rgba(223,25,33,0.25)] group-hover:scale-105 transition-transform duration-700">
+                                    class="max-h-[220px] sm:max-h-[350px] w-auto object-contain filter drop-shadow-[0_20px_40px_rgba(223,25,33,0.25)] group-hover:scale-105 transition-transform duration-700">
                                 <!-- Glowing pulsing point overlay anchors -->
                                 <span
                                     class="absolute top-[58%] left-[49%] w-3 h-3 bg-brand-red rounded-full border-2 border-white animate-pulse shadow-[0_0_10px_#DF1921] hidden md:block"></span>
@@ -2399,25 +2437,23 @@
                     class="mt-12 pt-8 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-textMuted">
                     <span>&copy; 2026 M/S. Pavizham Associates. All rights reserved. Built as showroom portal.</span>
                     <div
-                        class="flex flex-wrap gap-x-3 gap-y-2 justify-center sm:justify-end text-brand-textMuted font-sans">
+                        class="flex flex-wrap gap-x-4 gap-y-2 justify-center sm:justify-end text-brand-textMuted font-sans text-[11px] sm:text-xs">
                         <a href="https://www.heromotocorp.com/en-in/privacy-policy.html" target="_blank"
                             rel="noopener noreferrer" class="hover:text-white transition-colors">Privacy Policy</a>
-                        <span>|</span>
+                        <span class="hidden sm:inline opacity-40">&bull;</span>
                         <a href="https://www.heromotocorp.com/en-in/disclaimer.html" target="_blank"
                             rel="noopener noreferrer" class="hover:text-white transition-colors">Disclaimer</a>
-                        <span>|</span>
+                        <span class="hidden sm:inline opacity-40">&bull;</span>
                         <a href="https://www.heromotocorp.com/en-in/terms-of-use.html" target="_blank"
                             rel="noopener noreferrer" class="hover:text-white transition-colors">Terms Of Use</a>
-                        <span>|</span>
+                        <span class="hidden sm:inline opacity-40">&bull;</span>
                         <a href="https://www.heromotocorp.com/en-in/rules-and-regulations.html" target="_blank"
-                            rel="noopener noreferrer" class="hover:text-white transition-colors">Rules And
-                            Regulations</a>
-                        <span>|</span>
+                            rel="noopener noreferrer" class="hover:text-white transition-colors">Rules &amp; Regulations</a>
+                        <span class="hidden sm:inline opacity-40">&bull;</span>
                         <a href="https://www.heromotocorp.com/en-in/data-collection-contract.html" target="_blank"
-                            rel="noopener noreferrer" class="hover:text-white transition-colors">Data Collection
-                            Contract</a>
-                        <span>|</span>
-                        <a href="#admin" onclick="promptAdminAccess(); return false;" class="hover:text-white transition-colors font-semibold text-brand-red hover:underline">Showroom Portal Admin Desk</a>
+                            rel="noopener noreferrer" class="hover:text-white transition-colors">Data Collection</a>
+                        <span class="hidden sm:inline opacity-40">&bull;</span>
+                        <a href="#admin" onclick="promptAdminAccess(); return false;" class="hover:text-white transition-colors font-semibold text-brand-red hover:underline">Showroom Admin</a>
                     </div>
                 </div>
             </div>
@@ -2534,46 +2570,46 @@
                 <!-- ================= CHECKPOINT 2 OVERLAY (Engine Internals) ================= -->
                 <!-- Left Margin Metrics -->
                 <div id="checkpoint-2-info-left"
-                    class="absolute left-6 sm:left-16 top-1/2 -translate-y-1/2 z-20 max-w-xs space-y-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform -translate-x-12 select-text pointer-events-auto">
-                    <div class="border-l-2 border-brand-red pl-4">
+                    class="absolute left-3 sm:left-16 top-1/2 -translate-y-1/2 z-20 max-w-[145px] sm:max-w-xs space-y-4 sm:space-y-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform -translate-x-12 select-text pointer-events-auto">
+                    <div class="border-l-2 border-brand-red pl-2.5 sm:pl-4">
                         <span
-                            class="text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Engine
+                            class="text-[9px] sm:text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Engine
                             Displacement</span>
-                        <span id="detail-spec-disp" class="text-xl sm:text-2xl font-black text-white font-mono">124.7
+                        <span id="detail-spec-disp" class="text-base sm:text-2xl font-black text-white font-mono">124.7
                             CC</span>
-                        <span class="text-xs text-brand-textMuted block mt-1 leading-normal font-sans">Advanced
-                            high-compression vertical cylinder block.</span>
+                        <span class="text-[10px] sm:text-xs text-brand-textMuted block mt-0.5 sm:mt-1 leading-normal font-sans">Advanced
+                            vertical cylinder block.</span>
                     </div>
-                    <div class="border-l-2 border-brand-red pl-4">
+                    <div class="border-l-2 border-brand-red pl-2.5 sm:pl-4">
                         <span
-                            class="text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Max
+                            class="text-[9px] sm:text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Max
                             Power Output</span>
-                        <span id="detail-spec-power" class="text-xl sm:text-2xl font-black text-white font-mono">11.4
+                        <span id="detail-spec-power" class="text-base sm:text-2xl font-black text-white font-mono">11.4
                             BHP</span>
-                        <span class="text-xs text-brand-textMuted block mt-1 leading-normal font-sans">Class-leading
-                            power delivery configured for Kannur roads.</span>
+                        <span class="text-[10px] sm:text-xs text-brand-textMuted block mt-0.5 sm:mt-1 leading-normal font-sans">Class-leading
+                            power delivery.</span>
                     </div>
                 </div>
                 <!-- Right Margin Metrics -->
                 <div id="checkpoint-2-info-right"
-                    class="absolute right-6 sm:right-16 top-1/2 -translate-y-1/2 z-20 max-w-xs space-y-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform translate-x-12 select-text pointer-events-auto">
-                    <div class="border-r-2 border-brand-red pr-4 text-right">
+                    class="absolute right-3 sm:right-16 top-1/2 -translate-y-1/2 z-20 max-w-[145px] sm:max-w-xs space-y-4 sm:space-y-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform translate-x-12 select-text pointer-events-auto">
+                    <div class="border-r-2 border-brand-red pr-2.5 sm:pr-4 text-right">
                         <span
-                            class="text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Peak
+                            class="text-[9px] sm:text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Peak
                             Torque Output</span>
-                        <span id="detail-spec-torque" class="text-xl sm:text-2xl font-black text-white font-mono">10.5
+                        <span id="detail-spec-torque" class="text-base sm:text-2xl font-black text-white font-mono">10.5
                             Nm</span>
-                        <span class="text-xs text-brand-textMuted block mt-1 leading-normal font-sans">High low-end
-                            punch for rapid signal acceleration.</span>
+                        <span class="text-[10px] sm:text-xs text-brand-textMuted block mt-0.5 sm:mt-1 leading-normal font-sans">High low-end
+                            punch.</span>
                     </div>
-                    <div class="border-r-2 border-brand-red pr-4 text-right">
+                    <div class="border-r-2 border-brand-red pr-2.5 sm:pr-4 text-right">
                         <span
-                            class="text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Fuel
+                            class="text-[9px] sm:text-[10px] uppercase tracking-wider text-brand-textMuted block font-bold font-sans">Fuel
                             Management</span>
-                        <span id="detail-spec-fuel" class="text-xl sm:text-2xl font-black text-white font-mono">xSens
+                        <span id="detail-spec-fuel" class="text-base sm:text-2xl font-black text-white font-mono">xSens
                             FI</span>
-                        <span class="text-xs text-brand-textMuted block mt-1 leading-normal font-sans">Smart
-                            multi-sensor fuel injection optimized for peak efficiency.</span>
+                        <span class="text-[10px] sm:text-xs text-brand-textMuted block mt-0.5 sm:mt-1 leading-normal font-sans">Smart
+                            fuel injection.</span>
                     </div>
                 </div>
 
@@ -2587,7 +2623,7 @@
                         <h3 class="text-xl sm:text-2xl font-extrabold text-white mt-1 font-sans">Modern Smart Tech
                             Layout</h3>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-4xl w-full">
                         <div id="tech-badge-1"
                             class="tech-badge-container p-4 rounded-xl flex flex-col justify-between">
                             <span class="text-[9px] font-mono font-bold text-brand-red uppercase tracking-wider">i3S
@@ -2620,28 +2656,28 @@
 
                 <!-- ================= CHECKPOINT 4 OVERLAY (Bento Specs Matrix & Quote) ================= -->
                 <div id="checkpoint-4-info"
-                    class="absolute inset-0 z-20 flex flex-col lg:flex-row justify-between items-center p-4 sm:p-12 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform translate-y-16 pointer-events-none">
+                    class="absolute inset-0 z-20 flex flex-col lg:flex-row justify-between items-center p-3 sm:p-8 lg:p-12 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 transform translate-y-16 pointer-events-none">
 
                     <!-- Left side spacer/visual anchor -->
-                    <div class="w-full lg:w-[40%] flex flex-col justify-center items-center h-full relative p-4">
+                    <div class="w-full lg:w-[40%] flex flex-col justify-center items-center h-auto lg:h-full relative p-2 sm:p-4">
                         <div id="bento-vehicle-wrapper"
                             class="relative transition-all duration-700 scale-95 opacity-0 flex flex-col items-center">
                             <img id="detail-bento-vehicle-img" src=""
-                                class="max-h-[30vh] sm:max-h-[35vh] object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
+                                class="max-h-[22vh] sm:max-h-[35vh] object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.8)]"
                                 alt="">
-                            <div class="mt-4 text-center font-sans">
+                            <div class="mt-2 sm:mt-4 text-center font-sans">
                                 <span id="detail-bento-bike-name"
-                                    class="font-mono text-lg sm:text-xl font-bold text-white uppercase tracking-widest block">Xtreme
+                                    class="font-mono text-base sm:text-xl font-bold text-white uppercase tracking-widest block">Xtreme
                                     125R</span>
                                 <span id="detail-bento-bike-price"
-                                    class="text-base sm:text-lg font-bold font-mono text-brand-red mt-1 block">₹95,000*</span>
+                                    class="text-sm sm:text-lg font-bold font-mono text-brand-red mt-0.5 sm:mt-1 block">Price on Request</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- Right side Specs Matrix + Loan Quote Sheet -->
                     <div
-                        class="w-full lg:w-[60%] grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[85vh] overflow-y-auto pr-2 pointer-events-auto">
+                        class="w-full lg:w-[60%] grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 max-h-[58vh] sm:max-h-[75vh] lg:max-h-[85vh] overflow-y-auto pr-1 sm:pr-2 pointer-events-auto">
                         <!-- Bento Cell 1: Engine Details -->
                         <div
                             class="bg-brand-slate/85 p-5 rounded-xl border border-brand-border font-mono text-xs space-y-3">
@@ -2819,25 +2855,25 @@
 
     <!-- FLOATING COMPARE BAR -->
     <div id="floating-compare-bar"
-        class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-brand-panel/95 backdrop-blur-md border border-brand-red/30 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-6 transition-all duration-300 translate-y-24 opacity-0 hidden max-w-lg w-[calc(100%-2rem)]">
-        <div class="flex items-center gap-3">
+        class="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40 bg-brand-panel/95 backdrop-blur-md border border-brand-red/30 px-3.5 sm:px-6 py-2.5 sm:py-4 rounded-xl sm:rounded-2xl shadow-2xl flex items-center justify-between gap-2.5 sm:gap-6 transition-all duration-300 translate-y-24 opacity-0 hidden max-w-lg w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)]">
+        <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
             <span class="relative flex h-2 w-2 flex-shrink-0">
                 <span
                     class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-red"></span>
             </span>
             <div class="font-sans">
-                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Compare Models (<span
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider">Compare (<span
                         id="compare-bar-count">0</span>)</h4>
-                <p class="text-[10px] text-brand-textMuted leading-normal">Compare specs and decide</p>
+                <p class="text-[9px] sm:text-[10px] text-brand-textMuted leading-normal hidden sm:block">Compare specs and decide</p>
             </div>
         </div>
-        <div id="compare-bar-thumbnails" class="flex items-center gap-2 flex-grow overflow-x-auto min-w-0 py-1">
+        <div id="compare-bar-thumbnails" class="flex items-center gap-1.5 sm:gap-2 flex-grow overflow-x-auto min-w-0 py-1">
             <!-- Dynamic thumbnails will be populated here -->
         </div>
         <div class="flex gap-2 flex-shrink-0">
             <button onclick="switchView('compare')"
-                class="bg-brand-red hover:bg-brand-redHover text-white px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap">Compare
+                class="bg-brand-red hover:bg-brand-redHover text-white px-3 sm:px-4 py-2 rounded-lg text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap">Compare
                 &rarr;</button>
         </div>
     </div>
