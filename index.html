@@ -3701,6 +3701,12 @@
                     heading.innerText = `${id}: ${data.heading}`;
                     body.innerText = data.body;
                     showToast("Status Found!", `Loaded live service details for Job Card: ${id}.`, "success");
+                } else if (state.dummyStatusDatabase && state.dummyStatusDatabase[id]) {
+                    const data = state.dummyStatusDatabase[id];
+                    glow.className = `w-2.5 h-2.5 rounded-full animate-pulse ${data.glowColor}`;
+                    heading.innerText = `${id}: ${data.heading}`;
+                    body.innerText = data.body;
+                    showToast("Status Found!", `Loaded service details for Job Card: ${id}.`, "success");
                 } else {
                     glow.className = "w-2.5 h-2.5 rounded-full bg-red-600";
                     heading.innerText = "Job Card Not Found";
@@ -3709,10 +3715,18 @@
                 }
             } catch (error) {
                 console.error(error);
-                glow.className = "w-2.5 h-2.5 rounded-full bg-red-600";
-                heading.innerText = "Connection Error";
-                body.innerText = "Could not reach the database. Please try again later.";
-                showToast("Error", "Could not fetch status due to a connection issue.", "error");
+                if (state.dummyStatusDatabase && state.dummyStatusDatabase[id]) {
+                    const data = state.dummyStatusDatabase[id];
+                    glow.className = `w-2.5 h-2.5 rounded-full animate-pulse ${data.glowColor}`;
+                    heading.innerText = `${id}: ${data.heading}`;
+                    body.innerText = data.body;
+                    showToast("Status Found!", `Loaded service details for Job Card: ${id}.`, "success");
+                } else {
+                    glow.className = "w-2.5 h-2.5 rounded-full bg-red-600";
+                    heading.innerText = "Connection Error";
+                    body.innerText = "Could not reach the database. Please try again later.";
+                    showToast("Error", "Could not fetch status due to a connection issue.", "error");
+                }
             }
         }
 

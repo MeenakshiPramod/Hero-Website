@@ -16,13 +16,16 @@ app.use(express.static(path.join(__dirname)));
 // Load catalog database from JSON (since it is readonly vehicle specs catalog)
 let catalogData = { vehiclesList: [], specsDetail: {} };
 try {
-    const catalogPath = path.join(__dirname, 'data', 'catalog.json');
+    const catalogPath = fs.existsSync(path.join(__dirname, 'data', 'catalog.json'))
+        ? path.join(__dirname, 'data', 'catalog.json')
+        : path.join(process.cwd(), 'data', 'catalog.json');
+
     if (fs.existsSync(catalogPath)) {
         const rawData = fs.readFileSync(catalogPath, 'utf8');
         catalogData = JSON.parse(rawData);
-        console.log(`Loaded catalog with ${catalogData.vehiclesList.length} vehicles.`);
+        console.log(`Loaded catalog with ${catalogData.vehiclesList ? catalogData.vehiclesList.length : 0} vehicles.`);
     } else {
-        console.error('Catalog file not found at:', catalogPath);
+        console.warn('Catalog file not found at:', catalogPath);
     }
 } catch (error) {
     console.error('Error reading catalog file:', error);
@@ -41,12 +44,19 @@ app.post('/api/catalog/update', (req, res) => {
     }
     
     try {
-        const catalogPath = path.join(__dirname, 'data', 'catalog.json');
+        const catalogPath = fs.existsSync(path.join(__dirname, 'data', 'catalog.json'))
+            ? path.join(__dirname, 'data', 'catalog.json')
+            : path.join(process.cwd(), 'data', 'catalog.json');
         const updatedData = { vehiclesList, specsDetail };
         
-        fs.writeFileSync(catalogPath, JSON.stringify(updatedData, null, 2), 'utf8');
+        try {
+            fs.writeFileSync(catalogPath, JSON.stringify(updatedData, null, 2), 'utf8');
+        } catch (writeErr) {
+            console.warn('Filesystem write not permitted (e.g. read-only serverless environment), updating catalog in memory.');
+        }
+
         catalogData = updatedData;
-        console.log(`Successfully updated and saved catalog with ${catalogData.vehiclesList.length} vehicles.`);
+        console.log(`Successfully updated catalog with ${catalogData.vehiclesList.length} vehicles.`);
         res.status(200).json({ message: 'Catalog database updated successfully', count: catalogData.vehiclesList.length });
     } catch (error) {
         console.error('Error writing catalog database:', error);
@@ -128,12 +138,11 @@ app.get('/api/reviews', (req, res) => {
     // Simulate auto-sync from Google listing if 5 minutes have elapsed since last check
     if (now - lastSyncTime > 5 * 60 * 1000) {
         lastSyncTime = now;
-        console.log('[Google Maps Sync] Syncing latest reviews from https://www.google.com/maps/place/M/S.+Pavizham+Associates+-+Hero+MotoCorp/...');
         db.syncGoogleReviews((err) => {
             if (err) {
                 console.error('[Google Maps Sync Error]', err.message);
             } else {
-                console.log('[Google Maps Sync] Sync completed successfully. Database updated.');
+                console.log('[Google Maps Sync] Sync completed successfully.');
             }
         });
     }
@@ -169,6 +178,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
-});
+// Only listen on port when started directly via CLI: `node server.js`
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server is running at http://localhost:${PORT}`);
+    });
+}
+
+// Export Express app for Vercel serverless function entrypoint
+module.exports = app;
